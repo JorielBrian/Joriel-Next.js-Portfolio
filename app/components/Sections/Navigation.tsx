@@ -26,9 +26,9 @@ const Navigation = () =>{
 
     return (
         <motion.section className={scroll ? "navbar" : "flex w-full sm:w-2/3 justify-center"}>
-            <div className="flex w-full !py-0 px-5 rounded-sm justify-between">
+            <div className="flex w-full py-0! px-5 rounded-sm justify-between">
                 {/* Logo */}
-                <div className="w-fit !py-0">
+                <div className="w-fit py-0!">
                     <img 
                         src="/logo.png" 
                         alt="JB logo" 
@@ -37,7 +37,7 @@ const Navigation = () =>{
                 </div>
 
                 {/* Navigation */}
-                <div className="flex items-center !py-0">
+                <div className="flex items-center py-0!">
                     {/* MOBILE VIEW */}
                     <ul className="flex lg:hidden">
                         <li>
@@ -112,7 +112,7 @@ const Navigation = () =>{
                 </div>
 
                 {/* CV Button */}
-                <div className="flex items-center !py-0">
+                <div className="flex items-center py-0!">
                     <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV flex lg:hidden">CV</button></a>
                     <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV hidden lg:flex">Resume</button></a>
                 </div>
