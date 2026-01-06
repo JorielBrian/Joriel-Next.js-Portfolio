@@ -7,7 +7,7 @@ const About = () =>{
     return (
         <section>
             <motion.h1 id="about" initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center font-bold">About Me</motion.h1>
-                <div className="relative p-4 align-middle bg-sky-900/80 sm:rounded-2xl">
+                <div className="card relative p-4 align-middle sm:rounded-2xl">
                     <div className="2xl:col-span-2 content-center">
                         <motion.img 
                         initial={{x:100, opacity:0}} 
@@ -22,8 +22,6 @@ const About = () =>{
                                 <motion.p key={about} initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>{about}</motion.p>
                             )) }
                         </div>
-                        
-                    
                     </div>
                     <Link href="/about" className="button active w-11/12">Read More...</Link>
                 </div>    
