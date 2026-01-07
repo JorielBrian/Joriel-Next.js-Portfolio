@@ -10,7 +10,7 @@ function AboutMe() {
         initial={{x:100, opacity:0}} 
         whileInView={{x:0, opacity:1}} 
         transition={{ease:"easeIn", duration:0.5}}
-        className="card self-start lg:w-2/3"
+        className="card sectionLeft"
       >
         <motion.img 
           initial={{x:100, opacity:0}} 
@@ -36,7 +36,7 @@ function AboutMe() {
         initial={{x:-100, opacity:0}} 
         whileInView={{x:0, opacity:1}} 
         transition={{ease:"easeIn", duration:0.5}}
-        className="card self-end lg:w-2/3"
+        className="card sectionRight"
       >
         <h3 className="text-3xl text-center font-bold mb-6">My Story</h3>
         <div className="space-y-4 text-gray-300">
@@ -63,7 +63,7 @@ function AboutMe() {
         initial={{x:100, opacity:0}} 
         whileInView={{x:0, opacity:1}} 
         transition={{ease:"easeIn", duration:0.5}}
-        className="card self-start lg:w-2/3"
+        className="card sectionLeft"
       >
         <h3 className="text-3xl text-center font-bold mb-6">My Goal</h3>
         <div className="space-y-4 text-gray-300">
@@ -81,9 +81,9 @@ function AboutMe() {
         initial={{x:-100, opacity:0}} 
         whileInView={{x:0, opacity:1}} 
         transition={{ease:"easeIn", duration:0.5}}
-        className="card self-end lg:w-2/3"
+        className="card sectionRight"
       >
-        <h3 className="text-3xl text-center font-bold mb-6">Outside Working Hours</h3>
+        <h3 className="text-3xl text-center font-bold mb-6">Outside Work</h3>
         <div className="space-y-4 text-gray-300">
           <motion.img 
             initial={{x:-100, opacity:0}} 
@@ -91,7 +91,7 @@ function AboutMe() {
             transition={{ease:"easeIn", duration:1.5}}
             src="/Guitar Playing.jpg" 
             alt="Guitr Playing Image" 
-            className="float-left w-fit size-70 m-4 my-5 rounded-full"
+            className="float-left  w-fit size-70 m-4 my-5 rounded-full"
           />
           <motion.p initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>
             I serve as the Lead Guitarist and a Music Theory Mentor in my church's Music and Arts Ministry. 

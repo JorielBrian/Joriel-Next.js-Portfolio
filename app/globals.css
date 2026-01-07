@@ -85,3 +85,11 @@ p {
         xl:p-8 
         2xl:rounded-4xl;
 }
+
+.sectionLeft {
+  @apply self-start 2xl:w-2/3;
+}
+
+.sectionRight {
+  @apply self-end 2xl:w-2/3;
+}
