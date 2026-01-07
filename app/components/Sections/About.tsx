@@ -15,7 +15,7 @@ const About = () =>{
                         transition={{ease:"easeIn", duration:1.5}}
                         src="/Profile Picture.png" 
                         alt="My Image" 
-                        className="float-left w-fit m-4 size-120 my-5 rounded-full"
+                        className="hidden lg:block float-left w-fit m-4 size-120 my-5 rounded-full"
                         />
                         <div className="text-white font-sans">
                             { ABOUT && ABOUT.map(about => (
