@@ -30,7 +30,7 @@ function Header() {
     }, [lastScrollY]);
 
     return (
-        <motion.section
+        <motion.header
             initial={{ opacity: 0, y: 0 }}
             animate={{ 
                 opacity: scrollDirection === 'up' ? 1 : 0,
@@ -41,10 +41,10 @@ function Header() {
                 duration: 0.3
             }}
 
-            className={scroll ? "flex sticky top-0 z-50 w-full justify-center" : "flex w-full justify-center"}
+            className={scroll ? "flex sticky top-0 z-50 w-full justify-center" : "flex w-full py-10 justify-center"}
         >
             <Navigation />
-        </motion.section>
+        </motion.header>
     )
 }
 
