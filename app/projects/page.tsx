@@ -11,7 +11,7 @@ const Projects = () => {
   }
   
   return (
-    <div className="w-4/5 mx-auto my-5 p-2 rounded-2xl content-center">
+    <div className="xl:grid xl:grid-cols-2 w-4/5 mx-auto my-5 p-2 gap-4 rounded-2xl content-center">
         {PROJECTS && PROJECTS.map(project => (
             <ProjectCard key={project.name} name={project.name} description={ project.description} image={project.image} skills={project.skills} link={project.link} />
         ))}
