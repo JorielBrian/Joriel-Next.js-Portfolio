@@ -13,7 +13,7 @@ function Experiences({title, experiences}: ExperiencCardProps) {
         <section className="2xl:p-3 rounded-sm">
             <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl font-bold text-center">{title}</motion.h1>
             { experiences.map(experience => (
-                <div key={experience.company} className="my-5 xl:flex">
+                <div key={experience.company} className="mt-5 mb-15 xl:flex">
                 <motion.div initial={{x:-100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="w-full xl:w-1/2 2xl:p-2">
                     <h1 className="text-2xl 2xl:text-3xl font-bold motion">{experience.title}</h1>
                     <h3 className="text-xl 2xl:text-2xl animate-[fromLeft_1s_ease]">{experience.company}</h3>
