@@ -11,7 +11,7 @@ function SkillsUsed({skills}: {skills:string[]}) {
                     title={skill} 
                     src={SKILLS.find(s => s.skill === skill)?.image} 
                     alt={skill} 
-                    className="icons size-15!" 
+                    className="icons" 
                   /> 
                 : <p 
                     key={skill} 
