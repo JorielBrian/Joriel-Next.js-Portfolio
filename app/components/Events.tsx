@@ -1,3 +1,4 @@
+'use client'
 import Christmas from "./SeasonalComponents/Christmas";
 
 const Events = () => {
