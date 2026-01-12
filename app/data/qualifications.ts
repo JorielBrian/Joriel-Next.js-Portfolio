@@ -2,36 +2,6 @@ import { Qualification } from './types'
 
 export const QUALIFICATIONS: Qualification[] = [
     {
-        title:"Project Lead Developer",
-        company:"Hills of Glory - Mabalacat",
-        date:"May 2025 – Present",
-        contract:"Contractual",
-        description: [
-            "Developing a full-stack web application using Laravel, Livewire, Eloquent ORM, Flux UI, Tailwind CSS, and SQL.",
-            "Led a team, overseeing project progress and ensuring timely delivery of milestones.",
-            "Initiated and implemented both front-end and back-end architecture from scratch.",
-            "Assigned roles and responsibilities to team members based on strengths and project needs.",
-            "Provided hands-on guidance and mentorship to the development team throughout the project.",
-            "Facilitated collaboration between technical contributors, church leaders, and pastors to align development with ministry goals.",
-            "Actively learned and applied Laravel and related technologies to enhance project outcomes.",
-            "Adapted to additional responsibilities and tasks as required to support successful project completion."
-        ],
-        skills: [
-            'Laravel',
-            'Livewire',
-            'Flux UI',
-            'Eloquent',
-            'Tailwind CSS',
-            'JavaScript',
-            'GIT',
-            'GitHub',
-            'SQL',
-            'SQLite',
-            'MySQL',
-            'Canva'
-        ]
-    },
-    {
         title:"Systems Engineer II",
         company:"La Rose Noire Philippines",
         date:"August 2025 – October 2025",
@@ -120,6 +90,36 @@ export const QUALIFICATIONS: Qualification[] = [
 ];
 
 export const QUALIFICATIONS_PROJECTS = [
+    {
+        title:"Project Lead Developer",
+        company:"Hills of Glory - Mabalacat",
+        date:"May 2025 – Present",
+        contract:"Contractual / Project",
+        description: [
+            "Developing a full-stack web application using Laravel, Livewire, Eloquent ORM, Flux UI, Tailwind CSS, and SQL.",
+            "Led a team, overseeing project progress and ensuring timely delivery of milestones.",
+            "Initiated and implemented both front-end and back-end architecture from scratch.",
+            "Assigned roles and responsibilities to team members based on strengths and project needs.",
+            "Provided hands-on guidance and mentorship to the development team throughout the project.",
+            "Facilitated collaboration between technical contributors, church leaders, and pastors to align development with ministry goals.",
+            "Actively learned and applied Laravel and related technologies to enhance project outcomes.",
+            "Adapted to additional responsibilities and tasks as required to support successful project completion."
+        ],
+        skills: [
+            'Laravel',
+            'Livewire',
+            'Flux UI',
+            'Eloquent',
+            'Tailwind CSS',
+            'JavaScript',
+            'GIT',
+            'GitHub',
+            'SQL',
+            'SQLite',
+            'MySQL',
+            'Canva'
+        ]
+    },
     {
         title:"Information Technology Officer I",
         company:"City Government of Puerto Princesa",
