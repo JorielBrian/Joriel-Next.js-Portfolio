@@ -107,7 +107,7 @@ export default function ParticleBackground() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
       <canvas ref={canvasRef} className="absolute inset-0" />
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950/80 via-blue-900/60 to-blue-800/40" />
+      <div className="absolute inset-0 bg-linear-to-br from-blue-950/80 via-blue-900/60 to-blue-800/40" />
     </div>
   );
 }
