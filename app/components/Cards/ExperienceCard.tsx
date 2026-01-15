@@ -48,12 +48,12 @@ function Experiences({title, experiences}: ExperienceCardProps) {
                             >
                                 {/* Header Section */}
                                 <div className="mb-4">
-                                    <h1 className="text-2xl font-bold">{experience.title}</h1>
-                                    <h3 className="text-xl text-cyan-300">{experience.company}</h3>
-                                    <div className="flex gap-4 mt-2">
-                                        <h4 className="text-sm text-blue-300">{experience.date}</h4>
-                                        <h4 className="text-sm text-cyan-300">{experience.contract}</h4>
-                                    </div>
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">{experience.title}</h1>
+                                    <h3 className="text-xl sm:text-2xl md:text-3xl text-cyan-300">{experience.company}</h3>
+                                    <span className="flex gap-4">
+                                        <h4 className="text-sm sm:text-md md:text-lg text-blue-300">{experience.date}</h4>
+                                        <h4 className="text-sm sm:text-md md:text-lg text-cyan-300">{experience.contract}</h4>
+                                    </span>
                                 </div>
                                 
                                 {/* Description */}
