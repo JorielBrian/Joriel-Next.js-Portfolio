@@ -2,7 +2,20 @@ import { Project } from "./types"
 
 export const PROJECTS: Project = [
     {
-        name: "Hills of Glory Website",
+        name: "Digital Blast - Business Website",
+        image:"/Projects/digital_blast.png",
+        link:"https://digitalblast.com.au/",
+        description:"Developed and launched the official business website for Digital Blast using WordPress, hosted on Hostinger. Implemented a clean, responsive layout aligned with the brand, optimized site performance, and configured essential plugins to support production deployment.",
+        skills:[
+            'WordPress',
+            'Hostinger',
+            'PHP',
+            'HTML',
+            'CSS',
+        ],
+    },
+    {
+        name: "Hills of Glory - Web Application",
         image:"/Projects/hog_site.png",
         description:"As the project leader, I guided our group in building a website for Hills of Glory Church in Mabalacat City, Pampanga. I quickly learned Laravel, Livewire, Flux UI, and Eloquent to contribute on both frontend and backend. I also provided documents and tutorials to help my teammates understand the stack and work more effectively. Throughout the project, I helped organize our tasks and made sure we built a website that truly fit the church’s needs.",
         skills:[
@@ -46,7 +59,7 @@ export const PROJECTS: Project = [
     {
         name: "LighString Vintage Guitar Shop",
         image:"/Projects/lightstring.png",
-        link:"https://www.facebook.com/profile.php?id=61575701668511",
+        // link:"https://www.facebook.com/profile.php?id=61575701668511",
         description:"I create and edit posters, images, videos, and slides to enhance branding and engagement for Lightstring Vintage Guitars Shop.",
         skills:[
             'Canva',

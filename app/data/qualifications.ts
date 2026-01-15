@@ -91,7 +91,26 @@ export const QUALIFICATIONS: Qualification[] = [
 
 export const QUALIFICATIONS_PROJECTS = [
     {
-        title:"Project Lead Developer",
+        title:"Web Developer",
+        company:"Digital Blast",
+        date:"December 2025 – Present",
+        contract:"Contractual / Project",
+        description: [
+            "Built and launched the official Digital Blast business website using WordPress and Hostinger.",
+            "Customized themes and layouts to align with brand requirements and ensure mobile responsiveness.",
+            "Configured essential plugins for performance, security, and basic SEO.",
+            "Managed hosting setup and production deployment."
+        ],
+        skills: [
+            'WordPress',
+            'Hostinger',
+            'PHP',
+            'HTML',
+            'CSS',
+        ]
+    },
+    {
+        title:"Software Developer",
         company:"Hills of Glory - Mabalacat",
         date:"May 2025 – Present",
         contract:"Contractual / Project",
