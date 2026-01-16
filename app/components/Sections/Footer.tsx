@@ -61,7 +61,8 @@ const Footer = () =>{
                 </section>
                 
                 {/* Curriculum Vitae Section */}
-                <section className="text-center bg-[url('/cv.png')] bg-cover rounded-2xl">
+                <section className="relative text-center bg-cover rounded-2xl">
+                    <iframe src="Joriel Brian Sudario - CV.pdf" className="absolute w-full h-full -z-10 rounded-2xl overflow-hidden"></iframe>
                     <div className="justify-center h-full bg-black/65 rounded-2xl">
                         <h1 className="text-4xl font-bold p-2 m-3">Curriculum Vitae</h1>
                         <div className="flex flex-wrap h-full justify-center p-5 gap-2">
