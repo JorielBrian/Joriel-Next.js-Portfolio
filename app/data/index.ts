@@ -4,10 +4,18 @@ export const INTRODUCTION: string[] = [
 ];
 
 export const ABOUT: string[] = [
-    "Aspiring Web Developer with hands-on experience building applications with the modern Next.js and Laravel. Combines practical project work with foundational skills in systems and data environments. A quick and adaptable learner who rapidly acquires new tools and concepts through selfstudy and collaboration. Eager to contribute to production codebases, deepen expertise within a focused tech stack, and grow under the mentorship of an experienced engineering team that values clean code and iterative improvement.",
-    "I've led teams, created systems from scratch, and ensured projects are delivered on time with high quality. Throughout my career, I've served as a Systems Engineer II, Project Lead Developer, Systems Analyst, IT Officer, and Computer Programmer II, which has shaped me into a flexible and reliable developer who enjoys solving real-world problems with technology.",
-    "My primary career goal is to excel as a Full-Stack Web Developer or IT Specialist. I am a passionate, dedicated, hard-working, and faith-driven individual who is constantly eager to learn and grow professionally. Web development and circuit assembly have always been my core interests. As my journey in the tech industry continues, I remain passionate about expanding my knowledge, recognizing that technology and learning are endless pursuits.",
-    "Outside of coding, spending time with my family is my greatest source of joy and strength—it helps me recharge emotionally and stay grounded. I also serve as a Lead Guitarist at Hills of Glory Mabalacat, where I express my passion for music and worship. Additionally, I find peace and encouragement in fellowship with my disciples and churchmates, growing together through God's Word."
+    "I am a software developer with hands-on experience building web and application systems using Next.js, Laravel, TypeScript, and PostgreSQL. I have contributed to production environments and independently developed real-world applications, including an actively used Laravel-based management system for a local church. My work reflects a strong foundation in software development fundamentals, database design, and API-driven architecture.",
+    "Across my career, I have taken on roles such as Systems Engineer II, Project Lead Developer, Systems Analyst, IT Officer, and Computer Programmer II. These experiences strengthened my ability to design systems from the ground up, lead teams, and deliver projects on time with a focus on quality and maintainability. I am known for disciplined self-learning, effective re-ramping after time away from a stack, and reliable follow-through on project commitments.",
+    "I am intentionally pursuing a long-term role as a Full-Stack Web Developer or IT Specialist within a team that values clean code, mentorship, stability, and sustainable growth. I am highly adaptable, quick to learn new tools and concepts, and motivated to deepen my expertise within a focused technology stack while contributing meaningfully to production codebases.",
+    "Beyond work, I value faith, family, and community as sources of balance and purpose. I serve as a Lead Guitarist at Hills of Glory Mabalacat and remain actively involved in fellowship and discipleship. These commitments ground my work ethic and reinforce my belief in continuous growth—both professionally and personally."
+];
+
+export const PROFESSIONAL_SUMMARY: string[] = [
+    "Software developer with hands-on experience building web and application systems using Next.js, Laravel, TypeScript, and PostgreSQL.", 
+    "Has contributed to production environments and independently developed real-world applications, including an actively used Laravel-based management system for a local church.", 
+    "Strong foundation in software development fundamentals, database design, and API-driven architecture.", 
+    "Known for disciplined self-learning, effective re-ramping after time away from a stack, and reliable follow-through on project commitments.", 
+    "Currently refreshing core technologies through active project work while intentionally seeking a long-term role within a team that values stability, mentorship, and sustainable growth.",
 ];
 
 // export const contactInfo: {icon: JSX.Element, text: string, href: string}[] = [

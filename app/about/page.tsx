@@ -1,36 +1,12 @@
 'use client';
 import Skills from "@/app/components/Sections/Skills"
 import { motion } from "motion/react"
+import About from "../components/Sections/About";
 
 function AboutMe() {
   return (
     <main className="flex flex-col w-4/5 min-h-screen">
-      {/* Summary */}
-      <motion.section 
-        initial={{x:100, opacity:0}} 
-        whileInView={{x:0, opacity:1}} 
-        transition={{ease:"easeIn", duration:0.5}}
-        className="card sectionLeft"
-      >
-        <motion.img 
-          initial={{x:100, opacity:0}} 
-          whileInView={{x:0, opacity:1}} 
-          transition={{ease:"easeIn", duration:1.5}}
-          src="/Profile Picture.png" 
-          alt="My Image" 
-          className="float-left w-fit size-90 m-4 my-5 rounded-full"
-        />
-        <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center lg:text-left font-bold">Hi, I'm Joriel</motion.h1>
-        <motion.p initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}className="text-gray-300">
-          An Aspiring Web Developer with hands-on experience building applications with the modern technologies. Combines practical project work with foundational skills in systems and data environments. <br />
-          A quick and adaptable learner who rapidly acquires new tools and concepts through selfstudy and collaboration. 
-          Eager to contribute to production codebases, deepen expertise within a focused tech stack, and grow under the mentorship of an experienced engineering team that values clean code and iterative improvement.
-        </motion.p>
-        <div className="flex flex-col">
-          
-        </div>
-      </motion.section>
-
+      <About />
       {/* My Story */}
       <motion.section 
         initial={{x:-100, opacity:0}} 
