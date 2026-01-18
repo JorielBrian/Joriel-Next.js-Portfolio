@@ -11,11 +11,10 @@ export const ABOUT: string[] = [
 ];
 
 export const PROFESSIONAL_SUMMARY: string[] = [
-    "Software developer with hands-on experience building web and application systems using Next.js, Laravel, TypeScript, and PostgreSQL.", 
-    "Has contributed to production environments and independently developed real-world applications, including an actively used Laravel-based management system for a local church.", 
-    "Strong foundation in software development fundamentals, database design, and API-driven architecture.", 
-    "Known for disciplined self-learning, effective re-ramping after time away from a stack, and reliable follow-through on project commitments.", 
-    "Currently refreshing core technologies through active project work while intentionally seeking a long-term role within a team that values stability, mentorship, and sustainable growth.",
+    "Junior to Mid-Level Full Stack Developer with hands-on experience building and supporting web applications using Next.js, Laravel, TypeScript, Tailwind CSS, and PostgreSQL.", 
+    "Has contributed to production environments and completed project-based development using modern frontend and backend technologies.",
+    "Demonstrates practical experience with modern web development practices, relational databases, and API-based applications.", 
+    "Seeking a long-term role within a team that values stability, mentorship, and sustainable growth."
 ];
 
 // export const contactInfo: {icon: JSX.Element, text: string, href: string}[] = [
