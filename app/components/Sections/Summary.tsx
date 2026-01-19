@@ -17,9 +17,16 @@ const Summary = () =>{
                         alt="My Image" 
                         className="hidden lg:block float-left w-fit m-4 size-120 my-5 rounded-full"
                         />
-                        <div className="flex text-white font-sans justify-center flex-col gap-3 mb-5">
+                        <div className="flex text-white font-sans justify-center flex-col">
                             { PROFESSIONAL_SUMMARY && PROFESSIONAL_SUMMARY.map(summary => (
-                                <motion.p key={summary} initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>{summary}</motion.p>
+                                <motion.p 
+                                    key={summary}  
+                                    initial={{x:100, opacity:0}} 
+                                    whileInView={{x:0, opacity:1}} 
+                                    transition={{ease:"easeIn", duration:0.5}}
+                                >
+                                    {summary}
+                                </motion.p>
                             )) }
                         </div>
                     </div>
