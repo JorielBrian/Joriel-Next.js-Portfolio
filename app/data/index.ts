@@ -11,7 +11,7 @@ export const ABOUT: string[] = [
 ];
 
 export const PROFESSIONAL_SUMMARY: string[] = [
-    "Junior to Mid-Level Full Stack Developer with hands-on experience building and supporting web applications using Next.js, Laravel, TypeScript, Tailwind CSS, and PostgreSQL.", 
+    "Junior to Mid-Level Full Stack Developer with hands-on experience building and supporting web applications using Next.js, Laravel, TypeScript, Tailwind CSS, Prisma, and PostgreSQL.", 
     "Has contributed to production environments and completed project-based development using modern frontend and backend technologies.",
     "Demonstrates practical experience with modern web development practices, relational databases, and API-based applications.", 
     "Seeking a long-term role within a team that values stability, mentorship, and sustainable growth."
