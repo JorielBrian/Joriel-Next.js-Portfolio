@@ -11,6 +11,7 @@ export const SKILLS: Skill[] = [
     {skill:"Tailwind CSS", focus:true, image: "/Skills/tailwind.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"GIT", focus:true, image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"Vercel", focus:true, image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
+    {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.TOOLS}, // add focus:true after learning
 
     // Tech Stack
     {skill:"T3 Stack", image: "/Skills/t3.svg", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.STACK},
