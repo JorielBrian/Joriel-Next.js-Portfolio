@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss/utilities";
-@import "tailwindcss/components";
-@import "tailwindcss/base";
 
 :root {
   @apply bg-radial from-blue-800 to-blue-950 text-white overflow-x-hidden;
