@@ -1,6 +1,5 @@
 import Hero from "@/app/components/Sections/Hero";
 import Skills from "@/app/components/Sections/Skills";
-import About from "@/app/components/Sections/About";
 import Summary from "./components/Sections/Summary";
 
 export default function Home() {

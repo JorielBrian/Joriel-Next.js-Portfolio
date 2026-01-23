@@ -1,9 +1,9 @@
 @import "tailwindcss";
-
-@import "tailwindcss";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+@import "tailwindcss/base";
 
 :root {
-  /* @apply bg-[radial-gradient(circle_at_center,_#000105_9%,_#031e5e_70%,_#0637aa_100%)] text-white overflow-x-hidden; */
   @apply bg-radial from-blue-800 to-blue-950 text-white overflow-x-hidden;
 }
 
