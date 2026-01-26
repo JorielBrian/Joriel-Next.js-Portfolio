@@ -2,20 +2,9 @@ import { Skill } from "./types";
 import { Proficiency, Preference, Category } from "./enum";
 
 export const SKILLS: Skill[] = [
-    // Core Skills
-    {skill:"Next.js", focus: true, image: "/Skills/next.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
-    {skill:"Laravel", focus: true, image: "/Skills/laravel.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
-    {skill:"React", focus: true, image: "/Skills/react.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
-    {skill:"TypeScript", focus:true, image: "/Skills/typescript.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
-    {skill:"Tailwind CSS", focus:true, image: "/Skills/tailwind.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
-    {skill:"GIT", focus:true, image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
-    {skill:"Vercel", focus:true, image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
-
     // Tech Stack
     {skill:"T3 Stack", image: "/Skills/t3.svg", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.STACK},
     {skill:"TALL Stack", image: "/Skills/tall.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.STACK},
-    {skill:"Livewire", image: "/Skills/livewire.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
-    {skill:"Eloquent", image: "/Skills/eloquent.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.ORM},
 
     // Fundamental Skills
     {skill:"PHP", image: "/Skills/php.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FUNDAMENTAL },
@@ -24,14 +13,26 @@ export const SKILLS: Skill[] = [
 
     // Languages
     {skill:"JavaScript", image: "/Skills/javascript.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
+    {skill:"TypeScript", focus:true, image: "/Skills/typescript.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
     {skill:"Python", image: "/Skills/python.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.LANGUAGE},
     {skill:"R", image: "/Skills/r.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.LANGUAGE},
 
-    // Frameworks and CLIs
+    // Frameworks
+    {skill:"Next.js", focus: true, image: "/Skills/next.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
+    {skill:"Laravel", focus: true, image: "/Skills/laravel.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
+    {skill:"React", focus: true, image: "/Skills/react.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
+    {skill:"Tailwind CSS", focus:true, image: "/Skills/tailwind.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"Bootstrap", image: "/Skills/bootstrap.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.FRAMEWORK},
-    {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
     {skill:"Express.js", image: "/Skills/expressjs.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
-    {skill:"Ubuntu Linux", image: "/Skills/ubuntu.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.OS},
+    {skill:"Livewire", image: "/Skills/livewire.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
+
+    // CLI
+    {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
+
+    // UI Libraries
+    {skill:"Shadcn/UI", image: "/Skills/shadcn.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.TOOLS}, // add focus:true after learning
+    {skill:"Flux UI", image: "/Skills/flux.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS},
+    {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS}, 
 
     // Backend 
     {skill:"SQL", image: "/Skills/sql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.BACKEND},
@@ -46,20 +47,25 @@ export const SKILLS: Skill[] = [
 
     // ORMs
     {skill:"Prisma", image: "/Skills/prisma.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
-    {skill:"Drizzle", image: "/Skills/drizzle.png", proficiency:Proficiency.BEGINNER, preference:Preference.SUB_SKILL, category:Category.ORM},
+    {skill:"Drizzle", image: "/Skills/drizzle.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
+    {skill:"Eloquent", image: "/Skills/eloquent.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.ORM},
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
 
-    // Tools
+    // Version Control and Deployment
+    {skill:"GIT", focus:true, image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"GitHub", image: "/Skills/github.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
-    {skill:"Vite", image: "/Skills/vite.svg", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.OTHER},
+    {skill:"Vercel", focus:true, image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"Hostinger", image: "/Skills/hostinger.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.VERSION_CONTROL},
-    {skill:"Flux UI", image: "/Skills/flux.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS},
+
+    // Tools
+    {skill:"Vite", image: "/Skills/vite.svg", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.OTHER},
     {skill:"FileZilla", image: "/Skills/filezilla.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.VERSION_CONTROL},
     {skill:"Shiny", image: "/Skills/shiny.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.TOOLS},
     {skill:"Sketchup", image: "/Skills/sketchup.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.GRAPHICS},
     {skill:"Cube Dynasm", image: "/Skills/cube_dynasm.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.TOOLS},
-    {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.TOOLS}, 
-    {skill:"Shadcn/UI", image: "/Skills/shadcn.png", proficiency:Proficiency.BEGINNER, preference:Preference.SUB_SKILL, category:Category.TOOLS}, // add focus:true after learning
+
+    // OS
+    {skill:"Ubuntu Linux", image: "/Skills/ubuntu.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.OS},
     
     // Hardware Skills
     {skill:"Computer Assembling", image: "/Skills/computerassembling.png", proficiency:Proficiency.PROFICIENT, preference:Preference.HARDWARE, category:Category.HARDWARE},
