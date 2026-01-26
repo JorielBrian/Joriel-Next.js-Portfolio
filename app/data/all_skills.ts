@@ -3,7 +3,6 @@ import { Proficiency, Preference, Category } from "./enum";
 
 export const SKILLS: Skill[] = [
     // Core Skills
-    
     {skill:"Next.js", focus: true, image: "/Skills/next.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"Laravel", focus: true, image: "/Skills/laravel.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"React", focus: true, image: "/Skills/react.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
@@ -11,7 +10,6 @@ export const SKILLS: Skill[] = [
     {skill:"Tailwind CSS", focus:true, image: "/Skills/tailwind.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"GIT", focus:true, image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"Vercel", focus:true, image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
-    {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.TOOLS}, // add focus:true after learning
 
     // Tech Stack
     {skill:"T3 Stack", image: "/Skills/t3.svg", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.STACK},
@@ -48,6 +46,7 @@ export const SKILLS: Skill[] = [
 
     // ORMs
     {skill:"Prisma", image: "/Skills/prisma.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
+    {skill:"Drizzle", image: "/Skills/drizzle.png", proficiency:Proficiency.BEGINNER, preference:Preference.SUB_SKILL, category:Category.ORM},
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
 
     // Tools
@@ -59,6 +58,8 @@ export const SKILLS: Skill[] = [
     {skill:"Shiny", image: "/Skills/shiny.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.TOOLS},
     {skill:"Sketchup", image: "/Skills/sketchup.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.GRAPHICS},
     {skill:"Cube Dynasm", image: "/Skills/cube_dynasm.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.TOOLS},
+    {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.TOOLS}, 
+    {skill:"Shadcn/UI", image: "/Skills/shadcn.png", proficiency:Proficiency.BEGINNER, preference:Preference.SUB_SKILL, category:Category.TOOLS}, // add focus:true after learning
     
     // Hardware Skills
     {skill:"Computer Assembling", image: "/Skills/computerassembling.png", proficiency:Proficiency.PROFICIENT, preference:Preference.HARDWARE, category:Category.HARDWARE},
