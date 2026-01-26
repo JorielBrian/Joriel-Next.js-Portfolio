@@ -31,7 +31,7 @@ export const SKILLS: Skill[] = [
 
     // Frameworks and CLIs
     {skill:"Bootstrap", image: "/Skills/bootstrap.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.FRAMEWORK},
-    {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.CLI},
+    {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
     {skill:"Express.js", image: "/Skills/expressjs.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
     {skill:"Ubuntu Linux", image: "/Skills/ubuntu.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.OS},
 
@@ -41,14 +41,15 @@ export const SKILLS: Skill[] = [
     {skill:"tRPC", image: "/Skills/trpc.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.BACKEND},
 
     // Databases
-    {skill:"PostgreSQL", image: "/Skills/postgresql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.DATABASE},
+    {skill:"PostgreSQL", image: "/Skills/postgresql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
     {skill:"MySQL", image: "/Skills/mysql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.DATABASE},
-    {skill:"SQLite", image: "/Skills/sqlite.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.DATABASE},
+    {skill:"SQLite", image: "/Skills/sqlite.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
     {skill:"Firebase", image: "/Skills/firebase.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.DATABASE},
 
     // ORMs
     {skill:"Prisma", image: "/Skills/prisma.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
+
     // Tools
     {skill:"GitHub", image: "/Skills/github.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"Vite", image: "/Skills/vite.svg", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.OTHER},
