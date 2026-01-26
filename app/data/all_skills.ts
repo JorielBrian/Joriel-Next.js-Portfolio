@@ -42,7 +42,7 @@ export const SKILLS: Skill[] = [
     // Databases
     {skill:"PostgreSQL", image: "/Skills/postgresql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
     {skill:"MySQL", image: "/Skills/mysql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.DATABASE},
-    {skill:"SQLite", image: "/Skills/sqlite.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
+    {skill:"SQLite", image: "/Skills/sqlite.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.DATABASE},
     {skill:"Firebase", image: "/Skills/firebase.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.DATABASE},
 
     // ORMs
