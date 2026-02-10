@@ -30,7 +30,7 @@ export const SKILLS: Skill[] = [
     {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
 
     // UI Libraries
-    {skill:"Shadcn/UI", image: "/Skills/shadcn.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.TOOLS}, // add focus:true after learning
+    {skill:"Shadcn/UI", focus: true, image: "/Skills/shadcn.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.TOOLS},
     {skill:"Flux UI", image: "/Skills/flux.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS},
     {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS}, 
 
