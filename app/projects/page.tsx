@@ -1,6 +1,6 @@
 'use client'
 import { PROJECTS } from "../data/projects"
-import ProjectCard from "@/app/components/Cards/ProjectCard";
+import ProjectCard from "@/components/Cards/ProjectCard";
 import { useEffect } from "react";
 
 const Projects = () => {
