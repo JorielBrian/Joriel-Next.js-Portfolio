@@ -4,10 +4,11 @@ import { Qualification } from "../../app/data/types";
 
 interface ExperienceCardProps {
     title: string,
+    contract: 'Full Time' | 'Contractual / Project',
     experiences: Qualification[]
 }
 
-function ExperienceCard({title, experiences}: ExperienceCardProps) {
+function ExperienceCard({title, contract, experiences}: ExperienceCardProps) {
   return (
     <section className="w-full 2xl:p-3 rounded-sm">
         <div className="rounded-sm">
@@ -26,7 +27,7 @@ function ExperienceCard({title, experiences}: ExperienceCardProps) {
                 {/* <div className="absolute left-1/2 transform -translate-x-1/2 w-[0.5px] h-full bg-blue-400"></div> */}
                 
                 {/* Timeline Experiences */}
-                { experiences.map((experience, index) => {
+                { experiences.filter(exp => exp.contract === contract).map((experience, index) => {
                     const isLeft = index % 2 === 0;
                     
                     return (
