@@ -11,7 +11,7 @@ function Hero() {
             <h1 className="text-6xl font-bold sm:text-7xl md:text-8xl xl:text-9xl mb-2 tracking-tight">Joriel Brian Sudario</h1>
             <h3 className="pb-5 border-amber-50 text-2xl sm:text-4xl md:text-5xl lg:text-7xl 2xl:text-8xl bg-linear-to-r from-neutral-400 via-cyan-500 to-blue-800 bg-clip-text text-transparent"><Typewriter 
             // words={['Web Developer', 'Full Stack Developer', 'System Engineer', 'Software Engineer', 'Computer Programmer', 'IT Specialist', 'Circuit Assembler', 'Information Technology']}
-            words={['Full Stack Developer', 'Front-end Developer', 'Web Developer', 'Computer Programmer']}
+            words={['Full Stack Developer', 'Front-end Developer', 'Web Developer', 'System Engineer']}
             loop = {true}
             cursor cursorStyle = {'|'} cursorBlinking = {true} cursorColor="white"
             /></h3>
