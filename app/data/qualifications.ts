@@ -87,9 +87,9 @@ export const QUALIFICATIONS: Qualification[] = [
             'Soldering'
         ]
     },
-];
+// ];
 
-export const QUALIFICATIONS_PROJECTS = [
+// export const QUALIFICATIONS_PROJECTS = [
     {
         title:"Web Developer",
         company:"Digital Blast",
