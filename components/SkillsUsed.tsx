@@ -15,7 +15,7 @@ function SkillsUsed({skills}: {skills:string[]}) {
               /> 
             : <p 
                 key={skill} 
-                className="w-fit m-1 min-w-5 px-3 rounded-xl text-center 2xl:px-3 bg-sky-900/50 2xl:rounded-2xl text-white"
+                className="w-fit m-1 min-w-5 px-3 rounded-xl text-center 2xl:px-3 bg-sky-900/50 2xl:rounded-2xl text-cyan-500"
               >
                 {skill}
               </p>

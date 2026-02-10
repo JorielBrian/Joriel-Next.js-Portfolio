@@ -49,9 +49,9 @@ const Footer = () =>{
                             <a
                                 key={index}
                                 href={item.href}
-                                className="flex items-center gap-3 group hover:text-white transition-colors duration-300"
+                                className="flex items-center gap-3 group hover:text-cyan-400 transition-colors duration-300"
                             >
-                            <span className="text-white group-hover:scale-110 transition-transform">
+                            <span className="text-cyan-500 group-hover:scale-110 transition-transform">
                                 {item.icon}
                             </span>
                             <span>{item.text}</span>
