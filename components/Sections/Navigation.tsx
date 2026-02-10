@@ -25,7 +25,7 @@ const Navigation = () =>{
     };
 
     return (
-        <motion.section className={scroll ? "navbar" : "flex w-full sm:w-2/3 justify-center"}>
+        <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-2/3 justify-center"}>
             <div className="flex w-full py-0! px-5 rounded-sm justify-between">
                 {/* Logo */}
                 <div className="w-fit py-0!">
