@@ -1,6 +1,6 @@
 'use client'
 import { QUALIFICATIONS, QUALIFICATIONS_PROJECTS } from "../data/qualifications";
-import Experiences from "@/components/Cards/ExperienceCard";
+import ExperienceCard from "@/components/Cards/ExperienceCard";
 import { useEffect } from "react";
 
 const Qualifications = () =>{
@@ -12,8 +12,8 @@ const Qualifications = () =>{
     
     return (    
         <div className="w-4/5 mx-auto my-5 p-5 rounded-sm content-center overflow-hidden">
-            { QUALIFICATIONS && <Experiences title="Key Qualifications" experiences={QUALIFICATIONS} /> }
-            { QUALIFICATIONS_PROJECTS && <Experiences title="Contractual Projects" experiences={QUALIFICATIONS_PROJECTS}/> }
+            { QUALIFICATIONS && <ExperienceCard title="Key Qualifications" experiences={QUALIFICATIONS} /> }
+            { QUALIFICATIONS_PROJECTS && <ExperienceCard title="Contractual Projects" experiences={QUALIFICATIONS_PROJECTS}/> }
         </div>
     );
 }

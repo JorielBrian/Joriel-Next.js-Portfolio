@@ -7,7 +7,7 @@ interface ExperienceCardProps {
     experiences: Qualification[]
 }
 
-function Experiences({title, experiences}: ExperienceCardProps) {
+function ExperienceCard({title, experiences}: ExperienceCardProps) {
   return (
     <section className="w-full 2xl:p-3 rounded-sm">
         <div className="rounded-sm">
@@ -75,4 +75,4 @@ function Experiences({title, experiences}: ExperienceCardProps) {
   );
 }
 
-export default Experiences;
+export default ExperienceCard;
