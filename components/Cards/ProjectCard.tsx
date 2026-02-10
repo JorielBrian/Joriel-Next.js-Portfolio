@@ -19,12 +19,12 @@ function ProjectCard({name, description, image, skills, link}: ProjectCardProps)
             <iframe src={link} loading="lazy" className="w-full h-75 mx-auto rounded-xl" /> 
             : 
             <motion.img 
-            initial={{opacity:0 , x: 100}} 
-            whileInView={{opacity: 1, x:0}} 
-            transition={{ease:"easeInOut", duration: 0.75}} 
-            src={image} 
-            alt={name} 
-            className="min-w-70 max-w-2xl mx-auto rounded-xl"
+                initial={{opacity:0 , x: 100}} 
+                whileInView={{opacity: 1, x:0}} 
+                transition={{ease:"easeInOut", duration: 0.75}} 
+                src={image} 
+                alt={name} 
+                className="min-w-70 max-w-2xl mx-auto rounded-xl"
             /> 
         }
         
