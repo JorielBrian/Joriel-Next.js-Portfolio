@@ -25,6 +25,7 @@ export const SKILLS: Skill[] = [
     {skill:"Bootstrap", image: "/Skills/bootstrap.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.FRAMEWORK},
     {skill:"Express.js", image: "/Skills/expressjs.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
     {skill:"Livewire", image: "/Skills/livewire.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
+    {skill:".NET", image: "/Skills/dotnet.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.FRAMEWORK},
 
     // CLI
     {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
@@ -53,9 +54,9 @@ export const SKILLS: Skill[] = [
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
 
     // Version Control and Deployment
-    {skill:"GIT", focus:true, image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
+    {skill:"GIT", image: "/Skills/git.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"GitHub", image: "/Skills/github.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
-    {skill:"Vercel", focus:true, image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
+    {skill:"Vercel", image: "/Skills/vercel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.VERSION_CONTROL},
     {skill:"Hostinger", image: "/Skills/hostinger.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.VERSION_CONTROL},
 
     // Tools
@@ -76,7 +77,7 @@ export const SKILLS: Skill[] = [
 
     // Microsoft Skills
     {skill:"Word", image: "/Skills/word.png", proficiency:Proficiency.PROFICIENT, preference:Preference.SOFT_SKILLS, category:Category.TOOLS},
-    {skill:"Powerpoint", image: "/Skills/powerpoint.png", proficiency:Proficiency.PROFICIENT, preference:Preference.SOFT_SKILLS, category:Category.TOOLS},
+    {skill:"PowerPoint", image: "/Skills/powerpoint.png", proficiency:Proficiency.PROFICIENT, preference:Preference.SOFT_SKILLS, category:Category.TOOLS},
     {skill:"Excel", image: "/Skills/excel.png", proficiency:Proficiency.PROFICIENT, preference:Preference.SOFT_SKILLS, category:Category.TOOLS},
 
     // Design Skills
@@ -86,5 +87,8 @@ export const SKILLS: Skill[] = [
 
     // Other Skills
     {skill:"Facebook", image: "/Skills/facebook.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.SOCIAL_MEDIA},
-    {skill:"Software", image: "/Skills/software.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.OTHER}
+    {skill:"Software", image: "/Skills/software.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.OTHER},
+    {skill:"Android Development", image: "/Skills/android.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.OTHER},
+    {skill:"Arduino", image: "/Skills/arduino.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.OTHER},
+    {skill:"STM32", image: "/Skills/stm.png", proficiency:Proficiency.BEGINNER, preference:Preference.OTHER, category:Category.OTHER}
 ];

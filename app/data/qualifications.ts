@@ -91,25 +91,6 @@ export const QUALIFICATIONS: Qualification[] = [
 
 // export const QUALIFICATIONS_PROJECTS = [
     {
-        title:"Web Developer",
-        company:"Digital Blast",
-        date:"December 2025 – Present",
-        contract:"Contractual / Project",
-        description: [
-            "Built and launched the official Digital Blast business website using WordPress and Hostinger.",
-            "Customized themes and layouts to align with brand requirements and ensure mobile responsiveness.",
-            "Configured essential plugins for performance, security, and basic SEO.",
-            "Managed hosting setup and production deployment."
-        ],
-        skills: [
-            'WordPress',
-            'Hostinger',
-            'PHP',
-            'HTML',
-            'CSS',
-        ]
-    },
-    {
         title:"Software Developer",
         company:"Hills of Glory - Mabalacat",
         date:"May 2025 – Present",
@@ -137,6 +118,25 @@ export const QUALIFICATIONS: Qualification[] = [
             'SQLite',
             'MySQL',
             'Canva'
+        ]
+    },
+    {
+        title:"Web Developer",
+        company:"Digital Blast",
+        date:"December 2025 – February 2026",
+        contract:"Contractual / Project",
+        description: [
+            "Built and launched the official Digital Blast business website using WordPress and Hostinger.",
+            "Customized themes and layouts to align with brand requirements and ensure mobile responsiveness.",
+            "Configured essential plugins for performance, security, and basic SEO.",
+            "Managed hosting setup and production deployment."
+        ],
+        skills: [
+            'WordPress',
+            'Hostinger',
+            'PHP',
+            'HTML',
+            'CSS',
         ]
     },
     {
@@ -221,6 +221,70 @@ export const QUALIFICATIONS: Qualification[] = [
             'SQL',
             'Cube Dynasm',
             'Excel',
+        ]
+    },
+
+    // Internships
+
+    {
+        title:"Network Administration Intern",
+        company:"STRIDE Consulting Inc.",
+        date:"November 2019 – March 2020",
+        contract:"Internship",
+        description: [
+            "Assisted in network configuration and device deployment",
+            "Installed hardware components and assembled electronic parts",
+            "Developed Android application front-end components",
+            "Conducted field surveys and ensured operational device safety",
+            "Monitored project operations and system reliability",
+        ],
+        skills: [
+            'Circuit Assembling',
+            'Computer Assembling',
+            'Soldering',
+            'Android Development',
+            'Ubuntu Linux'
+        ]
+    },
+    {
+        title:"Computer Troubleshooting Intern",
+        company:"STRIDE Consulting Inc.",
+        date:"April 2017 – May 2017",
+        contract:"Internship",
+        description: [
+            "Programmed and edited applications using .NET",
+            "Installed devices in public vehicles for survey projects",
+            "Encoded and organized technical data",
+            "Maintained device inventory and ensured operational integrity",
+        ],
+        skills: [
+            '.NET',
+            'Computer Assembling',
+            'Troubleshooting',
+            'Circuit Assembling',
+            'Soldering',
+            'Ubuntu Linux'
+        ]
+    },
+    {
+        title:"IT Office Intern",
+        company:"STRIDE Consulting Inc.",
+        date:"April 2016 – May 2016",
+        contract:"Internship",
+        description: [
+            "Programmed Arduino and STM microcontroller boards",
+            "Tested embedded system components",
+            "Assembled hardware components through soldering",
+            "Prepared technical documentation and presentations",
+        ],
+        skills: [
+            'Arduino',
+            'STM32',
+            'Circuit Assembling',
+            'Computer Assembling',
+            'Soldering',
+            'Troubleshooting',
+            'PowerPoint'
         ]
     },
 ]

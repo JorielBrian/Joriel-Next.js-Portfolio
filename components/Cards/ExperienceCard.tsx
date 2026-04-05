@@ -5,7 +5,7 @@ import { Calendar, Building, Briefcase } from "lucide-react";
 
 interface ExperienceCardProps {
     title: string,
-    contract: 'Full Time' | 'Contractual / Project',
+    contract: 'Full Time' | 'Contractual / Project' | 'Internship',
     experiences: Qualification[]
 }
 
@@ -27,7 +27,7 @@ function ExperienceCard({title, contract, experiences}: ExperienceCardProps) {
             {filtered.map((experience, index) => {
                 return (
                     <motion.article 
-                        key={experience.company}
+                        key={experience.title + experience.company}
                         initial={{opacity:0, y:20}} 
                         whileInView={{opacity:1, y:0}} 
                         transition={{ease:"easeOut", duration:0.6, delay: index * 0.1}}

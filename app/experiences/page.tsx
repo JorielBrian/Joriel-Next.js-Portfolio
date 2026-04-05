@@ -29,6 +29,7 @@ const Qualifications = () =>{
                 <div className="space-y-20">
                     { QUALIFICATIONS && <ExperienceCard title="Full-Time Roles" contract="Full Time" experiences={QUALIFICATIONS} /> }
                     { QUALIFICATIONS && <ExperienceCard title="Contract & Projects" contract="Contractual / Project" experiences={QUALIFICATIONS}/> }
+                    { QUALIFICATIONS && <ExperienceCard title="Internships" contract="Internship" experiences={QUALIFICATIONS}/> }
                 </div>
             </div>
         </div>

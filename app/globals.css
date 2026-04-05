@@ -89,19 +89,6 @@ section {
   @apply my-20;
 }
 
-div {
-  @apply sm:p-3 
-        md:p-5;
-}
-
-/* h2 {
-  @apply text-5xl 
-        sm:text-6xl 
-        md:text-7xl 
-        lg:text-8xl 
-        xl:text-9xl;
-} */
-
 p {
   @apply text-base
         md:text-lg 
