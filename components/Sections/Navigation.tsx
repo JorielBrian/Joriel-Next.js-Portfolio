@@ -111,8 +111,8 @@ const Navigation = () =>{
                         </li>
                         <li>
                             <Link 
-                                href='/#contacts' 
-                                className={`button ${isActive('/#contacts') ? 'active' : ''}`}
+                                href='/#connect' 
+                                className={`button ${isActive('/#connect') ? 'active' : ''}`}
                             >
                                 <GrSend />
                             </Link>
@@ -163,10 +163,10 @@ const Navigation = () =>{
                         </li>
                         <li>
                             <Link 
-                                href='/#contacts' 
-                                className={`button ${isActive('/#contacts') ? 'active' : ''}`}
+                                href='/#connect' 
+                                className={`button ${isActive('/#connect') ? 'active' : ''}`}
                             >
-                                Contacts
+                                Connect
                             </Link>
                         </li>
                     </ul>

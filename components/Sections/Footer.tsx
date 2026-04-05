@@ -43,7 +43,7 @@ const Footer = () =>{
     
     return (
         <motion.footer 
-            id="contacts" 
+            id="connect" 
             initial={{y:100, opacity:0}} 
             whileInView={{y:0, opacity:1}} 
             transition={{ease:"easeIn", duration:1}}  
