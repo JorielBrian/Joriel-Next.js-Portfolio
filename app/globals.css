@@ -94,13 +94,13 @@ div {
         md:p-5;
 }
 
-h2 {
+/* h2 {
   @apply text-5xl 
         sm:text-6xl 
         md:text-7xl 
         lg:text-8xl 
         xl:text-9xl;
-}
+} */
 
 p {
   @apply text-base
