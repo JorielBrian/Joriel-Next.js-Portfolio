@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 // import { iframe } from "motion/react-client";
 import Link from "next/link";
+import Image from "next/image";
 
 const Projects = () => {
   return (
@@ -40,7 +41,7 @@ const Projects = () => {
                                 <p className="text-gray-300 mb-2 line-clamp-1">{project.description}</p>
                             </div>
                             <div className="p-0! -z-1 w-full h-full rounded-2xl overflow-hidden">
-                                {project.link ? <iframe className="w-full h-full" src={project.link} /> : <img src={project.image} alt={project.name} className="w-full h-full object-cover" />}
+                                {project.link ? <iframe className="w-full h-full" src={project.link} /> : <Image src={project.image} alt={project.name} className="w-full h-full object-cover" fill />}
                             </div>
                         </article>                        
                     </CarouselItem>
