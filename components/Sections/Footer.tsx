@@ -34,7 +34,8 @@ const Footer = () =>{
         { icon: <SiNextdotjs />, label: "Next.js" },
         { icon: <SiTypescript />, label: "TypeScript" },
         { icon: <SiTailwindcss />, label: "Tailwind CSS" },
-        { icon: <SiVercel />, label: "Vercel"}
+        { icon: <SiVercel />, label: "Vercel"},
+        { icon: <SiVite />, label: "Vite" }
     ];
     
     return (
@@ -124,7 +125,7 @@ const Footer = () =>{
                     {/* Copyright */}
                     <div className="flex flex-col w-full xl:w-1/2 text-center xl:text-right justify-center items-center xl:items-end">
                         <p className="text-gray-200 text-sm">
-                            © {new Date().getFullYear()} Joriel Sudario. All rights reserved.
+                            © {new Date().getFullYear()} Joriel Brian Sudario. All rights reserved.
                         </p>
                         <p className="text-gray-400 text-xs mt-1">
                             This portfolio is developed using Next.js, TypeScript, Tailwind CSS, and Vercel

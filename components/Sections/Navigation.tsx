@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation"; // Changed import
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Navigation = () =>{
     const [scroll, setScroll] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
     const segment = useSelectedLayoutSegment();
     
     useEffect(() => {
@@ -18,10 +20,31 @@ const Navigation = () =>{
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const isActive = (path: string) => {
-        if (path === '/' && !segment) return true;
-
-        return segment === path.replace('/', '');
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection('#' + entry.target.id);
+                }
+            });
+        }, observerOptions);
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
+    
+    const isActive = (href: string) => {
+        if (href === '/' && !segment) return true;
+        if (segment) return false;
+        if (href.startsWith('/#')) {
+            return activeSection === href.substring(1);
+        }
+        return false;
     };
 
     return (
@@ -29,7 +52,9 @@ const Navigation = () =>{
             <div className="flex w-full py-0! px-5 rounded-sm justify-between">
                 {/* Logo */}
                 <div className="w-fit py-0!">
-                    <img 
+                    <Image
+                        width={64}
+                        height={64} 
                         src="/logo.png" 
                         alt="JB logo" 
                         className="size-14 md:size-16 p-1"
@@ -42,34 +67,34 @@ const Navigation = () =>{
                     <ul className="flex lg:hidden">
                         <li>
                             <Link 
-                                href='/' 
-                                className={`button ${isActive('/') ? 'active' : ''}`}
+                                href='/#hero' 
+                                className={`button ${isActive('/#hero') ? 'active' : ''}`}
                             >
                                 <House />
                             </Link>
                         </li>
                         <li>
                             <Link 
-                                href='/experiences' 
-                                className={`button ${isActive('/experiences') ? 'active' : ''}`}
+                                href='/#about' 
+                                className={`button ${isActive('/#about') ? 'active' : ''}`}
+                            >
+                                <CircleUser />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                href='/#experience' 
+                                className={`button ${isActive('/#experience') ? 'active' : ''}`}
                             >
                                 <BriefcaseBusiness />
                             </Link>
                         </li>
                         <li>
                             <Link 
-                                href='/projects' 
-                                className={`button ${isActive('/projects') ? 'active' : ''}`}
+                                href='/#projects' 
+                                className={`button ${isActive('/#projects') ? 'active' : ''}`}
                             >
                                 <Folder />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/about' 
-                                className={`button ${isActive('/about') ? 'active' : ''}`}
-                            >
-                                <CircleUser />
                             </Link>
                         </li>
                     </ul>
@@ -78,34 +103,34 @@ const Navigation = () =>{
                     <ul className="hidden lg:flex">
                         <li>
                             <Link 
-                                href='/' 
-                                className={`button ${isActive('/') ? 'active' : ''}`}
+                                href='/#hero' 
+                                className={`button ${isActive('/#hero') ? 'active' : ''}`}
                             >
                                 Home
                             </Link>
                         </li>
                         <li>
                             <Link 
-                                href='/experiences' 
-                                className={`button ${isActive('/experiences') ? 'active' : ''}`}
+                                href='/#about' 
+                                className={`button ${isActive('/#about') ? 'active' : ''}`}
+                            >
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                href='/#experience' 
+                                className={`button ${isActive('/#experience') ? 'active' : ''}`}
                             >
                                 Experiences
                             </Link>
                         </li>
                         <li>
                             <Link 
-                                href='/projects' 
-                                className={`button ${isActive('/projects') ? 'active' : ''}`}
+                                href='/#projects' 
+                                className={`button ${isActive('/#projects') ? 'active' : ''}`}
                             >
                                 Projects
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/about' 
-                                className={`button ${isActive('/about') ? 'active' : ''}`}
-                            >
-                                About
                             </Link>
                         </li>
                     </ul>

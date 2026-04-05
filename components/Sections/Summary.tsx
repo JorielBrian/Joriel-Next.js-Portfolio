@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const Summary = () =>{
     return (
-        <section>
-            <motion.h1 id="about" initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center font-bold">Professional Summary</motion.h1>
+        <section id="about">
+            <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center font-bold">Professional Summary</motion.h1>
                 <div className="card relative p-4 align-middle sm:rounded-2xl">
                     <div className="2xl:col-span-2 content-center">
                         <motion.img 
