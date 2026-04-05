@@ -43,7 +43,7 @@ const Projects = () => {
                                 initial={{opacity:0, y:20}} 
                                 whileInView={{opacity:1, y:0}} 
                                 transition={{ease:"easeIn", duration:0.5, delay: index * 0.08}}
-                                className="group overflow-hidden rounded-[32px] border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/30 hover:-translate-y-1 transition-transform duration-300"
+                                className="group overflow-hidden rounded-4xl border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/30 hover:-translate-y-1 transition-transform duration-300"
                             >
                                 <div className="relative h-72 overflow-hidden bg-slate-900">
                                     <Image
@@ -52,7 +52,7 @@ const Projects = () => {
                                         fill
                                         className="object-cover transition duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
                                     <div className="absolute left-4 bottom-4 right-4 flex flex-col gap-2">
                                         <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/15 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-300">
                                             Project {index + 1}
