@@ -1,7 +1,7 @@
 'use client'
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation"; // Changed import
+import { useSelectedLayoutSegment } from "next/navigation";
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -51,8 +51,8 @@ const Navigation = () =>{
     };
 
     return (
-        <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-2/3 justify-center"}>
-            <div className="flex w-full py-0! px-5 rounded-sm justify-between">
+        <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-4/5 justify-center"}>
+            <div className="flex w-full py-0! px-5 rounded-sm justify-center">
                 {/* Logo */}
                 <div className="w-fit py-0!">
                     <Image
@@ -60,7 +60,7 @@ const Navigation = () =>{
                         height={64} 
                         src="/logo.png" 
                         alt="JB logo" 
-                        className="size-14 md:size-16 p-1"
+                        className="size-12 sm:size-14 md:size-16"
                     />
                 </div>
 
@@ -70,7 +70,7 @@ const Navigation = () =>{
                     <ul className="flex lg:hidden">
                         <li>
                             <Link 
-                                href='/#hero' 
+                                href='/' 
                                 className={`button ${isActive('/#hero') ? 'active' : ''}`}
                             >
                                 <House />
@@ -114,7 +114,7 @@ const Navigation = () =>{
                     <ul className="hidden lg:flex">
                         <li>
                             <Link 
-                                href='/#hero' 
+                                href='/' 
                                 className={`button ${isActive('/#hero') ? 'active' : ''}`}
                             >
                                 Home
