@@ -1,4 +1,6 @@
 import { QUALIFICATIONS } from "@/app/data/qualifications";
+import Link from "next/link";
+
 import {
   Carousel,
   CarouselContent,
@@ -72,6 +74,11 @@ const Experience = () => {
                 <CarouselPrevious className="md:flex" />
                 <CarouselNext className="md:flex" />
             </Carousel>
+        </div>
+        <div className="mt-8 text-center">
+            <Link href="/experiences" className="inline-flex items-center justify-center rounded-full bg-slate-200 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-300">
+                Explore all experiences
+            </Link>
         </div>
     </section>
   );
