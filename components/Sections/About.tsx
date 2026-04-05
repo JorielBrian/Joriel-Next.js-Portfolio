@@ -11,6 +11,8 @@ const About = () =>{
             className="card sectionLeft"
         >
             <motion.img 
+                width={360}
+                height={360}
                 initial={{x:100, opacity:0}} 
                 whileInView={{x:0, opacity:1}} 
                 transition={{ease:"easeIn", duration:1.5}}
@@ -19,7 +21,7 @@ const About = () =>{
                 className="float-right w-fit size-90 m-4 my-5 rounded-full"
             />
             <div className="text-white font-sans">
-                <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center lg:text-left font-bold">Hi, I'm Joriel</motion.h1>
+                <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center lg:text-left font-bold">Hi, I am Joriel</motion.h1>
                 { ABOUT && ABOUT.map(about => (
                     <motion.p key={about} initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>{about}</motion.p>
                 )) }

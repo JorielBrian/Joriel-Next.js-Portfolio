@@ -2,12 +2,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // Icons
+import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { GiSkills } from "react-icons/gi";
+import { GrSend } from "react-icons/gr";
 
 const Navigation = () =>{
     const [scroll, setScroll] = useState(false);
@@ -52,17 +53,17 @@ const Navigation = () =>{
 
     return (
         <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-4/5 justify-center"}>
-            <div className="flex w-full py-0! px-5 rounded-sm justify-center">
+            <div className="flex w-full py-0! px-5 rounded-sm justify-between items-center">
                 {/* Logo */}
-                <div className="w-fit py-0!">
+                <Link href={"/"} className="w-fit py-0!">
                     <Image
                         width={64}
                         height={64} 
                         src="/logo.png" 
                         alt="JB logo" 
-                        className="size-12 sm:size-14 md:size-16"
+                        className="size-11 sm:size-12 md:size-14"
                     />
-                </div>
+                </Link>
 
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
@@ -108,6 +109,14 @@ const Navigation = () =>{
                                 <Folder />
                             </Link>
                         </li>
+                        <li>
+                            <Link 
+                                href='/#contacts' 
+                                className={`button ${isActive('/#contacts') ? 'active' : ''}`}
+                            >
+                                <GrSend />
+                            </Link>
+                        </li>
                     </ul>
                     
                     {/* DESKTOP VIEW */}
@@ -150,6 +159,14 @@ const Navigation = () =>{
                                 className={`button ${isActive('/#projects') ? 'active' : ''}`}
                             >
                                 Projects
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                href='/#contacts' 
+                                className={`button ${isActive('/#contacts') ? 'active' : ''}`}
+                            >
+                                Contacts
                             </Link>
                         </li>
                     </ul>

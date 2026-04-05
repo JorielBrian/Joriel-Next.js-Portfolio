@@ -10,7 +10,8 @@ import {
   FiLinkedin,
   FiInstagram 
 } from "react-icons/fi";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiVite } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiShadcnui  } from "react-icons/si";
+import { TbBrandFramerMotion } from "react-icons/tb";
 
 const Footer = () =>{
     const contactInfo = [
@@ -34,13 +35,20 @@ const Footer = () =>{
         { icon: <SiNextdotjs />, label: "Next.js" },
         { icon: <SiTypescript />, label: "TypeScript" },
         { icon: <SiTailwindcss />, label: "Tailwind CSS" },
-        { icon: <SiVercel />, label: "Vercel"},
-        { icon: <SiVite />, label: "Vite" }
+        { icon: <SiShadcnui />, label: "Shadcn UI" },
+        { icon: <TbBrandFramerMotion />, label: "Framer Motion" },
+        { icon: <SiVercel />, label: "Vercel"}
     ];
     
     return (
         
-        <motion.footer initial={{y:100, opacity:0}} whileInView={{y:0, opacity:1}} transition={{ease:"easeIn", duration:1}}  className="m-auto py-20">
+        <motion.footer 
+            id="contacts" 
+            initial={{y:100, opacity:0}} 
+            whileInView={{y:0, opacity:1}} 
+            transition={{ease:"easeIn", duration:1}}  
+            className="m-auto py-20 h-screen w-full"
+        >
             <div className="flex flex-wrap justify-evenly p-5">
                 {/* Contact Section */}
                 <section className="text-center">
