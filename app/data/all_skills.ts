@@ -30,8 +30,8 @@ export const SKILLS: Skill[] = [
     {skill:"WordPress", image: "/Skills/wordpress.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.CLI},
 
     // UI Libraries
-    {skill:"Shadcn/UI", focus: true, image: "/Skills/shadcn.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.TOOLS},
-    {skill:"Flux UI", image: "/Skills/flux.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS},
+    {skill:"Shadcn/UI", focus: true, image: "/Skills/shadcn.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.TOOLS},
+    {skill:"Flux UI", image: "/Skills/flux.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.TOOLS},
     {skill:"Material UI", image: "/Skills/mui.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.TOOLS}, 
 
     // Backend 
@@ -41,13 +41,14 @@ export const SKILLS: Skill[] = [
 
     // Databases
     {skill:"PostgreSQL", image: "/Skills/postgresql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
+    {skill:"Neon", focus:true, image: "/Skills/neon.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.DATABASE},
     {skill:"MySQL", image: "/Skills/mysql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.DATABASE},
     {skill:"SQLite", image: "/Skills/sqlite.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.DATABASE},
     {skill:"Firebase", image: "/Skills/firebase.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.DATABASE},
 
     // ORMs
     {skill:"Prisma", image: "/Skills/prisma.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
-    {skill:"Drizzle", image: "/Skills/drizzle.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
+    {skill:"Drizzle", focus:true, image: "/Skills/drizzle.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.ORM},
     {skill:"Eloquent", image: "/Skills/eloquent.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.ORM},
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
 
