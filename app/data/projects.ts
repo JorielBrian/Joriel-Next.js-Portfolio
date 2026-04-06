@@ -8,6 +8,7 @@ export const PROJECTS: Project = [
         description:"Developed and launched the official business website for Digital Blast using WordPress, hosted on Hostinger. Implemented a clean, responsive layout aligned with the brand, optimized site performance, and configured essential plugins to support production deployment.",
         skills:[
             'WordPress',
+            'Elementor',
             'Hostinger',
             'PHP',
             'HTML',
@@ -17,14 +18,24 @@ export const PROJECTS: Project = [
     {
         name: "Hills of Glory - Web Application",
         image:"/Projects/hog_site.png",
-        description:"As the project leader, I guided our group in building a website for Hills of Glory Church in Mabalacat City, Pampanga. I quickly learned Laravel, Livewire, Flux UI, and Eloquent to contribute on both frontend and backend. I also provided documents and tutorials to help my teammates understand the stack and work more effectively. Throughout the project, I helped organize our tasks and made sure we built a website that truly fit the church’s needs.",
+        link:"https://hillsofglory-mabalacat.vercel.app/",
+        description:"Redeveloping a management system from a Laravel prototype to a modern full-stack architecture using Next.js, TypeScript, and PostgreSQL. Building admin dashboards, workflows, and scalable database structures. Implementing authentication and backend logic with Auth.js and Drizzle ORM. Deploying and managing the application on Vercel with PostgreSQL (Neon), while collaborating with church leaders to refine system requirements",
         skills:[
+            // Next.js
+            'Next.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'Shadcn UI',
+            'Auth.js',
+            'Drizzle ORM',
+            'Neon',
+            // Laravel
             'Laravel',
             'Eloquent',
             'Livewire',
             'Flux UI',
-            'Tailwind CSS',
             'PHP',
+            // Editting
             'Canva'
         ],
     },
@@ -59,7 +70,7 @@ export const PROJECTS: Project = [
     {
         name: "LighString Vintage Guitar Shop",
         image:"/Projects/lightstring.png",
-        // link:"https://www.facebook.com/profile.php?id=61575701668511",
+        link:"https://www.facebook.com/profile.php?id=61575701668511",
         description:"I create and edit posters, images, videos, and slides to enhance branding and engagement for Lightstring Vintage Guitars Shop.",
         skills:[
             'Canva',
