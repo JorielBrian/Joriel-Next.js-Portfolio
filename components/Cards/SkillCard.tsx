@@ -25,7 +25,15 @@ function SkillCard({ preference }: SkillCardProps) {
         
     return (
         <div className="flex flex-wrap relative justify-center my-5 items-center">
-            <motion.h2 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="absolute content-center text-white/30 w-full h-full text-center font-bold ">{preference}</motion.h2>
+            <motion.h2 
+                initial={{opacity:0}} 
+                whileInView={{opacity:1}} 
+                transition={{ease:"easeIn", duration:0.5}}  
+                className="absolute content-center text-5xl md:text-7xl lg:text-9xl text-white/30 w-full h-full text-center font-bold "
+            >
+                {preference}
+            </motion.h2>
+
             { SKILLS && SKILLS.filter(skill => skill.preference === preference).map(skill => (
                 <span key={skill.skill}>
                     <motion.div animate={{y:[10, -10]}} transition={{ease:"linear", duration:2, repeat: Infinity, repeatType:"reverse"}}  className="relative p-3 justify-center">
@@ -35,6 +43,7 @@ function SkillCard({ preference }: SkillCardProps) {
                     </motion.div>
                 </span>
             ))}
+
         </div>
     )
 }
