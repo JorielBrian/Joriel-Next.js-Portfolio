@@ -13,7 +13,7 @@ function AboutMe() {
       <AboutCard title="My Story" image="/graduation_pic.jpg" altImage="Graduation Picture" texts={ STORY } position="right"/>
 
       {/* Goal */}
-      <AboutCard title="My Goal" texts={ GOALS } position="left"/>
+      <AboutCard title="My Goal" image="/formal.jpg" altImage="Formal Picture" texts={ GOALS } position="left"/>
 
       {/* Outside Work */}
       <AboutCard title="Outside Work" image="/Guitar Playing.jpg" altImage="Hills of Glory Lead Guitar" texts={ OUTSIDE_WORK } position="right"/>
