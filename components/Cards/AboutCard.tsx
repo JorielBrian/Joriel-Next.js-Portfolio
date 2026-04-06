@@ -24,7 +24,11 @@ const AboutCard = ({title, header, image, altImage, texts, position}: AboutCardP
             transition={{ease:"easeIn", duration:0.5}}
             className={ `${sectionPositionClass} card flex flex-wrap sm:block justify-center` }
         >   
-            {title && <h3 className="text-3xl text-center font-bold mb-6">{ title }</h3>}
+            {title && (
+                <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-md uppercase tracking-[0.3em] text-cyan-300">
+                    {title}
+                </span>
+            )}
             { image && 
                 <motion.img 
                     initial={{x:100, opacity:0}} 
