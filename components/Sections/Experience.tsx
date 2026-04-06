@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from "framer-motion";
 import { QUALIFICATIONS } from "@/app/data/qualifications";
 import Link from "next/link";
 
@@ -12,25 +15,42 @@ import { Calendar, Building, Briefcase } from "lucide-react";
 
 const Experience = () => {
   return (
-    <section 
+    <motion.section 
         id="experience"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
         className="py-16"
     >
-        <h1 className="text-4xl font-bold text-center mb-12">
+        <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="text-4xl font-bold text-center mb-12"
+        >
             Professional Experience
-        </h1>
+        </motion.h1>
         <div className="max-w-7xl mx-auto px-4">
             <Carousel className="w-full">
                 <CarouselContent className="-ml-2 md:-ml-4">
                     { QUALIFICATIONS && QUALIFICATIONS.map((experience, index) => (
                         <CarouselItem 
                             key={index}
-                            className="pl-2 md:pl-4 lg:basis-1/1 xl:basis-1/2"
+                            className="pl-2 md:pl-4 lg:basis-1/2"
                         >
-                            <article className="bg-linear-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-full border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20">
-                                <div className="grid lg:grid-cols-2 mb-4 xl:grid-cols-1 2xl:grid-cols-3 items-start justify-between">
+                            <motion.article
+                                initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                viewport={{ once: true, amount: 0.25 }}
+                                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
+                                whileHover={{ y: -4 }}
+                                className="bg-linear-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-full border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20"
+                            >
+                                <div className="grid mb-4 xl:grid-cols-1 2xl:grid-cols-3 items-start justify-between">
                                     <span className="flex-1 2xl:col-span-2">
-                                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{experience.title}</h3>
+                                        <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold text-white mb-1">{experience.title}</h3>
                                         <span className="flex items-center text-cyan-300 mb-2">
                                             <Building className="w-4 h-4 mr-2" />
                                             <span className="text-lg">{experience.company}</span>
@@ -67,7 +87,7 @@ const Experience = () => {
                                         </span>
                                     ))}
                                 </div>
-                            </article>
+                            </motion.article>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
@@ -80,7 +100,7 @@ const Experience = () => {
                 Explore all experiences
             </Link>
         </div>
-    </section>
+    </motion.section>
   );
 }
 
