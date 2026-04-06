@@ -57,11 +57,11 @@ const Experience = () => {
                                         </span>
                                     </span>
                                     <span className="text-right">
-                                        <span className="flex items-center text-gray-400 text-sm mb-1">
-                                            <Calendar className="w-4 h-4 mr-1" />
+                                        <span className="flex items-center text-gray-400 text-sm 2xl:text-md mb-1">
+                                            <Calendar className="w-5 h-5 mr-1" />
                                             {experience.date}
                                         </span>
-                                        <span className="flex items-center text-gray-400 text-sm">
+                                        <span className="flex items-center text-gray-400 2xl:text-md">
                                             <Briefcase className="w-4 h-4 mr-1" />
                                             {experience.contract}
                                         </span>
@@ -70,7 +70,7 @@ const Experience = () => {
                                 
                                 <ul className="text-gray-300 mb-4 space-y-1">
                                     {experience.description.slice(0, 3).map((desc, i) => (
-                                        <li key={i} className="text-sm leading-relaxed flex items-start">
+                                        <li key={i} className="text-sm xl:text-md 2xl:text-lg leading-relaxed flex items-start">
                                             <span className="text-cyan-400 mr-2 mt-1">•</span>
                                             {desc}
                                         </li>
