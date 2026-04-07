@@ -28,7 +28,7 @@ const Navigation = () =>{
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.5
+            threshold: 0.3
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -37,7 +37,7 @@ const Navigation = () =>{
                 }
             });
         }, observerOptions);
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], footer[id]');
         sections.forEach(section => observer.observe(section));
         return () => observer.disconnect();
     }, []);
