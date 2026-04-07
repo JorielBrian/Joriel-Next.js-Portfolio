@@ -35,9 +35,9 @@ const Summary = () =>{
                             initial={{scale: 0.8, opacity:0}} 
                             whileInView={{scale: 1, opacity:1}} 
                             transition={{ease:"easeOut", duration:0.8}}
-                            className="shrink-0 w-full m-4 lg:w-fit lg:float-left"
+                            className="shrink-0 m-4 lg:w-fit lg:float-left"
                         >
-                            <div className="relative mx-auto lg:mx-0 w-80 h-80 lg:w-90 lg:h-90 2xl:w-94 2xl:h-94">
+                            <div className="relative place-self-center lg:mx-0 w-60 h-60 lg:w-70 lg:h-70 xl:w-90 xl:h-90 2xl:w-94 2xl:h-94">
                                 {/* Decorative gradient circle */}
                                 <div className="absolute inset-0 bg-linear-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-2xl"></div>
                                 <Image
@@ -65,7 +65,7 @@ const Summary = () =>{
                                 variants={itemVariants}
                                 className="text-lg text-gray-200 font-semibold mb-6 leading-relaxed"
                             >
-                                Full-Stack Web Developer | System Architect | Tech Enthusiast
+                                Full-Stack Developer | System Engineer | Tech Enthusiast
                             </motion.p>
         
                             <motion.div variants={itemVariants}>

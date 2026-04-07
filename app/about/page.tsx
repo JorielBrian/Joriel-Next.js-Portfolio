@@ -7,7 +7,7 @@ function AboutMe() {
   return (
     <main className="flex flex-col w-4/5 min-h-screen">
       {/* Introduction */}
-      <AboutCard header="Hi, I'm Joriel" image="/Profile Picture.png" altImage="My Image" texts={ ABOUT } position="left"/>
+      <AboutCard header="Hi, I'm Joriel Brian" image="/Profile Picture.png" altImage="My Image" texts={ ABOUT } position="left"/>
       
       {/* My Story */}
       <AboutCard title="My Story" image="/graduation_pic.jpg" altImage="Graduation Picture" texts={ STORY } position="right"/>

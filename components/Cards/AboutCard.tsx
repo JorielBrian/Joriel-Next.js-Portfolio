@@ -1,6 +1,7 @@
 'use client';
 // import { ABOUT } from "../../data/index";
 import { motion } from "framer-motion";
+import { div } from "motion/react-client";
 import Image from "next/image";
 
 interface AboutCardProps {
@@ -26,7 +27,7 @@ const AboutCard = ({title, header, image, altImage, texts, position}: AboutCardP
             className={ `${sectionPositionClass} card flex flex-wrap sm:block justify-center` }
         >   
             {title && (
-                <span className="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-md uppercase tracking-[0.3em] text-cyan-300">
+                <span className="inline-flex mb-4 rounded-full border border-cyan-400/20 bg-cyan-500/10 px-4 py-2 text-md uppercase tracking-[0.3em] text-cyan-300">
                     {title}
                 </span>
             )}
@@ -48,9 +49,14 @@ const AboutCard = ({title, header, image, altImage, texts, position}: AboutCardP
             }
             
             <div className="text-white font-sans space-y-2">
-                {header && <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center lg:text-left font-bold">{ header }</motion.h1>}
-                { texts && texts.map(text => (
-                    <motion.p key={text} initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>{text}</motion.p>
+                {header && <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="text-4xl text-center lg:text-left font-bold mb-4">{ header }</motion.h1>}
+                { texts && texts.map((text, index) => (
+                    <div key={index} className="space-y-4" >
+                        <motion.p initial={{x:100, opacity:0}} whileInView={{x:0, opacity:1}} transition={{ease:"easeIn", duration:0.5}}>{text}</motion.p>
+                        {index < text.length - 1 && (
+                            <div className="h-px bg-linear-to-r from-blue-500/30 via-purple-500/30 to-transparent my-5"></div>
+                        )}
+                    </div>
                 )) }
             </div>
         </motion.section>
