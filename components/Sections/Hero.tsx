@@ -1,9 +1,9 @@
 'use client';
 import { motion } from "framer-motion"
-import { INTRODUCTION } from "../../app/data/index";
+import { INTRODUCTION } from "@/app/data/index";
 import { Typewriter} from "react-simple-typewriter";
-import { SKILLS } from "../../app/data/all_skills";
-import Image from "next/image";
+
+import FocusSkills from "../FocusSkills";
 
 function Hero() {
   return (
@@ -27,19 +27,14 @@ function Hero() {
                     cursor cursorStyle = {'|'} cursorBlinking = {true} cursorColor="white"
                 />
             </h3>
-            { SKILLS && SKILLS.filter(skill => skill.focus === true).map(skill => (
-                <Image 
-                    width={50}
-                    height={50} 
-                    key={skill.skill} 
-                    src={skill.image} 
-                    alt={skill.skill} 
-                    title={skill.skill} 
-                    className="inline size-7 sm:size-10 md:size-12 lg:size-12 xl:size-14 2xl:size-16 m-1 rounded-md hover:animate-pulse"
-                />
-            )) }
+            <FocusSkills />
         </motion.div>
-        <motion.div initial={{y:-100, opacity:0}} whileInView={{y:0, opacity:1}} transition={{ease:"easeIn", duration:1.5}} className="py-4 mt-10">
+        <motion.div
+            initial={{y:-100, opacity:0}}
+            whileInView={{y:0, opacity:1}}
+            transition={{ease:"easeIn", duration:1.5}}
+            className="py-4 mt-10"
+        >
                 <div className="text-center space-y-2">
                     { INTRODUCTION && INTRODUCTION.map(intro => (
                         <p key={intro} className="font-sans">{ intro }</p>

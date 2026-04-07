@@ -11,6 +11,7 @@ import {
   FiInstagram,
   FiArrowRight
 } from "react-icons/fi";
+
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiShadcnui  } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 
