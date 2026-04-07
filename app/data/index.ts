@@ -3,12 +3,12 @@ export const INTRODUCTION: string[] = [
     "I'm constantly expanding my skills to become a master in Full-Stack Developement."
 ];
 
-export const PROFESSIONAL_SUMMARY: string[] = [
-    "Junior to Mid-Level Full Stack Developer with hands-on experience building and supporting web applications using Next.js, Laravel, TypeScript, Tailwind CSS, Prisma, and PostgreSQL.", 
-    "Has contributed to production environments and completed project-based development using modern frontend and backend technologies.",
-    "Demonstrates practical experience with modern web development practices, relational databases, and API-based applications.", 
-    "Seeking a long-term role within a team that values stability, mentorship, and sustainable growth."
-];
+// export const PROFESSIONAL_SUMMARY: string[] = [
+//     "Junior to Mid-Level Full Stack Developer with hands-on experience building and supporting web applications using Next.js, Laravel, TypeScript, Tailwind CSS, Prisma, and PostgreSQL.", 
+//     "Has contributed to production environments and completed project-based development using modern frontend and backend technologies.",
+//     "Demonstrates practical experience with modern web development practices, relational databases, and API-based applications.", 
+//     "Seeking a long-term role within a team that values stability, mentorship, and sustainable growth."
+// ];
 
 export const ABOUT: string[] = [
     "I am a software developer with hands-on experience building web and application systems using Next.js, Laravel, TypeScript, and PostgreSQL. I have contributed to production environments and independently developed real-world applications, including an actively used Laravel-based management system for a local church. My work reflects a strong foundation in software development fundamentals, database design, and API-driven architecture.",

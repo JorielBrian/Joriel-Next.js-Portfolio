@@ -3,12 +3,14 @@ import Skills from "@/components/Sections/Skills";
 import Summary from "@/components/Sections/Summary";
 import Experience from "@/components/Sections/Experience";
 import Projects from "@/components/Sections/Projects";
+import About from "@/components/Sections/About";
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <Summary />
+      {/* <About /> */}
       <Skills />
       <Experience />
       <Projects />

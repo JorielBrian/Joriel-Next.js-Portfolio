@@ -1,6 +1,7 @@
 'use client';
 // import { ABOUT } from "../../data/index";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface AboutCardProps {
     title?: string,
@@ -30,14 +31,20 @@ const AboutCard = ({title, header, image, altImage, texts, position}: AboutCardP
                 </span>
             )}
             { image && 
-                <motion.img 
+                <motion.div
                     initial={{x:100, opacity:0}} 
                     whileInView={{x:0, opacity:1}} 
                     transition={{ease:"easeIn", duration:1.5}}
-                    src={ image }
-                    alt={ altImage } 
-                    className={ `${imageClasses} sm:float-left w-fit size-50 lg:size-70 2xl:size-80 m-4 my-5 rounded-full` }>
-                </motion.img>
+                    className={ `${imageClasses} sm:float-left w-fit size-50 lg:size-70 2xl:size-80 m-4 my-5 rounded-full` }
+                >
+                    <Image
+                        width={360}
+                        height={360}
+                        src={ image }
+                        alt={ altImage || "About image" }
+                        className="relative w-full h-full rounded-full object-cover border-4 border-blue-500/50 shadow-2xl"
+                    />
+                </motion.div>
             }
             
             <div className="text-white font-sans space-y-2">
