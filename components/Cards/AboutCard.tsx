@@ -1,7 +1,6 @@
 'use client';
 // import { ABOUT } from "../../data/index";
 import { motion } from "framer-motion";
-import { div } from "motion/react-client";
 import Image from "next/image";
 
 interface AboutCardProps {
