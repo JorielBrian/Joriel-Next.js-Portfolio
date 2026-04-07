@@ -58,7 +58,9 @@ const Summary = () =>{
                             viewport={{ once: true, margin: "-100px" }}
                         >
                             <motion.div variants={itemVariants}>
-                                <h1 className="text-5xl lg:text-6xl font-bold mb-2">{"Hi, I'm Joriel Brian"}</h1>
+                                <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold mb-2">
+                                    {"Hi, I'm Joriel Brian"}
+                                </h1>
                             </motion.div>
         
                             <motion.p 
