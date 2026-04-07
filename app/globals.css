@@ -141,8 +141,8 @@ p {
         2xl:size-26;
 }
 
-.hero-icons {
-  @apply size-8 sm:size-10 text-cyan-300;
+.hero-icon {
+  @apply size-10 md:size-12 xl:size-15 2xl:size-18 text-cyan-300;
 }
 
 .card {

@@ -18,16 +18,16 @@ import { FaReact } from "react-icons/fa";
 
 const FocusSkills = () => {
     const techStack = [
-        { icon: <SiNextdotjs className="hero-icons" />, label: "Next.js" },
-        { icon: <FaReact className="hero-icons" />, label: "React" },
-        { icon: <SiLaravel className="hero-icons" />, label: "Laravel"},
-        { icon: <SiTypescript className="hero-icons" />, label: "TypeScript" },
-        { icon: <SiTailwindcss className="hero-icons" />, label: "Tailwind CSS" },
-        { icon: <SiShadcnui className="hero-icons" />, label: "Shadcn/UI" },
-        { icon: <TbBrandFramerMotion className="hero-icons" />, label: "Framer Motion" },
-        { icon: <SiVercel className="hero-icons" />, label: "Vercel"},
-        { icon: <SiPostgresql className="hero-icons" />, label: "PostgreSQL" },
-        { icon: <SiDrizzle className="hero-icons" />, label: "Drizzle" }
+        { icon: <SiNextdotjs className="hero-icon icons" />, label: "Next.js" },
+        { icon: <FaReact className="hero-icon icons" />, label: "React" },
+        { icon: <SiLaravel className="hero-icon icons" />, label: "Laravel"},
+        { icon: <SiTypescript className="hero-icon icons" />, label: "TypeScript" },
+        { icon: <SiTailwindcss className="hero-icon icons" />, label: "Tailwind CSS" },
+        { icon: <SiShadcnui className="hero-icon icons" />, label: "Shadcn/UI" },
+        { icon: <TbBrandFramerMotion className="hero-icon icons" />, label: "Framer Motion" },
+        { icon: <SiVercel className="hero-icon icons" />, label: "Vercel"},
+        { icon: <SiPostgresql className="hero-icon icons" />, label: "PostgreSQL" },
+        { icon: <SiDrizzle className="hero-icon icons" />, label: "Drizzle" }
     ];
 
     return (
@@ -40,7 +40,7 @@ const FocusSkills = () => {
                         key={skill.skill}
                         whileHover={{ y: -4, scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                        className="group flex w-fit flex-col items-center gap-2 rounded-3xl border border-white/10 bg-slate-950/80 p-3 text-center shadow-[0_20px_45px_-26px_rgba(14,165,233,0.7)] transition-all duration-300 hover:border-cyan-400/40 hover:bg-slate-900/95"
+                        className="group flex w-fit flex-col items-center gap-2 rounded-3xl border border-white/10 text-center shadow-[0_20px_45px_-26px_rgba(14,165,233,0.7)] transition-all duration-300 hover:border-cyan-400/40"
                         title={skill.skill}
                         aria-label={skill.skill}
                     >
