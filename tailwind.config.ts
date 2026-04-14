@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+  ],
 };
 
 export default config;
