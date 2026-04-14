@@ -53,8 +53,9 @@ export const PROJECTS: Project = [
         ]
     },
     {
-        name: "Library",
+        name: "JB Library",
         image:"/Projects/library_project.png",
+        link:"https://jb-library.vercel.app/",
         description:"Successfully completed a technical assessment for Citrof Group, quickly learning Next.js, Prisma, and PostgreSQL in just three days, demonstrating adaptability, problem-solving, and a strong ability to learn new technologies under tight deadlines.",
         skills:[
             'Next.js',
