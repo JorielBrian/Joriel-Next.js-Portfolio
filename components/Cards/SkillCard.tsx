@@ -39,7 +39,7 @@ function SkillCard({ preference }: SkillCardProps) {
                     <motion.div
                         animate={{y:[10, -10]}}
                         transition={{ease:"linear", duration:2, repeat: Infinity, repeatType:"reverse"}}
-                        className="relative p-3 justify-center"
+                        className="relative p-3 justify-center overflow-hidden"
                     >
                         <motion.img
                             initial={{opacity:0}}

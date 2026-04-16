@@ -9,7 +9,7 @@ function SkillsUsed({skills}: {skills:string[]}) {
           SKILLS.find(s => s.skill === skill)
             ? <span
                 key={skill}
-                className="icons p-4! size-10! md:size-12! 2xl:size-14! relative"
+                className="icons p-5! size-10! md:size-12! 2xl:size-14! relative overflow-hidden"
               >
                 <Image
                   title={skill}
