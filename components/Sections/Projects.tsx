@@ -101,7 +101,10 @@ const Projects = () => {
             </Carousel>
 
             <div className="mt-8 text-center">
-                <Link href="/projects" className="inline-flex items-center justify-center rounded-full bg-slate-200 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-300">
+                <Link 
+                    href="/projects"
+                    className="button active inline-flex items-center justify-center rounded-full bg-slate-200 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-300 place-self-center"
+                >
                     Explore all projects
                 </Link>
             </div>
