@@ -37,11 +37,11 @@ export default function RootLayout({
       >
         <BackgroundDecoration />
         <Events />
-        <Header />
         <Initializing>
+          <Header />
           {children}
+          <Footer />
         </Initializing>
-        <Footer />
       </body>
     </html>
   );
