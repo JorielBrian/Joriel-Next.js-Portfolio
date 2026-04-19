@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { SKILLS } from "../../app/data/all_skills"
-import { Preference, Proficiency } from "../../app/data/enum";
+import { SKILLS } from "@/app/(root)/data/all_skills"
+import { Preference, Proficiency } from "../../app/(root)/data/enum";
 
 interface SkillCardProps {
   preference: Preference;

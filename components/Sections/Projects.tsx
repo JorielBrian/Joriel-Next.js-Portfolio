@@ -1,6 +1,6 @@
 'use client';
 import { motion } from "framer-motion";
-import { PROJECTS } from "@/app/data/projects";
+import { PROJECTS } from "@/app/(root)/data/projects";
 import {
   Carousel,
   CarouselContent,

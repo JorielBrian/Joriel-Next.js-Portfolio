@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 // import { PROFESSIONAL_SUMMARY } from "../../app/data/index";
-import { ABOUT } from "../../app/data/index";
+import { ABOUT } from "@/app/(root)/data/index";
 import { motion } from "framer-motion";
 import Image from "next/image";
 

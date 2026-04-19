@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Sections/Header";
-import Footer from "@/components/Sections/Footer";
+// import Header from "@/components/Sections/Header";
+// import Footer from "@/components/Sections/Footer";
 import Events from "@/components/Events";
 import BackgroundDecoration from "@/components/Background";
-import Initializing from "./initializing";
+// import Initializing from "./initializing";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,11 +37,11 @@ export default function RootLayout({
       >
         <BackgroundDecoration />
         <Events />
-        <Initializing>
-          <Header />
+        {/* <Initializing>
+          <Header /> */}
           {children}
-          <Footer />
-        </Initializing>
+          {/* <Footer />
+        </Initializing> */}
       </body>
     </html>
   );
