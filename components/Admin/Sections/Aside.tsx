@@ -10,7 +10,7 @@ const Aside = () => {
     const pathname = usePathname();
     const links = [
         { name: "Home", href: "/jb-admin" },
-        { name: "Experience", href: "/jb-admin/" },
+        { name: "Experiences", href: "/jb-admin/experiences" },
         { name: "Skills", href: "/jb-admin/skills" },
     ];
 
