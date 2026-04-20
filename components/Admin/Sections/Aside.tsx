@@ -1,22 +1,22 @@
 'use client';
 import { Button } from "@/components/ui/button";
-import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter } from "@/components/ui/sidebar";
 
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Link } from "lucide-react";
 
 const Aside = () => {
     const pathname = usePathname();
     const links = [
         { name: "Home", href: "/jb-admin" },
-        { name: "Summary", href: "/jb-admin/summary" },
+        { name: "Experience", href: "/jb-admin/" },
         { name: "Skills", href: "/jb-admin/skills" },
-        { name: "CV", href: "/jb-admin/cv" },
     ];
 
     return (
-        <Sidebar className="p-4 w-64 h-screen text-white bg-blue-950/80 shadow-md ">
-            <SidebarContent className="bg-blue-950">
+        <Sidebar className="p-4 w-fit h-screen text-white bg-blue-950/80 shadow-md ">
+            <SidebarContent className="p-15 bg-blue-950">
                 {links.map((link) => (
                     <Button
                         key={link.href}
@@ -32,6 +32,11 @@ const Aside = () => {
                     </Button>
                 ))}
             </SidebarContent>
+            <SidebarFooter className="bg-blue-950">
+                <Link href="/" className="button active">
+                    Back to Portfolio
+                </Link>
+            </SidebarFooter>
         </Sidebar>
     )
 }
