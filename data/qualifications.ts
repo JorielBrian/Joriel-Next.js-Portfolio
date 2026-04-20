@@ -2,6 +2,7 @@ import { Qualification } from './types'
 
 export const QUALIFICATIONS: Qualification[] = [
     {
+        id: 1,
         title:"Systems Engineer II",
         company:"La Rose Noire Philippines",
         date:"August 2025 – October 2025",
@@ -27,6 +28,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 2,
         title:"Junior Developer",
         company:"Citrof Group Inc.",
         date:"August 2023 – November 2023",
@@ -54,6 +56,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 3,
         title:"Systems Analyst",
         company:"STRIDE Consulting Inc.",
         date:"October 2020 – July 2023",
@@ -91,6 +94,7 @@ export const QUALIFICATIONS: Qualification[] = [
 
 // export const QUALIFICATIONS_PROJECTS = [
     {
+        id: 4,
         title:"Software Developer",
         company:"Hills of Glory - Mabalacat",
         date:"May 2025 – Present",
@@ -121,6 +125,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 5,
         title:"Web Developer",
         company:"Digital Blast",
         date:"December 2025 – February 2026",
@@ -140,6 +145,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 6,
         title:"Information Technology Officer I",
         company:"City Government of Puerto Princesa",
         date:"November 2022 – December 2022",
@@ -159,6 +165,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 7,
         title:"Data Analyst",
         company:"STRIDE Consulting, Inc. / Manila Water Co. Inc. (Rodriguez, Rizal)",
         date:"November 2021 – March 2022",
@@ -181,6 +188,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 8,
         title:"Computer Programmer II",
         company:"University of the Philippines, Diliman (NCPAG)",
         date:"June 2021 – January 2022",
@@ -202,6 +210,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 9,
         title:"Data Analyst",
         company:"STRIDE Consulting, Inc. / Manila Water Co. Inc. (Mandaluyong West)",
         date:"April 2021 – December 2021",
@@ -227,6 +236,7 @@ export const QUALIFICATIONS: Qualification[] = [
     // Internships
 
     {
+        id: 10,
         title:"Network Administration Intern",
         company:"STRIDE Consulting Inc.",
         date:"November 2019 – March 2020",
@@ -247,6 +257,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 11,
         title:"Computer Troubleshooting Intern",
         company:"STRIDE Consulting Inc.",
         date:"April 2017 – May 2017",
@@ -267,6 +278,7 @@ export const QUALIFICATIONS: Qualification[] = [
         ]
     },
     {
+        id: 12,
         title:"IT Office Intern",
         company:"STRIDE Consulting Inc.",
         date:"April 2016 – May 2016",

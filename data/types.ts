@@ -15,6 +15,7 @@ export interface Skills {
 }
 
 export interface Qualification {
+    id: number,
     title: string,
     company: string,
     date: string,
