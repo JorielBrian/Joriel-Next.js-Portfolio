@@ -4,7 +4,7 @@ import { Sidebar, SidebarContent, SidebarFooter } from "@/components/ui/sidebar"
 
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 const Aside = () => {
     const pathname = usePathname();
@@ -34,7 +34,7 @@ const Aside = () => {
             </SidebarContent>
             <SidebarFooter className="bg-blue-950">
                 <Link href="/" className="button active">
-                    Back to Portfolio
+                    Logout
                 </Link>
             </SidebarFooter>
         </Sidebar>
