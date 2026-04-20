@@ -1,33 +1,39 @@
+"use client";
 import SkillsUsed from "@/components/SkillsUsed";
 import { motion } from "framer-motion";
 import { Qualification } from "@/data/types";
 import { Calendar, Building, Briefcase } from "lucide-react";
+import { Button } from "../ui/button";
 
 interface ExperienceCardProps {
-    title: string,
-    contract: 'Full Time' | 'Contractual / Project' | 'Internship',
+    title?: string,
+    contract?: 'Full Time' | 'Contractual / Project' | 'Internship',
     experiences: Qualification[]
+    admin?: boolean
 }
 
-function ExperienceCard({title, contract, experiences}: ExperienceCardProps) {
+function ExperienceCard({title, contract, experiences, admin = false}: ExperienceCardProps) {
   const filtered = experiences.filter(exp => exp.contract === contract);
+  const experiencesToDisplay: Qualification[] = contract ? filtered : experiences;
   
   return (
     <section className="w-full">
         <div className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white inline-flex items-center gap-3">
-                <span className="h-1 w-12 bg-linear-to-r from-cyan-400 to-cyan-600"></span>
-                {title}
-            </h2>
-            <p className="mt-2 text-slate-400 text-sm">{filtered.length} experience{filtered.length !== 1 ? 's' : ''}</p>
+            {title && (
+                <h2 className="text-2xl sm:text-3xl font-bold text-white inline-flex items-center gap-3">
+                    <span className="h-1 w-12 bg-linear-to-r from-cyan-400 to-cyan-600"></span>
+                    {title}
+                </h2>
+            )}
+            <p className="mt-2 text-slate-400 text-sm">{experiencesToDisplay.length} experience{experiencesToDisplay.length !== 1 ? 's' : ''}</p>
         </div>
         
         {/* Timeline Container */}
         <article className="space-y-12">
-            {filtered.map((experience, index) => {
+            {experiencesToDisplay.map((experience, index) => {
                 return (
                     <motion.article 
-                        key={experience.title + experience.company}
+                        key={experience.id}
                         initial={{opacity:0, y:20}} 
                         whileInView={{opacity:1, y:0}} 
                         transition={{ease:"easeOut", duration:0.6, delay: index * 0.1}}
@@ -74,6 +80,12 @@ function ExperienceCard({title, contract, experiences}: ExperienceCardProps) {
                         <div className="pt-6 border-t border-cyan-600">
                             <SkillsUsed skills={experience.skills} />
                         </div>
+                        {admin && (
+                            <div className="flex justify-end mt-6 gap-4">
+                                <Button variant="outline">Edit</Button>
+                                <Button variant="destructive">Delete</Button>
+                            </div>
+                        )}
                     </motion.article>    
                 );
             })}
