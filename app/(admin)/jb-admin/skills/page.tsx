@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 const Skills = () => {
@@ -20,29 +21,37 @@ const Skills = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Skills</h1>
+    <section>
+        <h1 className="text-xl font-bold mb-4">Skills</h1>
 
-      <div className="flex gap-2">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="border p-2 flex-1"
-          placeholder="Add skill"
-        />
-        <button onClick={addSkill} className="px-4 bg-black text-white">Add</button>
-      </div>
+        <div className="flex gap-2">
+            <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="border p-2 flex-1"
+            placeholder="Add skill"
+            />
+            <Button 
+                onClick={addSkill} 
+                className="button active"
+            >
+                Add
+            </Button>
+        </div>
 
-      <ul className="mt-4">
-        {skills.map((skill, i) => (
-          <li key={i}>{skill}</li>
-        ))}
-      </ul>
+        <ul className="mt-4">
+            {skills.map((skill, i) => (
+            <li key={i}>{skill}</li>
+            ))}
+        </ul>
 
-      <button onClick={saveSkills} className="mt-4 px-4 py-2 bg-black text-white rounded">
-        Save
-      </button>
-    </div>
+        <Button 
+            onClick={saveSkills} 
+            className="button active"
+        >
+            Save
+        </Button>
+    </section>
   );
 }
 
