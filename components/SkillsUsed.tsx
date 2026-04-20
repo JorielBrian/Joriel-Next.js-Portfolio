@@ -1,4 +1,4 @@
-import { SKILLS } from "@/app/(root)/data/all_skills"
+import { SKILLS } from "@/data/all_skills"
 import Image from "next/image";
 
 function SkillsUsed({skills}: {skills:string[]}) {

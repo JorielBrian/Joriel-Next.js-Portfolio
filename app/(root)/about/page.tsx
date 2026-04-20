@@ -1,7 +1,7 @@
 'use client';
 import Skills from "@/components/Sections/Skills"
 import AboutCard from "@/components/Cards/AboutCard";
-import { ABOUT, GOALS, OUTSIDE_WORK, STORY } from "@/app/(root)/data/index";
+import { ABOUT, GOALS, OUTSIDE_WORK, STORY } from "@/data/index";
 
 function AboutMe() {
   return (

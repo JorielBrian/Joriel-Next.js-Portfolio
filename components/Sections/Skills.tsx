@@ -2,7 +2,7 @@
 'use client';
 import SkillCard from "../Cards/SkillCard";
 import { motion } from "framer-motion";
-import { Preference } from "@/app/(root)/data/enum";
+import { Preference } from "@/data/enum";
 
 const Skills = () =>{
     return (

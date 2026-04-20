@@ -1,6 +1,6 @@
 import SkillsUsed from "@/components/SkillsUsed";
 import { motion } from "framer-motion";
-import { Qualification } from "@/app/(root)/data/types";
+import { Qualification } from "@/data/types";
 import { Calendar, Building, Briefcase } from "lucide-react";
 
 interface ExperienceCardProps {

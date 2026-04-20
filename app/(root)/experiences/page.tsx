@@ -1,5 +1,5 @@
 'use client'
-import { QUALIFICATIONS } from "../data/qualifications";
+import { QUALIFICATIONS } from "@/data/qualifications";
 import ExperienceCard from "@/components/Cards/ExperienceCard";
 import { useEffect } from "react";
 

@@ -1,5 +1,5 @@
 'use client'
-import { PROJECTS } from "../data/projects"
+import { PROJECTS } from "@/data/projects"
 import ProjectCard from "@/components/Cards/ProjectCard";
 import { useEffect } from "react";
 

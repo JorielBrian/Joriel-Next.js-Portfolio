@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { SKILLS } from "@/app/(root)/data/all_skills";
+import { SKILLS } from "@/data/all_skills";
 import Image from "next/image";
 
 // Icons

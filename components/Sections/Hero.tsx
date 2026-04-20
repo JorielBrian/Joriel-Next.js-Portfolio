@@ -1,6 +1,6 @@
 'use client';
 import { motion } from "framer-motion"
-import { INTRODUCTION } from "@/app/(root)/data/index";
+import { INTRODUCTION } from "@/data/index";
 import { Typewriter} from "react-simple-typewriter";
 
 import FocusSkills from "../FocusSkills";
