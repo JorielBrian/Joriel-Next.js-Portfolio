@@ -1,10 +1,12 @@
-import React from 'react'
+import Summary from "@/components/Admin/Sections/Summary";
+import CV from "@/components/Admin/Sections/CV";
 
 const Admin = () => {
+  
   return (
     <main>
-      <h1 className="text-2xl font-bold">Welcome Admin</h1>
-      <p className="mt-2 text-gray-600">Manage your portfolio content here.</p>
+      <Summary />
+      <CV />
     </main>
   )
 }
