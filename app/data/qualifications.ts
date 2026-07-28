@@ -2,6 +2,57 @@ import { Qualification } from './types'
 
 export const QUALIFICATIONS: Qualification[] = [
     {
+        title:"Junior Data Engineer ",
+        company:"SWAK BPO Corp.",
+        date:" July 2026 – Present",
+        contract:"Full Time",
+        description: [
+            "Optimized SQL queries and data models in PostgreSQL to improve reporting performance",
+            "Built data pipelines using Python and Databricks, applying Medallion Architecture principles",
+            "Translated business requirements into scalable data transformations for analytics and reporting",
+            "Collaborated with analysts and operations teams to improve data quality and reporting efficiency",
+            "Leveraged Docker, WSL2, and AI-assisted development tools to streamline data processing workflows"
+        ],
+        skills: [
+            'Python',
+            'Databricks',
+            'SQL',
+            'PostgreSQL',
+            'Docker',
+            'GIT',
+            'WSL2',
+            'Ubuntu',
+            'Medallion Architecture',
+            'Claude Code AI'
+        ]
+    },
+    {
+        title:"Junior Full-Stack Developer ",
+        company:"SWAK BPO Corp.",
+        date:" April 2026 – June 2026",
+        contract:"Full Time",
+        description: [
+            "Developed backend services and internal tools using Express.js, Drizzle ORM, and PostgreSQL",
+            "Built full-stack applications with Next.js and NestJS to improve internal workflows",
+            "Migrated selected internal applications to a Laravel + React stack, improving maintainability",
+            "Collaborated with stakeholders to deliver scalable technical solutions"
+        ],
+        skills: [
+            'Next.js',
+            'NestJS',
+            'TypeScript',
+            'Tailwind CSS',
+            'Laravel',
+            'React',
+            'Express.js',
+            'Drizzle ORM',
+            'PostgreSQL',
+            'Docker',
+            'GIT',
+            'Claude Code AI'
+        ]
+    },
+    {
         title:"Systems Engineer II",
         company:"La Rose Noire Philippines",
         date:"August 2025 – October 2025",
