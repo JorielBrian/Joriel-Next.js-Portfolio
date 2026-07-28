@@ -2,20 +2,6 @@ import { motion } from "framer-motion";
 import { SKILLS } from "@/app/data/all_skills";
 import Image from "next/image";
 
-// Icons
-// import {
-//     SiNextdotjs,
-//     SiLaravel,
-//     SiTypescript,
-//     SiTailwindcss,
-//     SiVercel,
-//     SiShadcnui,
-//     SiPostgresql,
-//     SiDrizzle
-// } from "react-icons/si";
-// import { TbBrandFramerMotion } from "react-icons/tb";
-// import { FaReact } from "react-icons/fa";
-
 const FocusSkills = () => {
 
     return (
