@@ -14,12 +14,12 @@ export const SKILLS: Skill[] = [
     // Languages
     {skill:"JavaScript", image: "/Skills/javascript.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
     {skill:"TypeScript", focus:true, image: "/Skills/typescript.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
-    {skill:"Python", focus:true, image: "/Skills/python.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.LANGUAGE},
+    {skill:"Python", focus:true, image: "/Skills/python.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.LANGUAGE},
     {skill:"R", image: "/Skills/r.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.LANGUAGE},
 
     // Frameworks
     {skill:"Next.js", focus: true, image: "/Skills/next.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
-    {skill:"Laravel", image: "/Skills/laravel.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
+    {skill:"Laravel", image: "/Skills/laravel.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.FRAMEWORK},
     {skill:"React", focus: true, image: "/Skills/react.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"Tailwind CSS", focus:true, image: "/Skills/tailwind.png", proficiency:Proficiency.PROFICIENT, preference:Preference.CORE_SKILL, category:Category.FRAMEWORK},
     {skill:"Bootstrap", image: "/Skills/bootstrap.png", proficiency:Proficiency.PROFICIENT, preference:Preference.OTHER, category:Category.FRAMEWORK},
