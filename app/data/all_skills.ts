@@ -49,7 +49,7 @@ export const SKILLS: Skill[] = [
 
     // ORMs
     {skill:"Prisma", image: "/Skills/prisma.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.SUB_SKILL, category:Category.ORM},
-    {skill:"Drizzle", focus:true, image: "/Skills/drizzle.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.ORM},
+    {skill:"Drizzle ORM", focus:true, image: "/Skills/drizzle.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.CORE_SKILL, category:Category.ORM},
     {skill:"Eloquent", image: "/Skills/eloquent.png", proficiency:Proficiency.FUNCTIONAL, preference:Preference.OTHER, category:Category.ORM},
     {skill:"GraphQL", image: "/Skills/graphql.png", proficiency:Proficiency.INTERMEDIATE, preference:Preference.OTHER, category:Category.ORM},
 
