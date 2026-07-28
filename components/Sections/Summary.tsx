@@ -67,7 +67,7 @@ const Summary = () =>{
                                 variants={itemVariants}
                                 className="text-lg text-gray-200 font-semibold mb-6 leading-relaxed"
                             >
-                                Full-Stack Developer | System Engineer | Tech Enthusiast
+                                Software Engineer | Full-Stack Developer | System Engineer | Tech Enthusiast
                             </motion.p>
         
                             <motion.div variants={itemVariants}>
