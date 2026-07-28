@@ -22,7 +22,7 @@ function Hero() {
             >
                 <Typewriter 
                     // words={['Web Developer', 'Full Stack Developer', 'System Engineer', 'Software Engineer', 'Computer Programmer', 'IT Specialist', 'Circuit Assembler', 'Information Technology']}
-                    words={['Full Stack Developer', 'Front-end Developer', 'Web Developer', 'System Engineer']}
+                    words={['Software Engineer', 'Full Stack Developer', 'Web Developer', 'System Engineer']}
                     loop = {true}
                     cursor cursorStyle = {'|'} cursorBlinking = {true} cursorColor="white"
                 />
