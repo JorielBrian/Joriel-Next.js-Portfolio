@@ -23,7 +23,7 @@ const FocusSkills = () => {
                             src={skill.image}
                             alt={skill.skill}
                             title={skill.skill}
-                            className="size-15 object-contain"
+                            className="size-10 lg:size-12 xl:size-15 object-contain"
                         />
                     </motion.div>
                 );

@@ -14,7 +14,7 @@ function Hero() {
             transition={{ease:"easeIn", duration:1.5}}
             className="w-full text-center font-sans"
         >
-            <h1 className="text-6xl font-bold sm:text-7xl xl:text-8xl 2xl:text-9xl mb-2 tracking-tight">
+            <h1 className="text-5xl font-bold sm:text-7xl xl:text-8xl 2xl:text-9xl mb-2 tracking-tight">
                 Joriel Brian Sudario
             </h1>
             <h3 
