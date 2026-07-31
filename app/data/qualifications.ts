@@ -15,14 +15,19 @@ export const QUALIFICATIONS: Qualification[] = [
         ],
         skills: [
             'Python',
-            'Databricks',
             'SQL',
             'PostgreSQL',
+            'Databricks',
+            'DBT',
+            'Dagster',
+            'Apache Iceberg',
+            'Trino',
             'Docker',
-            'GIT',
-            'WSL2',
-            'Ubuntu',
+            'OKD (Kubernetes)',
+            'Azure DevOps',
             'Medallion Architecture',
+            'WSL2 (Ubuntu)',
+            'Git',
             'Claude Code AI'
         ]
     },
