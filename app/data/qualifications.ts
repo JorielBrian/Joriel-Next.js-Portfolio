@@ -7,11 +7,11 @@ export const QUALIFICATIONS: Qualification[] = [
         date:" July 2026 – Present",
         contract:"Full Time",
         description: [
-            "Optimized SQL queries and data models in PostgreSQL to improve reporting performance",
-            "Built data pipelines using Python and Databricks, applying Medallion Architecture principles",
-            "Translated business requirements into scalable data transformations for analytics and reporting",
-            "Collaborated with analysts and operations teams to improve data quality and reporting efficiency",
-            "Leveraged Docker, WSL2, and AI-assisted development tools to streamline data processing workflows"
+            "Design and optimize SQL models and transformations in PostgreSQL for analytics and reporting",
+            "Build and orchestrate data pipelines using Python, Databricks, and Dagster within a Medallion Architecture",
+            "Work with Apache Iceberg and Trino for scalable data processing and querying",
+            "Implement structured data transformations using DBT across data layers",
+            "Apply DataOps practices using Docker, OKD, Tekton, ArgoCD, and Azure DevOps for pipeline deployment and management"
         ],
         skills: [
             'Python',
