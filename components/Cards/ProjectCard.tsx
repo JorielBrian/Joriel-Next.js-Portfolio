@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 // import SkillsUsed from "@/components/SkillsUsed";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";

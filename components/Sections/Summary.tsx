@@ -2,7 +2,7 @@
 import Link from "next/link";
 // import { PROFESSIONAL_SUMMARY } from "../../app/data/index";
 import { ABOUT } from "../../app/data/index";
-import { motion } from "framer-motion";
+import { motion } from 'motion/react';
 import Image from "next/image";
 
 const Summary = () =>{

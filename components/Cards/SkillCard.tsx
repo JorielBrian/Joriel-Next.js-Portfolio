@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'motion/react';
 import { SKILLS } from "../../app/data/all_skills"
 import { Preference, Proficiency } from "../../app/data/enum";
 

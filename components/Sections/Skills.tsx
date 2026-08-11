@@ -1,7 +1,7 @@
 // import { SKILLS } from "../../data/skills";
 'use client';
 import SkillCard from "../Cards/SkillCard";
-import { motion } from "framer-motion";
+import { motion } from 'motion/react';
 import { Preference } from "../../app/data/enum";
 
 const Skills = () =>{

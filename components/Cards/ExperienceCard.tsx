@@ -1,5 +1,5 @@
 import SkillsUsed from "@/components/SkillsUsed";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Qualification } from "../../app/data/types";
 import { Calendar, Building, Briefcase } from "lucide-react";
 

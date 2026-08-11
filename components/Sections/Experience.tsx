@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'motion/react';
 import { QUALIFICATIONS } from "@/app/data/qualifications";
 import Link from "next/link";
 

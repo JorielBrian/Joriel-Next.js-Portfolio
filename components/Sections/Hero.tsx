@@ -1,5 +1,5 @@
 'use client';
-import { motion } from "framer-motion"
+import { motion } from 'motion/react'
 import { INTRODUCTION } from "@/app/data/index";
 import { Typewriter} from "react-simple-typewriter";
 
