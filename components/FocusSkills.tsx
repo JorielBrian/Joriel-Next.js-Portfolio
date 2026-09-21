@@ -1,8 +1,15 @@
+'use client';
 import { motion } from 'motion/react';
-import { SKILLS } from "@/app/data/all_skills";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getSkills, ApiSkill } from "@/app/lib/api";
 
 const FocusSkills = () => {
+    const [SKILLS, setSKILLS] = useState<ApiSkill[]>([]);
+
+    useEffect(() => {
+        getSkills().then(setSKILLS).catch(() => setSKILLS([]));
+    }, []);
 
     return (
         <div className="flex flex-wrap justify-center gap-3 mt-4">

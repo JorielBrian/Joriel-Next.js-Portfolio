@@ -1,11 +1,19 @@
 'use client';
 import Link from "next/link";
-// import { PROFESSIONAL_SUMMARY } from "../../app/data/index";
-import { ABOUT } from "../../app/data/index";
 import { motion } from 'motion/react';
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getContentBlock } from "@/app/lib/api";
 
 const Summary = () =>{
+    const [ABOUT, setABOUT] = useState<string[]>([]);
+
+    useEffect(() => {
+        getContentBlock("ABOUT")
+            .then((block) => setABOUT(block.paragraphs))
+            .catch(() => {});
+    }, []);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {

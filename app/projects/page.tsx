@@ -1,13 +1,19 @@
 'use client'
-import { PROJECTS } from "../data/projects"
 import ProjectCard from "@/components/Cards/ProjectCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getProjects, ApiProject } from "@/app/lib/api";
 
 const Projects = () => {
+  const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }
+    getProjects()
+      .then(setProjects)
+      .catch((err) => setError(err.message));
   }, []);
   
   return (
@@ -25,9 +31,15 @@ const Projects = () => {
           </p>
         </div>
 
+        {error && (
+          <p className="text-center text-red-400 mb-8">
+            Couldn&apos;t load projects right now. Please try again later.
+          </p>
+        )}
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 p-0!">
           {PROJECTS && PROJECTS.map((project, index) => (
-            <ProjectCard key={project.name} index={index} name={project.name} description={project.description} image={project.image} skills={project.skills} link={project.link} />
+            <ProjectCard key={project.name} index={index} name={project.name} description={project.description} image={project.image} skills={project.skills} link={project.link ?? undefined} />
           ))}
         </div>
       </div>

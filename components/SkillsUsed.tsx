@@ -1,7 +1,15 @@
-import { SKILLS } from "../app/data/all_skills"
+'use client';
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getSkills, ApiSkill } from "@/app/lib/api";
 
 function SkillsUsed({skills}: {skills:string[]}) {
+  const [SKILLS, setSKILLS] = useState<ApiSkill[]>([]);
+
+  useEffect(() => {
+    getSkills().then(setSKILLS).catch(() => setSKILLS([]));
+  }, []);
+
   return (
     <span className="flex flex-wrap items-center gap-3">
         {skills.map(skill => (

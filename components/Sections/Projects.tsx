@@ -1,6 +1,5 @@
 'use client';
 import { motion } from 'motion/react';
-import { PROJECTS } from "@/app/data/projects";
 import {
   Carousel,
   CarouselContent,
@@ -8,11 +7,18 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-// import { iframe } from "motion/react-client";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getProjects, ApiProject } from "@/app/lib/api";
 
 const Projects = () => {
+  const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
+
+  useEffect(() => {
+    getProjects().then(setProjects).catch(() => setProjects([]));
+  }, []);
+
   return (
     <motion.section 
         id="projects"

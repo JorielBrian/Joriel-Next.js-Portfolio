@@ -1,9 +1,28 @@
 'use client';
 import Skills from "@/components/Sections/Skills"
 import AboutCard from "@/components/Cards/AboutCard";
-import { ABOUT, GOALS, OUTSIDE_WORK, STORY } from "@/app/data/index";
+import { useEffect, useState } from "react";
+import { getAllContent } from "@/app/lib/api";
 
 function AboutMe() {
+  const [ABOUT, setABOUT] = useState<string[]>([]);
+  const [STORY, setSTORY] = useState<string[]>([]);
+  const [GOALS, setGOALS] = useState<string[]>([]);
+  const [OUTSIDE_WORK, setOUTSIDE_WORK] = useState<string[]>([]);
+
+  useEffect(() => {
+    getAllContent()
+      .then((blocks) => {
+        for (const block of blocks) {
+          if (block.key === "ABOUT") setABOUT(block.paragraphs);
+          if (block.key === "STORY") setSTORY(block.paragraphs);
+          if (block.key === "GOALS") setGOALS(block.paragraphs);
+          if (block.key === "OUTSIDE_WORK") setOUTSIDE_WORK(block.paragraphs);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <main className="flex flex-col w-4/5 min-h-screen">
       {/* Introduction */}

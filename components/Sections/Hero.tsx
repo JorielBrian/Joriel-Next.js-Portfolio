@@ -1,11 +1,20 @@
 'use client';
 import { motion } from 'motion/react'
-import { INTRODUCTION } from "@/app/data/index";
 import { Typewriter} from "react-simple-typewriter";
+import { useEffect, useState } from "react";
+import { getContentBlock } from "@/app/lib/api";
 
 import FocusSkills from "../FocusSkills";
 
 function Hero() {
+  const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
+
+  useEffect(() => {
+    getContentBlock("INTRODUCTION")
+      .then((block) => setINTRODUCTION(block.paragraphs))
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="hero" className="h-screen mb-20 xl:mb-0">
         <motion.div 

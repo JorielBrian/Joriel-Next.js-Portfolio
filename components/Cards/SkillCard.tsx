@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
-import { SKILLS } from "../../app/data/all_skills"
 import { Preference, Proficiency } from "../../app/data/enum";
+import { ApiSkill } from "@/app/lib/api";
 
 interface SkillCardProps {
   preference: Preference;
+  skills: ApiSkill[];
 }
 
-function SkillCard({ preference }: SkillCardProps) {
+function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
     const skillrate = (proficiency: Proficiency) => {
         if (proficiency === Proficiency.ADVANCE) {
             return"★★★★★"

@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { QUALIFICATIONS } from "@/app/data/qualifications";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getQualifications, ApiQualification } from "@/app/lib/api";
 
 import {
   Carousel,
@@ -14,6 +15,12 @@ import {
 import { Calendar, Building, Briefcase } from "lucide-react";
 
 const Experience = () => {
+  const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+
+  useEffect(() => {
+    getQualifications().then(setQualifications).catch(() => setQualifications([]));
+  }, []);
+
   return (
     <motion.section 
         id="experience"

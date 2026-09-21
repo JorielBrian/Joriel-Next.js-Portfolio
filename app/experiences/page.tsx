@@ -1,15 +1,19 @@
 'use client'
-import { QUALIFICATIONS } from "../data/qualifications";
 import ExperienceCard from "@/components/Cards/ExperienceCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getQualifications, ApiQualification } from "@/app/lib/api";
 
 const Qualifications = () =>{
-    if (typeof window !== 'undefined') {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (typeof window !== 'undefined') {
+            window.scrollTo(0, 0);
+        }
+        getQualifications()
+            .then(setQualifications)
+            .catch(() => setQualifications([]));
     }, []);
-    }
     
     return (    
         <div className="min-h-screen">
