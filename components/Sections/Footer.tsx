@@ -29,13 +29,13 @@ const Footer = () => {
 const contactInfo = [
 {
 icon: <FiMail />,
-text: "[jorielsudario@gmail.com](mailto:jorielsudario@gmail.com)",
+text: "jorielsudario@gmail.com",
 href: "mailto:jorielsudario@gmail.com"
 },
 {
 icon: <FiPhone />,
-text: "+63 965 447 5177",
-href: "tel:+639654475177"
+text: "+63 955 224 2970",
+href: "tel:+639552242970"
 }
 ];
 
