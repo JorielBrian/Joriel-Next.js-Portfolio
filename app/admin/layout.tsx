@@ -47,7 +47,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-64 shrink-0 bg-gradient-to-b from-blue-950/60 to-blue-950/90 border-r border-blue-700/40 flex flex-col">
+      <aside className="w-64 shrink-0 bg-linear-to-b from-blue-950/60 to-blue-950/90 border-r border-blue-700/40 flex flex-col">
         <div className="px-6 py-6">
           <p className="font-bold tracking-tight text-lg">Portfolio admin</p>
           <p className="text-xs text-blue-300/60 mt-0.5">Content management</p>
@@ -63,7 +63,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 href={item.href}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all ${
                   active
-                    ? "bg-gradient-to-b from-blue-800 to-blue-900 border border-blue-600/70 text-white font-semibold shadow-md shadow-blue-900/40"
+                    ? "bg-linear-to-b from-blue-800 to-blue-900 border border-blue-600/70 text-white font-semibold shadow-md shadow-blue-900/40"
                     : "text-blue-200/70 hover:text-white hover:bg-blue-900/40 border border-transparent"
                 }`}
               >
@@ -85,7 +85,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
 
           <div className="flex items-center gap-3 px-3 py-2.5 mt-2 mb-2 rounded-xl bg-blue-950/40 border border-blue-700/30">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-b from-blue-600 to-blue-800 flex items-center justify-center text-xs font-bold shrink-0">
+            <div className="w-8 h-8 rounded-full bg-linear-to-b from-blue-600 to-blue-800 flex items-center justify-center text-xs font-bold shrink-0">
               {username?.[0]?.toUpperCase()}
             </div>
             <p className="text-sm text-blue-100 truncate">{username}</p>
