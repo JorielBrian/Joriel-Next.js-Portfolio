@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getQualifications, ApiQualification } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 import {
   Carousel,
@@ -16,9 +17,13 @@ import { Calendar, Building, Briefcase } from "lucide-react";
 
 const Experience = () => {
   const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+  const { register, unregister } = useLoading();
 
   useEffect(() => {
-    getQualifications().then(setQualifications).catch(() => setQualifications([]));
+    const key = "section-experience";
+    register(key);
+    getQualifications().then(setQualifications).catch(() => setQualifications([])).finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

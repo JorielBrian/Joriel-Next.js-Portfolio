@@ -3,16 +3,22 @@ import { motion } from 'motion/react'
 import { Typewriter} from "react-simple-typewriter";
 import { useEffect, useState } from "react";
 import { getContentBlock } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 import FocusSkills from "../FocusSkills";
 
 function Hero() {
   const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
+  const { register, unregister } = useLoading();
 
   useEffect(() => {
+    const key = "hero-introduction";
+    register(key);
     getContentBlock("INTRODUCTION")
       .then((block) => setINTRODUCTION(block.paragraphs))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

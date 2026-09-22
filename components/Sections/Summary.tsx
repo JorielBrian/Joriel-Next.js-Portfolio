@@ -4,14 +4,20 @@ import { motion } from 'motion/react';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getContentBlock } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const Summary = () =>{
     const [ABOUT, setABOUT] = useState<string[]>([]);
+    const { register, unregister } = useLoading();
 
     useEffect(() => {
+        const key = "summary-about";
+        register(key);
         getContentBlock("ABOUT")
             .then((block) => setABOUT(block.paragraphs))
-            .catch(() => {});
+            .catch(() => {})
+            .finally(() => unregister(key));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const containerVariants = {

@@ -11,12 +11,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getProjects, ApiProject } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const Projects = () => {
   const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
+  const { register, unregister } = useLoading();
 
   useEffect(() => {
-    getProjects().then(setProjects).catch(() => setProjects([]));
+    const key = "section-projects";
+    register(key);
+    getProjects().then(setProjects).catch(() => setProjects([])).finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

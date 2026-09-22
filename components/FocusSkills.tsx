@@ -3,12 +3,17 @@ import { motion } from 'motion/react';
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getSkills, ApiSkill } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const FocusSkills = () => {
     const [SKILLS, setSKILLS] = useState<ApiSkill[]>([]);
+    const { register, unregister } = useLoading();
 
     useEffect(() => {
-        getSkills().then(setSKILLS).catch(() => setSKILLS([]));
+        const key = "focus-skills";
+        register(key);
+        getSkills().then(setSKILLS).catch(() => setSKILLS([])).finally(() => unregister(key));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

@@ -2,17 +2,23 @@
 import ExperienceCard from "@/components/Cards/ExperienceCard";
 import { useEffect, useState } from "react";
 import { getQualifications, ApiQualification } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const Qualifications = () =>{
     const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+    const { register, unregister } = useLoading();
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.scrollTo(0, 0);
         }
+        const key = "page-experiences";
+        register(key);
         getQualifications()
             .then(setQualifications)
-            .catch(() => setQualifications([]));
+            .catch(() => setQualifications([]))
+            .finally(() => unregister(key));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     return (    

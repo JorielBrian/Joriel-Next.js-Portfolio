@@ -2,18 +2,24 @@
 import ProjectCard from "@/components/Cards/ProjectCard";
 import { useEffect, useState } from "react";
 import { getProjects, ApiProject } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const Projects = () => {
   const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { register, unregister } = useLoading();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }
+    const key = "page-projects";
+    register(key);
     getProjects()
       .then(setProjects)
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(err.message))
+      .finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (

@@ -3,14 +3,18 @@ import Skills from "@/components/Sections/Skills"
 import AboutCard from "@/components/Cards/AboutCard";
 import { useEffect, useState } from "react";
 import { getAllContent } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 function AboutMe() {
   const [ABOUT, setABOUT] = useState<string[]>([]);
   const [STORY, setSTORY] = useState<string[]>([]);
   const [GOALS, setGOALS] = useState<string[]>([]);
   const [OUTSIDE_WORK, setOUTSIDE_WORK] = useState<string[]>([]);
+  const { register, unregister } = useLoading();
 
   useEffect(() => {
+    const key = "page-about";
+    register(key);
     getAllContent()
       .then((blocks) => {
         for (const block of blocks) {
@@ -20,7 +24,9 @@ function AboutMe() {
           if (block.key === "OUTSIDE_WORK") setOUTSIDE_WORK(block.paragraphs);
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

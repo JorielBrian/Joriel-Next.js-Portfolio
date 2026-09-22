@@ -1,13 +1,19 @@
 'use client';
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { getSkills, ApiSkill } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 function SkillsUsed({skills}: {skills:string[]}) {
   const [SKILLS, setSKILLS] = useState<ApiSkill[]>([]);
+  const { register, unregister } = useLoading();
+  const instanceId = useId();
 
   useEffect(() => {
-    getSkills().then(setSKILLS).catch(() => setSKILLS([]));
+    const key = `skills-used-${instanceId}`;
+    register(key);
+    getSkills().then(setSKILLS).catch(() => setSKILLS([])).finally(() => unregister(key));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useLoading } from "./lib/loading-context";
 
 type Particle = {
   left: number;
@@ -10,39 +11,39 @@ type Particle = {
   delay: number;
 };
 
+const MIN_VISIBLE_MS = 500; // avoid a jarring flash on fast loads
+
 const Initializing = ({ children }: { children: React.ReactNode }) => {
-  const [loading, setLoading] = useState(true);
+  const { isLoading } = useLoading();
+  const [showOverlay, setShowOverlay] = useState(true);
+  const [shownAt, setShownAt] = useState<number | null>(null);
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const init = () => {
-      // particles
-      const generated = Array.from({ length: 20 }).map(() => ({
+    setParticles(
+      Array.from({ length: 20 }).map(() => ({
         left: Math.random() * 100,
         top: Math.random() * 100,
         duration: 4 + Math.random() * 6,
         delay: Math.random() * 2,
-      }));
-      setParticles(generated);
-
-      // visit logic
-      const hasVisited = localStorage.getItem("hasVisited");
-      const isFirst = !hasVisited;
-
-      const duration = isFirst ? 3000 : 800;
-
-      setTimeout(() => {
-        if (isFirst) {
-          localStorage.setItem("hasVisited", "true");
-        }
-        setLoading(false);
-      }, duration);
-    };
-
-    setTimeout(init, 0);
+      }))
+    );
   }, []);
 
-  if (loading) {
+  useEffect(() => {
+    if (isLoading) {
+      setShowOverlay(true);
+      setShownAt(Date.now());
+      return;
+    }
+    const elapsed = shownAt ? Date.now() - shownAt : MIN_VISIBLE_MS;
+    const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
+    const t = setTimeout(() => setShowOverlay(false), remaining);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
+
+  if (showOverlay) {
     return (
       <motion.div
         className="relative flex min-h-screen items-center justify-center overflow-hidden "
@@ -111,15 +112,14 @@ const Initializing = ({ children }: { children: React.ReactNode }) => {
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ repeat: Infinity, duration: 2 }}
           >
-            Initializing system...
+            Loading data...
           </motion.p>
 
           <motion.div className="w-48 h-0.5 bg-gray-800/50 overflow-hidden rounded-full">
             <motion.div
               className="h-full bg-linear-to-r from-cyan-400 to-purple-500"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 3 }}
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
             />
           </motion.div>
         </div>

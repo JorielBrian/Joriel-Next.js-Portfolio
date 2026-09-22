@@ -4,12 +4,17 @@ import { motion } from 'motion/react';
 import { Preference } from "../../app/data/enum";
 import { useEffect, useState } from "react";
 import { getSkills, ApiSkill } from "@/app/lib/api";
+import { useLoading } from "@/app/lib/loading-context";
 
 const Skills = () =>{
     const [skills, setSkills] = useState<ApiSkill[]>([]);
+    const { register, unregister } = useLoading();
 
     useEffect(() => {
-        getSkills().then(setSkills).catch(() => setSkills([]));
+        const key = "section-skills";
+        register(key);
+        getSkills().then(setSkills).catch(() => setSkills([])).finally(() => unregister(key));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

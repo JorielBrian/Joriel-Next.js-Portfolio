@@ -6,6 +6,7 @@ import Footer from "@/components/Sections/Footer";
 import Events from "@/components/Events";
 import BackgroundDecoration from "@/components/Background";
 import Initializing from "./initializing";
+import { LoadingProvider } from "./lib/loading-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,11 +38,13 @@ export default function RootLayout({
       >
         <BackgroundDecoration />
         <Events />
-        <Initializing>
-          <Header />
-          {children}
-          <Footer />
-        </Initializing>
+        <LoadingProvider>
+          <Initializing>
+            <Header />
+            {children}
+            <Footer />
+          </Initializing>
+        </LoadingProvider>
       </body>
     </html>
   );
