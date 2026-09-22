@@ -2,10 +2,20 @@
 import { motion } from 'motion/react'
 import { Typewriter} from "react-simple-typewriter";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { getContentBlock } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
 
 import FocusSkills from "../FocusSkills";
+
+// WebGL only exists in the browser — dynamic() with ssr:false skips
+// trying to render this on the server, which would just error.
+// It's not page-critical data, so it isn't wired into useLoading;
+// it just pops in whenever it's ready.
+const DevWorkstation3D = dynamic(() => import("../three/DevWorkstation3D"), {
+  ssr: false,
+  loading: () => <div style={{ height: 420 }} />,
+});
 
 function Hero() {
   const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
