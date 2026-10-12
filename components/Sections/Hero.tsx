@@ -7,8 +7,14 @@ import { useLoading } from "@/app/lib/loading-context";
 
 import FocusSkills from "../FocusSkills";
 
+// Shown instantly on first render, before the real titles arrive from the
+// API — the Typewriter component needs a non-empty words array immediately,
+// it can't start once empty and swap later without a visible restart.
+const DEFAULT_TITLES = ["Software Engineer"];
+
 function Hero() {
   const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
+  const [TITLES, setTITLES] = useState<string[]>(DEFAULT_TITLES);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
@@ -18,6 +24,15 @@ function Hero() {
       .then((block) => setINTRODUCTION(block.paragraphs))
       .catch(() => {})
       .finally(() => unregister(key));
+
+    const titlesKey = "hero-titles";
+    register(titlesKey);
+    getContentBlock("TITLES")
+      .then((block) => {
+        if (block.paragraphs.length > 0) setTITLES(block.paragraphs);
+      })
+      .catch(() => {})
+      .finally(() => unregister(titlesKey));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -36,8 +51,7 @@ function Hero() {
                 className="pb-5 border-amber-50 text-3xl sm:text-4xl lg:text-5xl 2xl:text-7xl bg-linear-to-r from-neutral-400 via-cyan-500 to-blue-800 bg-clip-text text-transparent"
             >
                 <Typewriter 
-                    // words={['Web Developer', 'Full Stack Developer', 'System Engineer', 'Software Engineer', 'Computer Programmer', 'IT Specialist', 'Circuit Assembler', 'Information Technology']}
-                    words={['Software Engineer', 'Full Stack Developer', 'Data Engineer', 'Systems Engineer']}
+                    words={TITLES}
                     loop = {true}
                     cursor cursorStyle = {'|'} cursorBlinking = {true} cursorColor="white"
                 />

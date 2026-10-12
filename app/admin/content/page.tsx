@@ -3,14 +3,20 @@ import { useEffect, useState } from "react";
 import { Save, Check } from "lucide-react";
 import { getAllContent, updateContentBlock, ApiContentBlock } from "@/app/lib/api";
 
-const KEYS = ["INTRODUCTION", "ABOUT", "STORY", "GOALS", "OUTSIDE_WORK"];
+const KEYS = ["TITLES", "INTRODUCTION", "ABOUT", "STORY", "GOALS", "OUTSIDE_WORK"];
 const LABELS: Record<string, string> = {
+  TITLES: "Titles",
   INTRODUCTION: "Introduction",
   ABOUT: "About",
   STORY: "Story",
   GOALS: "Goals",
   OUTSIDE_WORK: "Outside work",
 };
+
+// TITLES holds short rotating phrases (the Hero typewriter effect), not
+// paragraphs — so it splits on every line instead of on blank-line gaps
+// like the rest of the content blocks do.
+const LINE_SPLIT_KEYS = new Set(["TITLES"]);
 
 export default function ContentAdmin() {
   const [blocks, setBlocks] = useState<Record<string, string>>({});
@@ -25,7 +31,8 @@ export default function ContentAdmin() {
         const map: Record<string, string> = {};
         for (const key of KEYS) {
           const found = data.find((b) => b.key === key);
-          map[key] = found ? found.paragraphs.join("\n\n") : "";
+          const joiner = LINE_SPLIT_KEYS.has(key) ? "\n" : "\n\n";
+          map[key] = found ? found.paragraphs.join(joiner) : "";
         }
         setBlocks(map);
       })
@@ -37,7 +44,9 @@ export default function ContentAdmin() {
     setSaving(key);
     setError(null);
     setSavedKey(null);
-    const paragraphs = blocks[key].split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+    const paragraphs = LINE_SPLIT_KEYS.has(key)
+      ? blocks[key].split("\n").map((p) => p.trim()).filter(Boolean)
+      : blocks[key].split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
     try {
       await updateContentBlock(key, paragraphs);
       setSavedKey(key);
@@ -55,7 +64,6 @@ export default function ContentAdmin() {
     <div className="space-y-8 max-w-3xl">
       <div>
         <h1 className="text-2xl font-bold">Bio content</h1>
-        <p className="text-sm text-blue-300/60 mt-1">Separate paragraphs with a blank line.</p>
       </div>
 
       {error && <p className="text-sm text-red-300 bg-red-950/30 border border-red-800/40 rounded-xl px-4 py-2">{error}</p>}
@@ -63,7 +71,14 @@ export default function ContentAdmin() {
       <div className="space-y-5">
         {KEYS.map((key) => (
           <div key={key} className="card mt-0 space-y-3">
-            <h2 className="font-semibold text-sm uppercase tracking-wide text-blue-200/90">{LABELS[key]}</h2>
+            <div>
+              <h2 className="font-semibold text-sm uppercase tracking-wide text-blue-200/90">{LABELS[key]}</h2>
+              <p className="text-xs text-blue-300/50 mt-0.5">
+                {LINE_SPLIT_KEYS.has(key)
+                  ? "One title per line — these rotate in the hero's typewriter effect."
+                  : "Separate paragraphs with a blank line."}
+              </p>
+            </div>
             <textarea
               value={blocks[key] || ""}
               onChange={(e) => setBlocks({ ...blocks, [key]: e.target.value })}
