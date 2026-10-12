@@ -25,7 +25,7 @@ function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
     }
         
     return (
-        <div className="flex flex-wrap relative justify-center my-5 items-center">
+        <div className="flex flex-wrap w-full relative justify-center my-5 items-center">
             <motion.h2 
                 initial={{opacity:0}} 
                 whileInView={{opacity:1}} 
