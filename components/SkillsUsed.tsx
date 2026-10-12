@@ -30,6 +30,7 @@ function SkillsUsed({skills}: {skills:string[]}) {
                   src={SKILLS.find(s => s.skill === skill)?.image || ''}
                   alt={skill}
                   fill
+                  unoptimized
                 />
               </span>
             : <p

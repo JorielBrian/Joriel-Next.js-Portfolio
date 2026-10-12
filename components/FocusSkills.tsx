@@ -32,6 +32,7 @@ const FocusSkills = () => {
                         <Image
                             width={28}
                             height={28}
+                            unoptimized
                             src={skill.image}
                             alt={skill.skill}
                             title={skill.skill}
