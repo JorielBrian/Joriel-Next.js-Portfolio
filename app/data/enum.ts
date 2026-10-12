@@ -3,8 +3,8 @@ export enum Proficiency {
     BEGINNER = "Beginner",
     FUNCTIONAL = "Functional",
     INTERMEDIATE = "Intermediate",
-    ADVANCE = "Advance",
-    PROFICIENT = "Proficient"
+    PROFICIENT = "Proficient",
+    ADVANCE = "Advance"
 }
 
 export enum Preference {
