@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 import { getContentBlock } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
 
+const DEFAULT_TITLES = ["Full-Stack Developer","Data Engineer","Software Engineer"];
+
 const Summary = () =>{
     const [ABOUT, setABOUT] = useState<string[]>([]);
+      const [TITLES, setTITLES] = useState<string[]>(DEFAULT_TITLES);
     const { register, unregister } = useLoading();
 
     useEffect(() => {
@@ -17,6 +20,15 @@ const Summary = () =>{
             .then((block) => setABOUT(block.paragraphs))
             .catch(() => {})
             .finally(() => unregister(key));
+
+        const titlesKey = "hero-titles";
+        register(titlesKey);
+        getContentBlock("TITLES")
+            .then((block) => {
+                if (block.paragraphs.length > 0) setTITLES(block.paragraphs);
+            })
+            .catch(() => {})
+            .finally(() => unregister(titlesKey));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -81,7 +93,7 @@ const Summary = () =>{
                                 variants={itemVariants}
                                 className="text-lg text-gray-200 font-semibold mb-6 leading-relaxed"
                             >
-                                Software Engineer | Full-Stack Developer | System Engineer | Tech Enthusiast
+                                {TITLES.join(" | ")}
                             </motion.p>
         
                             <motion.div variants={itemVariants}>

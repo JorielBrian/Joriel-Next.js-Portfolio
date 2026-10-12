@@ -10,7 +10,7 @@ import FocusSkills from "../FocusSkills";
 // Shown instantly on first render, before the real titles arrive from the
 // API — the Typewriter component needs a non-empty words array immediately,
 // it can't start once empty and swap later without a visible restart.
-const DEFAULT_TITLES = ["Software Engineer"];
+const DEFAULT_TITLES = ["Full-Stack Developer","Data Engineer","Software Engineer"];
 
 function Hero() {
   const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
