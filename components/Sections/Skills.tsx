@@ -24,8 +24,6 @@ const Skills = () =>{
                 <SkillCard preference = {Preference.CORE_SKILL} skills={skills}></SkillCard>
                 <SkillCard preference = {Preference.SUB_SKILL} skills={skills}></SkillCard>
                 <SkillCard preference = {Preference.SOFT_SKILLS} skills={skills}></SkillCard>
-                <SkillCard preference = {Preference.HARDWARE} skills={skills}></SkillCard>
-                <SkillCard preference = {Preference.DESIGN} skills={skills}></SkillCard>
             </div>
         </section>
     );
