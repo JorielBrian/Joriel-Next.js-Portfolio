@@ -48,13 +48,13 @@ const Projects = () => {
                     { PROJECTS && PROJECTS.map((project, index) => (
                         <CarouselItem 
                             key={index}
-                            className="pl-3 md:pl-4 xl:basis-1/2"
+                            className="pl-3 md:pl-4 md:basis-1/2 xl:basis-1/3"
                         >
                             <motion.article 
                                 initial={{opacity:0, y:20}} 
                                 whileInView={{opacity:1, y:0}} 
                                 transition={{ease:"easeIn", duration:0.5, delay: index * 0.08}}
-                                className="group overflow-hidden rounded-4xl border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/30 hover:-translate-y-1 transition-transform duration-300"
+                                className="group overflow-hidden h-150 rounded-4xl border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/30 hover:-translate-y-1 transition-transform duration-300"
                             >
                                 <div className="relative h-72 overflow-hidden bg-slate-900">
                                     <Image
@@ -72,7 +72,7 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                <div className="p-6 space-y-5">
+                                <div className="relative p-6 place-content-between space-y-5 h-70">
                                     <p className="text-slate-300 text-sm sm:text-base leading-7 line-clamp-3">{project.description}</p>
 
                                     <div className="flex flex-wrap gap-2">
@@ -83,7 +83,7 @@ const Projects = () => {
                                         ))}
                                     </div>
 
-                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                    <div className="flex flex-col absolute gap-3 bottom-0 sm:flex-row sm:items-center sm:justify-between">
                                         <div className="text-slate-400 text-xs uppercase tracking-[0.2em]">
                                             {project.link ? 'Live demo available' : 'Concept / assessment'}
                                         </div>

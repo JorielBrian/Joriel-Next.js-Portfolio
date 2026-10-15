@@ -46,7 +46,7 @@ const SummaryCard = () => {
                 initial={{scale: 0.8, opacity:0}} 
                 whileInView={{scale: 1, opacity:1}} 
                 transition={{ease:"easeOut", duration:0.4}}
-                className="shrink-0 m-4 lg:w-fit"
+                className="float-start shrink-0 m-4 w-full md:w-fit lg:w-full"
             >
                 <div className="relative place-self-center lg:mx-0 w-60 h-60 lg:w-70 lg:h-70 xl:w-90 xl:h-90 2xl:w-94 2xl:h-94">
                     {/* Decorative gradient circle */}

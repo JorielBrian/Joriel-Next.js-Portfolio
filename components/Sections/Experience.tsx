@@ -48,7 +48,7 @@ const Experience = () => {
                     { QUALIFICATIONS && QUALIFICATIONS.map((experience, index) => (
                         <CarouselItem 
                             key={index}
-                            className="pl-2 md:pl-4 lg:basis-1/2"
+                            className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
                         >
                             <motion.article
                                 initial={{ opacity: 0, y: 18, scale: 0.98 }}
@@ -56,7 +56,7 @@ const Experience = () => {
                                 viewport={{ once: true, amount: 0.25 }}
                                 transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
                                 whileHover={{ y: -4 }}
-                                className="bg-linear-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-full border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20"
+                                className="bg-linear-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-170 border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20"
                             >
                                 <div className="grid mb-4 xl:grid-cols-1 2xl:grid-cols-3 items-start justify-between">
                                     <span className="flex-1 2xl:col-span-2">
