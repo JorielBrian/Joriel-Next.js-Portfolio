@@ -95,7 +95,7 @@ return (
         id="connect"
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ ease: "easeIn", duration: 1 }}
+        transition={{ ease: "easeIn", duration: 0.25 }}
         className="w-full py-20 bg-blue-950/50 border-t-2 border-blue-800/80"
     >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,7 +107,7 @@ return (
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.25 }}
                     className="text-center lg:text-left p-6 rounded-xl bg-linear-to-b from-blue-950/30 to-blue-950 border-2 border-blue-700/80 hover:border-blue-600 transition-colors"
                 >
                     <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 justify-center lg:justify-start">
