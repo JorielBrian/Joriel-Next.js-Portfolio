@@ -41,7 +41,7 @@ function Hero() {
         <motion.div 
             initial={{y:100, opacity:0}}
             whileInView={{y:0, opacity:1}}
-            transition={{ease:"easeIn", duration:1.5}}
+            transition={{ease:"easeIn", duration:0.5}}
             className="w-full text-center font-sans"
         >
             <h1 className="text-5xl font-bold sm:text-7xl xl:text-8xl 2xl:text-9xl mb-2 tracking-tight">
@@ -61,7 +61,7 @@ function Hero() {
         <motion.div
             initial={{y:-100, opacity:0}}
             whileInView={{y:0, opacity:1}}
-            transition={{ease:"easeIn", duration:1.5}}
+            transition={{ease:"easeIn", duration:0.5}}
             className="py-4 mt-10"
         >
                 <div className="text-center space-y-2">
