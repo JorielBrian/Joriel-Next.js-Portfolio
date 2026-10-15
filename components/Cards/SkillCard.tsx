@@ -39,22 +39,15 @@ function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
                 <span key={skill.skill}>
                     <motion.div
                         className="group relative p-3 justify-center"
-                        animate={{ y: [10, -10] }}
-                        transition={{
-                            ease: "linear",
-                            duration: 2,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                        }}
+                        whileHover={{ scale: 1.1 }}
                     >
                         <motion.img
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
-                            transition={{ ease: "easeIn", duration: 1.5 }}
                             src={skill.image}
                             alt={skill.skill}
                             title={skill.skill}
-                            className="icons m-auto group-hover:animate-bounce"
+                            className="icons m-auto"
                         />
                         <h5 className="text-center font-bold text-amber-200 text-[11px] md:text-sm xl:text-lg">{skillrate(skill.proficiency)}</h5>
                         <h5 className="text-center font-bold text-cyan-500 text-[11px] md:text-sm xl:text-lg">{skill.skill}</h5>
