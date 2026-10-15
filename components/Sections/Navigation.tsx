@@ -7,7 +7,6 @@ import Image from "next/image";
 
 // Icons
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
-import { GiSkills } from "react-icons/gi";
 import { GrSend } from "react-icons/gr";
 
 const Navigation = () =>{
@@ -87,14 +86,6 @@ const Navigation = () =>{
                         </li>
                         <li>
                             <Link 
-                                href='/#skills' 
-                                className={`button ${isActive('/#skills') ? 'active' : ''}`}
-                            >
-                                <GiSkills />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
                                 href='/#experience' 
                                 className={`button ${isActive('/#experience') ? 'active' : ''}`}
                             >
@@ -135,14 +126,6 @@ const Navigation = () =>{
                                 className={`button ${isActive('/#about') ? 'active' : ''}`}
                             >
                                 About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#skills' 
-                                className={`button ${isActive('/#skills') ? 'active' : ''}`}
-                            >
-                                Skills
                             </Link>
                         </li>
                         <li>
