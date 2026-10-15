@@ -26,7 +26,7 @@ export default function AdminHome() {
               className="group card mt-0 flex flex-col hover:shadow-blue-500/30 hover:border-blue-500/60 transition-all"
             >
               <div className="flex items-start justify-between">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-blue-800 to-blue-900 border border-blue-600/50 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-b from-blue-800 to-blue-900 border border-blue-600/50 flex items-center justify-center">
                   <Icon size={18} strokeWidth={1.75} />
                 </div>
                 <ArrowRight size={16} className="text-blue-400/40 group-hover:text-blue-300 group-hover:translate-x-0.5 transition-all" />

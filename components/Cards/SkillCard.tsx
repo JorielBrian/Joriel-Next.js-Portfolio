@@ -29,7 +29,7 @@ function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
             <motion.h2 
                 initial={{opacity:0}} 
                 whileInView={{opacity:1}} 
-                transition={{ease:"easeIn", duration:0.5}}  
+                transition={{ease:"easeIn", duration:0.4}}  
                 className="absolute content-center text-5xl md:text-7xl lg:text-9xl text-white/30 w-full h-full text-center font-bold "
             >
                 {preference}
