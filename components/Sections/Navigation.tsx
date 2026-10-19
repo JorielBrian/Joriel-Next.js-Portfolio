@@ -3,11 +3,9 @@ import { motion } from 'motion/react';
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 // Icons
-import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
-import { GrSend } from "react-icons/gr";
+
 
 const Navigation = () =>{
     const [scroll, setScroll] = useState(false);
@@ -51,67 +49,12 @@ const Navigation = () =>{
     };
 
     return (
-        <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-4/5 justify-center"}>
-            <div className="flex w-full py-0! px-5 rounded-sm justify-between items-center">
-                {/* Logo */}
-                <Link href={"/"} className="w-fit py-0!">
-                    <Image
-                        width={64}
-                        height={64} 
-                        src="/logo.png" 
-                        alt="JB logo" 
-                        className="size-11 sm:size-12 md:size-14"
-                    />
-                </Link>
-
+        <motion.div className={scroll ? "hidden lg:block navbar navbar--scrolled" : "hidden lg:flex my-0! w-full justify-center lg:w-max"}>
+            <div className="flex w-full py-0! px-5 rounded-sm items-center justify-center">
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
-                    {/* MOBILE VIEW */}
-                    <ul className="flex lg:hidden">
-                        <li>
-                            <Link 
-                                href='/' 
-                                className={`button ${isActive('/#hero') ? 'active' : ''}`}
-                            >
-                                <House />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#about' 
-                                className={`button ${isActive('/#about') ? 'active' : ''}`}
-                            >
-                                <CircleUser />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#experience' 
-                                className={`button ${isActive('/#experience') ? 'active' : ''}`}
-                            >
-                                <BriefcaseBusiness />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#projects' 
-                                className={`button ${isActive('/#projects') ? 'active' : ''}`}
-                            >
-                                <Folder />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#connect' 
-                                className={`button ${isActive('/#connect') ? 'active' : ''}`}
-                            >
-                                <GrSend />
-                            </Link>
-                        </li>
-                    </ul>
-                    
                     {/* DESKTOP VIEW */}
-                    <ul className="hidden lg:flex">
+                    <ul className="hidden items-center justify-center lg:flex">
                         <li>
                             <Link 
                                 href='/' 
@@ -154,14 +97,8 @@ const Navigation = () =>{
                         </li>
                     </ul>
                 </div>
-
-                {/* CV Button */}
-                <div className="flex items-center py-0!">
-                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV flex lg:hidden">CV</button></a>
-                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV hidden lg:flex">Resume</button></a>
-                </div>
             </div>
-        </motion.section>
+        </motion.div>
     );
 }
 export default Navigation;
