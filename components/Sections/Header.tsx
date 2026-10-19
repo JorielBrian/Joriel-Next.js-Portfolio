@@ -1,6 +1,8 @@
 'use client'
 import Navigation from './Navigation'
 import { motion } from 'motion/react'
+import Link from 'next/dist/client/link';
+import Image from "next/image";
 import { useEffect, useState } from 'react'
 
 function Header() {
@@ -51,10 +53,24 @@ function Header() {
                 ease: "easeInOut",
                 duration: 0.3
             }}
-
-            className={scroll ? "flex sticky top-0 z-50 w-full justify-center" : "flex w-full py-10 justify-center"}
+            className={scroll ? "flex lg:sticky top-0 z-50 w-full justify-center items-center" : "flex w-full py-10 justify-center items-center"}
         >
+            {/* Logo stays in the top header */}
+            <Link href={"/"} className="w-fit py-0!">
+                <Image
+                    width={64}
+                    height={64} 
+                    src="/logo.png" 
+                    alt="JB logo" 
+                    className="size-11 sm:size-12 md:size-14"
+                />
+            </Link>
             <Navigation />
+            {/* CV button stays in the top header */}
+            <div className="flex items-center py-0!">
+                <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV flex lg:hidden">CV</button></a>
+                <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV hidden lg:flex">Resume</button></a>
+            </div>
         </motion.header>
     )
 }
