@@ -1,86 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  @apply bg-radial from-blue-800 to-blue-950 text-white overflow-x-hidden;
+  @apply bg-radial from-blue-800 to-blue-950 text-white;
+  color-scheme: dark;
+  overflow-x: clip;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.4;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Common Designs */
 body {
   @apply w-full m-0 p-0 box-border font-sans;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: clip;
 }
 
-main {
-  @apply w-4/5 mx-auto my-5 p-2 rounded-2xl content-center;
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
 }
 
-section {
-  @apply my-20;
+img,
+video {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 p {
-  @apply text-base
-        md:text-lg 
-        xl:text-xl;
+  @apply text-base md:text-lg xl:text-xl;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Common Designs — mobile-first defaults */
+main {
+  width: min(100% - 1rem, 80rem);
+  margin: clamp(0.75rem, 3vw, 1.5rem) auto;
+  padding: clamp(0.5rem, 2vw, 1.25rem);
+  border-radius: 1rem;
+}
+
+section {
+  margin-block: clamp(3rem, 8vw, 5rem);
+  min-width: 0;
+  scroll-margin-top: 5rem;
 }
 
 /* Custom Designs */
 .navbar {
-  @apply w-full mt-5 bg-blue-900/60 rounded-full border-2 border-blue-700/80 
-        sm:w-3/4 sm:p-1
-        md:w-2/3 
+  @apply w-full mt-3 px-2 py-1 bg-blue-900/60 rounded-2xl border-2 border-blue-700/80
+        sm:w-3/4 sm:p-1 sm:rounded-full
+        md:w-2/3
         lg:w-3/4
         2xl:rounded-4xl;
+  max-width: calc(100% - 1rem);
 }
 
 .navbar ul {
   @apply relative items-center text-base;
+  min-width: 0;
 }
 
 .button {
-  @apply flex w-fit h-10 m-1 px-2 text-center place-items-center
+  @apply flex w-fit min-h-10 m-1 px-3 py-2 text-center place-items-center
         hover:scale-105 hover:font-semibold
         hover:underline rounded-full
-        /* hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)]  */
         hover:shadow-blue-500/70
         hover:border-blue-600/80
         hover:text-blue-200
         active:bg-blue-950 active:scale-90;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  touch-action: manipulation;
 }
 
 .active {
@@ -88,48 +114,85 @@ p {
 }
 
 .navbarCV {
-  @apply px-3 py-1 bg-blue-700/60 rounded-full border-2 border-blue-600/80 transition-all duration-150
+  @apply px-3 py-2 bg-blue-700/60 rounded-full border-2 border-blue-600/80 transition-all duration-150
         hover:scale-105 hover:bg-blue-400/80 hover:font-semibold
-        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] 
+        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)]
         hover:shadow-blue-500/70
         active:scale-90 active:bg-blue-950;
+  max-width: 100%;
 }
 
 .icons {
   @apply size-13 p-2 bg-linear-to-b from-blue-900 to-blue-900 border-2 border-blue-700/80 rounded-2xl
-        sm:size-15 
-        md:size-18 
-        lg:size-20 
-        xl:size-23 
+        sm:size-15
+        md:size-18
+        lg:size-20
+        xl:size-23
         2xl:size-26;
+  flex-shrink: 0;
 }
 
 .hero-icon {
   @apply size-10 md:size-12 xl:size-15 2xl:size-18 text-cyan-300;
+  flex-shrink: 0;
 }
 
 .card {
-  @apply mt-5 bg-linear-to-b from-blue-950/30 to-blue-950 border-2 border-blue-700/80 p-2 shadow-lg shadow-blue-900/50 rounded-2xl 
-        md:p-4 
-        lg:p-6 
-        xl:p-8 
+  @apply mt-5 bg-linear-to-b from-blue-950/30 to-blue-950 border-2 border-blue-700/80 p-3 shadow-lg shadow-blue-900/50 rounded-2xl
+        sm:p-4
+        lg:p-6
+        xl:p-8
         2xl:rounded-4xl;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .sectionLeft {
   @apply self-start 2xl:w-2/3;
+  min-width: 0;
 }
 
 .sectionRight {
   @apply self-end 2xl:w-2/3;
+  min-width: 0;
+}
+
+/* Prevent flex and grid children from forcing horizontal overflow. */
+main > *,
+section > *,
+.card > * {
+  min-width: 0;
 }
 
 /* Hide scrollbars for iframes */
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+}
+
+/* Keep interactions usable on touch screens and respect reduced-motion preferences. */
+@media (hover: none) {
+  .button:hover,
+  .navbarCV:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
