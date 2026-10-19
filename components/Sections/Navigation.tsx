@@ -53,7 +53,7 @@ const Navigation = () =>{
     return (
         <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-4/5 justify-center"}>
             <div className="flex w-full py-0! px-5 rounded-sm justify-between items-center">
-                {/* Logo */}
+                {/* Logo stays in the top header */}
                 <Link href={"/"} className="w-fit py-0!">
                     <Image
                         width={64}
@@ -67,7 +67,7 @@ const Navigation = () =>{
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
                     {/* MOBILE VIEW */}
-                    <ul className="flex lg:hidden">
+                    <ul className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-around gap-1 border-t border-blue-700/80 bg-blue-950/95 px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md lg:hidden">
                         <li>
                             <Link 
                                 href='/' 
@@ -155,10 +155,10 @@ const Navigation = () =>{
                     </ul>
                 </div>
 
-                {/* CV Button */}
+                {/* CV button stays in the top header */}
                 <div className="flex items-center py-0!">
-                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV flex lg:hidden">CV</button></a>
-                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank"><button className="navbarCV hidden lg:flex">Resume</button></a>
+                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV flex lg:hidden">CV</button></a>
+                    <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV hidden lg:flex">Resume</button></a>
                 </div>
             </div>
         </motion.section>
