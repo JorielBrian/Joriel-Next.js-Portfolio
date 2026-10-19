@@ -1,135 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  @apply bg-radial from-blue-800 to-blue-950 text-white overflow-x-hidden;
+  @apply overflow-x-clip bg-radial from-blue-800 to-blue-950 text-white;
+  color-scheme: dark;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.4;
-  }
+*,
+*::before,
+*::after {
+  @apply box-border;
 }
 
 html {
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Common Designs */
 body {
-  @apply w-full m-0 p-0 box-border font-sans;
+  @apply m-0 min-h-screen min-w-[320px] w-full overflow-x-clip p-0 font-sans;
 }
 
-main {
-  @apply w-4/5 mx-auto my-5 p-2 rounded-2xl content-center;
+img,
+picture,
+video,
+canvas,
+svg {
+  @apply max-w-full;
 }
 
-section {
-  @apply my-20;
+img,
+video {
+  @apply h-auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply break-words text-balance;
 }
 
 p {
-  @apply text-base
-        md:text-lg 
-        xl:text-xl;
+  @apply break-words text-base leading-relaxed md:text-lg xl:text-xl;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Common Designs — mobile-first defaults */
+main {
+  @apply mx-auto my-3 w-[calc(100%_-_1rem)] max-w-7xl rounded-2xl px-2 sm:px-4 md:px-5;
+}
+
+section {
+  @apply my-12 min-w-0 scroll-mt-20 sm:my-16 lg:my-20;
 }
 
 /* Custom Designs */
 .navbar {
-  @apply w-full mt-5 bg-blue-900/60 rounded-full border-2 border-blue-700/80 
-        sm:w-3/4 sm:p-1
-        md:w-2/3 
+  @apply mt-3 w-full max-w-[calc(100%_-_1rem)] rounded-2xl border-2 border-blue-700/80 bg-blue-900/60 px-2 py-1
+        sm:w-3/4 sm:rounded-full sm:p-1
+        md:w-2/3
         lg:w-3/4
         2xl:rounded-4xl;
 }
 
 .navbar ul {
-  @apply relative items-center text-base;
+  @apply relative min-w-0 items-center text-base;
 }
 
 .button {
-  @apply flex w-fit h-10 m-1 px-2 text-center place-items-center
-        hover:scale-105 hover:font-semibold
-        hover:underline rounded-full
-        /* hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)]  */
-        hover:shadow-blue-500/70
-        hover:border-blue-600/80
-        hover:text-blue-200
-        active:bg-blue-950 active:scale-90;
+  @apply m-1 flex min-h-10 w-fit max-w-full place-items-center rounded-full px-3 py-2 text-center
+        hover:scale-105 hover:font-semibold hover:underline
+        hover:shadow-blue-500/70 hover:border-blue-600/80 hover:text-blue-200
+        active:scale-90 active:bg-blue-950;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  touch-action: manipulation;
 }
 
 .active {
-  @apply text-white bg-linear-to-b from-blue-900 to-blue-950 border-2 border-blue-700/80 shadow-white font-bold;
+  @apply border-2 border-blue-700/80 bg-linear-to-b from-blue-900 to-blue-950 font-bold text-white shadow-white;
 }
 
 .navbarCV {
-  @apply px-3 py-1 bg-blue-700/60 rounded-full border-2 border-blue-600/80 transition-all duration-150
+  @apply max-w-full rounded-full border-2 border-blue-600/80 bg-blue-700/60 px-3 py-2 transition-all duration-150
         hover:scale-105 hover:bg-blue-400/80 hover:font-semibold
-        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] 
-        hover:shadow-blue-500/70
+        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] hover:shadow-blue-500/70
         active:scale-90 active:bg-blue-950;
 }
 
 .icons {
-  @apply size-13 p-2 bg-linear-to-b from-blue-900 to-blue-900 border-2 border-blue-700/80 rounded-2xl
-        sm:size-15 
-        md:size-18 
-        lg:size-20 
-        xl:size-23 
+  @apply size-13 shrink-0 rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-900 to-blue-900 p-2
+        sm:size-15
+        md:size-18
+        lg:size-20
+        xl:size-23
         2xl:size-26;
 }
 
 .hero-icon {
-  @apply size-10 md:size-12 xl:size-15 2xl:size-18 text-cyan-300;
+  @apply size-10 shrink-0 text-cyan-300 md:size-12 xl:size-15 2xl:size-18;
 }
 
 .card {
-  @apply mt-5 bg-linear-to-b from-blue-950/30 to-blue-950 border-2 border-blue-700/80 p-2 shadow-lg shadow-blue-900/50 rounded-2xl 
-        md:p-4 
-        lg:p-6 
-        xl:p-8 
+  @apply mt-5 min-w-0 break-words rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-950/30 to-blue-950 p-3 shadow-lg shadow-blue-900/50
+        sm:p-4
+        lg:p-6
+        xl:p-8
         2xl:rounded-4xl;
 }
 
+/* Keep flexible layouts from overflowing on narrow screens. */
+main > *,
+section > *,
+.card > * {
+  @apply min-w-0;
+}
+
 .sectionLeft {
-  @apply self-start 2xl:w-2/3;
+  @apply min-w-0 self-start 2xl:w-2/3;
 }
 
 .sectionRight {
-  @apply self-end 2xl:w-2/3;
+  @apply min-w-0 self-end 2xl:w-2/3;
 }
 
 /* Hide scrollbars for iframes */
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  display: none;
+}
+
+/* Keep interactions usable on touch screens and respect reduced-motion preferences. */
+@media (hover: none) {
+  .button:hover,
+  .navbarCV:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
