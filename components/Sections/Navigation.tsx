@@ -5,8 +5,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Icons
-import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
-import { GrSend } from "react-icons/gr";
+
 
 const Navigation = () =>{
     const [scroll, setScroll] = useState(false);
@@ -54,50 +53,6 @@ const Navigation = () =>{
             <div className="flex w-full py-0! px-5 rounded-sm justify-between items-center">
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
-                    {/* MOBILE VIEW */}
-                    <ul className="fixed inset-x-0 bottom-0 z-60 flex items-center justify-center gap-1 border-t border-blue-700/80 bg-blue-950/95 px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md lg:hidden">
-                        <li>
-                            <Link 
-                                href='/' 
-                                className={`button ${isActive('/#hero') ? 'active' : ''}`}
-                            >
-                                <House />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#about' 
-                                className={`button ${isActive('/#about') ? 'active' : ''}`}
-                            >
-                                <CircleUser />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#experience' 
-                                className={`button ${isActive('/#experience') ? 'active' : ''}`}
-                            >
-                                <BriefcaseBusiness />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#projects' 
-                                className={`button ${isActive('/#projects') ? 'active' : ''}`}
-                            >
-                                <Folder />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link 
-                                href='/#connect' 
-                                className={`button ${isActive('/#connect') ? 'active' : ''}`}
-                            >
-                                <GrSend />
-                            </Link>
-                        </li>
-                    </ul>
-                    
                     {/* DESKTOP VIEW */}
                     <ul className="hidden lg:flex">
                         <li>
