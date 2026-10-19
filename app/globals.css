@@ -1,28 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  @apply bg-radial from-blue-800 to-blue-950 text-white;
+  @apply overflow-x-clip bg-radial from-blue-800 to-blue-950 text-white;
   color-scheme: dark;
-  overflow-x: clip;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  @apply box-border;
 }
 
 html {
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
   scroll-padding-top: 5rem;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply w-full m-0 p-0 box-border font-sans;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow-x: clip;
+  @apply m-0 min-h-screen min-w-[320px] w-full overflow-x-clip p-0 font-sans;
 }
 
 img,
@@ -30,12 +26,12 @@ picture,
 video,
 canvas,
 svg {
-  max-width: 100%;
+  @apply max-w-full;
 }
 
 img,
 video {
-  height: auto;
+  @apply h-auto;
 }
 
 button,
@@ -51,14 +47,11 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: anywhere;
-  text-wrap: balance;
+  @apply break-words text-balance;
 }
 
 p {
-  @apply text-base md:text-lg xl:text-xl;
-  line-height: 1.65;
-  overflow-wrap: break-word;
+  @apply break-words text-base leading-relaxed md:text-lg xl:text-xl;
 }
 
 a,
@@ -68,100 +61,82 @@ button {
 
 /* Common Designs — mobile-first defaults */
 main {
-  width: min(100% - 1rem, 80rem);
-  margin: clamp(0.75rem, 3vw, 1.5rem) auto;
-  padding: clamp(0.5rem, 2vw, 1.25rem);
-  border-radius: 1rem;
+  @apply mx-auto my-3 w-[calc(100%_-_1rem)] max-w-7xl rounded-2xl px-2 sm:px-4 md:px-5;
 }
 
 section {
-  margin-block: clamp(3rem, 8vw, 5rem);
-  min-width: 0;
-  scroll-margin-top: 5rem;
+  @apply my-12 min-w-0 scroll-mt-20 sm:my-16 lg:my-20;
 }
 
 /* Custom Designs */
 .navbar {
-  @apply w-full mt-3 px-2 py-1 bg-blue-900/60 rounded-2xl border-2 border-blue-700/80
-        sm:w-3/4 sm:p-1 sm:rounded-full
+  @apply mt-3 w-full max-w-[calc(100%_-_1rem)] rounded-2xl border-2 border-blue-700/80 bg-blue-900/60 px-2 py-1
+        sm:w-3/4 sm:rounded-full sm:p-1
         md:w-2/3
         lg:w-3/4
         2xl:rounded-4xl;
-  max-width: calc(100% - 1rem);
 }
 
 .navbar ul {
-  @apply relative items-center text-base;
-  min-width: 0;
+  @apply relative min-w-0 items-center text-base;
 }
 
 .button {
-  @apply flex w-fit min-h-10 m-1 px-3 py-2 text-center place-items-center
-        hover:scale-105 hover:font-semibold
-        hover:underline rounded-full
-        hover:shadow-blue-500/70
-        hover:border-blue-600/80
-        hover:text-blue-200
-        active:bg-blue-950 active:scale-90;
-  max-width: 100%;
+  @apply m-1 flex min-h-10 w-fit max-w-full place-items-center rounded-full px-3 py-2 text-center
+        hover:scale-105 hover:font-semibold hover:underline
+        hover:shadow-blue-500/70 hover:border-blue-600/80 hover:text-blue-200
+        active:scale-90 active:bg-blue-950;
   white-space: normal;
   overflow-wrap: anywhere;
   touch-action: manipulation;
 }
 
 .active {
-  @apply text-white bg-linear-to-b from-blue-900 to-blue-950 border-2 border-blue-700/80 shadow-white font-bold;
+  @apply border-2 border-blue-700/80 bg-linear-to-b from-blue-900 to-blue-950 font-bold text-white shadow-white;
 }
 
 .navbarCV {
-  @apply px-3 py-2 bg-blue-700/60 rounded-full border-2 border-blue-600/80 transition-all duration-150
+  @apply max-w-full rounded-full border-2 border-blue-600/80 bg-blue-700/60 px-3 py-2 transition-all duration-150
         hover:scale-105 hover:bg-blue-400/80 hover:font-semibold
-        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)]
-        hover:shadow-blue-500/70
+        hover:shadow-[0_0_15px_5px_rgba(59,130,246,0.5)] hover:shadow-blue-500/70
         active:scale-90 active:bg-blue-950;
-  max-width: 100%;
 }
 
 .icons {
-  @apply size-13 p-2 bg-linear-to-b from-blue-900 to-blue-900 border-2 border-blue-700/80 rounded-2xl
+  @apply size-13 shrink-0 rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-900 to-blue-900 p-2
         sm:size-15
         md:size-18
         lg:size-20
         xl:size-23
         2xl:size-26;
-  flex-shrink: 0;
 }
 
 .hero-icon {
-  @apply size-10 md:size-12 xl:size-15 2xl:size-18 text-cyan-300;
-  flex-shrink: 0;
+  @apply size-10 shrink-0 text-cyan-300 md:size-12 xl:size-15 2xl:size-18;
 }
 
 .card {
-  @apply mt-5 bg-linear-to-b from-blue-950/30 to-blue-950 border-2 border-blue-700/80 p-3 shadow-lg shadow-blue-900/50 rounded-2xl
+  @apply mt-5 min-w-0 overflow-hidden rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-950/30 to-blue-950 p-3 shadow-lg shadow-blue-900/50
         sm:p-4
         lg:p-6
         xl:p-8
         2xl:rounded-4xl;
-  min-width: 0;
   overflow-wrap: break-word;
 }
 
-.sectionLeft {
-  @apply self-start 2xl:w-2/3;
-  min-width: 0;
-}
-
-.sectionRight {
-  @apply self-end 2xl:w-2/3;
-  min-width: 0;
-}
-
-/* Prevent flex and grid children from forcing horizontal overflow. */
+/* Keep flexible layouts from overflowing on narrow screens. */
 main > *,
 section > *,
 .card > * {
-  min-width: 0;
+  @apply min-w-0;
+}
+
+.sectionLeft {
+  @apply min-w-0 self-start 2xl:w-2/3;
+}
+
+.sectionRight {
+  @apply min-w-0 self-end 2xl:w-2/3;
 }
 
 /* Hide scrollbars for iframes */
