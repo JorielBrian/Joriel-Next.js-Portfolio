@@ -7,6 +7,16 @@ function Header() {
     const [scroll, setScroll] = useState(false);
     const [scrollDirection, setScrollDirection] = useState('up');
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 1023px)');
+        const handleViewportChange = () => setIsMobile(mediaQuery.matches);
+
+        handleViewportChange();
+        mediaQuery.addEventListener('change', handleViewportChange);
+        return () => mediaQuery.removeEventListener('change', handleViewportChange);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,8 +43,9 @@ function Header() {
         <motion.header
             initial={{ opacity: 0, y: 0 }}
             animate={{ 
-                opacity: scrollDirection === 'up' ? 1 : 0,
-                y: scrollDirection === 'down' ? -100 : 0
+                // Keep the logo and CV button visible on mobile/tablet.
+                opacity: isMobile || scrollDirection === 'up' ? 1 : 0,
+                y: !isMobile && scrollDirection === 'down' ? -100 : 0
             }}
             transition={{ 
                 ease: "easeInOut",
