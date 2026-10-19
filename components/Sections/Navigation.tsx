@@ -49,7 +49,7 @@ const Navigation = () =>{
     };
 
     return (
-        <motion.div className={scroll ? "navbar navbar--scrolled" : "flex my-0! w-full sm:w-4/5 justify-center lg:w-max"}>
+        <motion.div className={scroll ? "hidden lg:block navbar navbar--scrolled" : "hidden lg:flex my-0! w-full justify-center lg:w-max"}>
             <div className="flex w-full py-0! px-5 rounded-sm items-center justify-center">
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
