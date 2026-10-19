@@ -32,7 +32,7 @@ function MobileNavigation() {
     };
 
     return (
-        <nav aria-label="Mobile navigation" className="fixed inset-x-0 bottom-0 z-[60] lg:hidden">
+        <nav aria-label="Mobile navigation" className="fixed inset-x-0 bottom-0 z-60 lg:hidden">
             <ul className="flex items-center justify-around gap-1 border-t border-blue-700/80 bg-blue-950/95 px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md">
                 <li><Link href="/" aria-label="Home" className={`button ${isActive('/#hero') ? 'active' : ''}`}><House /></Link></li>
                 <li><Link href="/#about" aria-label="About" className={`button ${isActive('/#about') ? 'active' : ''}`}><CircleUser /></Link></li>
@@ -93,7 +93,7 @@ function Header() {
                 ease: "easeInOut",
                 duration: 0.3
             }}
-            className={scroll ? "flex lg:sticky top-0 z-50 w-full items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
+            className={scroll ? "flex lg:sticky top-0 z-50 w-full px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full px-15 py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
         >
             {/* Logo stays in the top header */}
             <Link href={"/"} className="w-fit shrink-0 py-0! lg:justify-self-start">
