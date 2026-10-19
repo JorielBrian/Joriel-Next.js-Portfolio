@@ -49,12 +49,12 @@ const Navigation = () =>{
     };
 
     return (
-        <motion.section className={scroll ? "navbar" : "flex my-0! w-full sm:w-4/5 justify-center"}>
-            <div className="flex w-full py-0! px-5 rounded-sm justify-between items-center">
+        <motion.div className={scroll ? "navbar lg:mt-0 lg:w-max lg:max-w-none" : "flex my-0! w-full sm:w-4/5 justify-center lg:w-max"}>
+            <div className="flex w-full py-0! px-5 rounded-sm items-center justify-center">
                 {/* Navigation */}
                 <div className="flex items-center py-0!">
                     {/* DESKTOP VIEW */}
-                    <ul className="hidden lg:flex">
+                    <ul className="hidden items-center justify-center lg:flex">
                         <li>
                             <Link 
                                 href='/' 
@@ -98,7 +98,7 @@ const Navigation = () =>{
                     </ul>
                 </div>
             </div>
-        </motion.section>
+        </motion.div>
     );
 }
 export default Navigation;
