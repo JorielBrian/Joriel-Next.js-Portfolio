@@ -93,10 +93,10 @@ function Header() {
                 ease: "easeInOut",
                 duration: 0.3
             }}
-            className={scroll ? "flex lg:sticky top-0 z-50 w-full justify-center items-center" : "flex w-full py-10 justify-center items-center"}
+            className={scroll ? "flex lg:sticky top-0 z-50 w-full items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
         >
             {/* Logo stays in the top header */}
-            <Link href={"/"} className="w-fit py-0!">
+            <Link href={"/"} className="w-fit shrink-0 py-0! lg:justify-self-start">
                 <Image
                     width={64}
                     height={64} 
@@ -107,7 +107,7 @@ function Header() {
             </Link>
             <Navigation />
             {/* CV button stays in the top header */}
-            <div className="flex items-center py-0!">
+            <div className="flex shrink-0 items-center py-0! lg:justify-self-end">
                 <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV flex lg:hidden">CV</button></a>
                 <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV hidden lg:flex">Resume</button></a>
             </div>
