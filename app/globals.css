@@ -116,12 +116,11 @@ section {
 }
 
 .card {
-  @apply mt-5 min-w-0 overflow-hidden rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-950/30 to-blue-950 p-3 shadow-lg shadow-blue-900/50
+  @apply mt-5 min-w-0 break-words rounded-2xl border-2 border-blue-700/80 bg-linear-to-b from-blue-950/30 to-blue-950 p-3 shadow-lg shadow-blue-900/50
         sm:p-4
         lg:p-6
         xl:p-8
         2xl:rounded-4xl;
-  overflow-wrap: break-word;
 }
 
 /* Keep flexible layouts from overflowing on narrow screens. */
