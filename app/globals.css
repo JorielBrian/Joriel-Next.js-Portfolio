@@ -81,13 +81,22 @@ section {
   @apply relative min-w-0 items-center text-base;
 }
 
+.navbar.navbar--scrolled {
+  @apply lg:mt-0 lg:w-max lg:max-w-none;
+}
+
+.navbar li {
+  @apply shrink-0;
+}
+
 .button {
   @apply m-1 flex min-h-10 w-fit max-w-full place-items-center rounded-full px-3 py-2 text-center
         hover:scale-105 hover:font-semibold hover:underline
         hover:shadow-blue-500/70 hover:border-blue-600/80 hover:text-blue-200
         active:scale-90 active:bg-blue-950;
-  white-space: normal;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  flex-shrink: 0;
   touch-action: manipulation;
 }
 
