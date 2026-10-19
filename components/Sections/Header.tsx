@@ -1,9 +1,48 @@
 'use client'
 import Navigation from './Navigation'
 import { motion } from 'motion/react'
-import Link from 'next/dist/client/link';
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from 'react'
+import { useSelectedLayoutSegment } from "next/navigation";
+import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
+import { GrSend } from "react-icons/gr";
+
+function MobileNavigation() {
+    const [activeSection, setActiveSection] = useState('');
+    const segment = useSelectedLayoutSegment();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActiveSection('#' + entry.target.id);
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.3 });
+
+        const sections = document.querySelectorAll('section[id], footer[id]');
+        sections.forEach(section => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
+
+    const isActive = (href: string) => {
+        if (href === '/' && !segment) return true;
+        if (segment) return false;
+        if (href.startsWith('/#')) return activeSection === href.substring(1);
+        return false;
+    };
+
+    return (
+        <nav aria-label="Mobile navigation" className="fixed inset-x-0 bottom-0 z-[60] lg:hidden">
+            <ul className="flex items-center justify-around gap-1 border-t border-blue-700/80 bg-blue-950/95 px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] shadow-[0_-8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md">
+                <li><Link href="/" aria-label="Home" className={`button ${isActive('/#hero') ? 'active' : ''}`}><House /></Link></li>
+                <li><Link href="/#about" aria-label="About" className={`button ${isActive('/#about') ? 'active' : ''}`}><CircleUser /></Link></li>
+                <li><Link href="/#experience" aria-label="Experiences" className={`button ${isActive('/#experience') ? 'active' : ''}`}><BriefcaseBusiness /></Link></li>
+                <li><Link href="/#projects" aria-label="Projects" className={`button ${isActive('/#projects') ? 'active' : ''}`}><Folder /></Link></li>
+                <li><Link href="/#connect" aria-label="Connect" className={`button ${isActive('/#connect') ? 'active' : ''}`}><GrSend /></Link></li>
+            </ul>
+        </nav>
+    );
+}
 
 function Header() {
     const [scroll, setScroll] = useState(false);
@@ -42,6 +81,7 @@ function Header() {
     }, [lastScrollY]);
 
     return (
+        <>
         <motion.header
             initial={{ opacity: 0, y: 0 }}
             animate={{ 
@@ -72,6 +112,8 @@ function Header() {
                 <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV hidden lg:flex">Resume</button></a>
             </div>
         </motion.header>
+        <MobileNavigation />
+        </>
     )
 }
 
