@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { useSelectedLayoutSegment } from "next/navigation";
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { GrSend } from "react-icons/gr";
+import { getResumeDownloadUrl } from "@/app/lib/api";
 
 function MobileNavigation() {
     const [activeSection, setActiveSection] = useState('');
@@ -61,60 +62,56 @@ function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-        const currentScrollY = window.scrollY;
-        
-        // Detect scroll direction
-        if (currentScrollY > lastScrollY) {
-            setScrollDirection('down');
-        } else {
-            setScrollDirection('up');
-        }
-        
-        // For sticky effect
-        setScroll(currentScrollY > 50);
-        
-        setLastScrollY(currentScrollY);
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                setScrollDirection('down');
+            } else {
+                setScrollDirection('up');
+            }
+
+            setScroll(currentScrollY > 50);
+            setLastScrollY(currentScrollY);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
+    const resumeUrl = getResumeDownloadUrl();
+
     return (
         <>
-        <motion.header
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ 
-                // Keep the logo and CV button visible on mobile/tablet.
-                opacity: isMobile || scrollDirection === 'up' ? 1 : 0,
-                y: !isMobile && scrollDirection === 'down' ? -100 : 0
-            }}
-            transition={{ 
-                ease: "easeInOut",
-                duration: 0.3
-            }}
-            className={scroll ? "flex lg:sticky top-0 z-50 w-full px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full px-15 py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
-        >
-            {/* Logo stays in the top header */}
-            <Link href={"/"} className="w-fit shrink-0 py-0! lg:justify-self-start">
-                <Image
-                    width={64}
-                    height={64} 
-                    src="/logo.png" 
-                    alt="JB logo" 
-                    className="size-11 sm:size-12 md:size-14"
-                />
-            </Link>
-            <Navigation />
-            {/* CV button stays in the top header */}
-            <div className="flex shrink-0 items-center py-0! lg:justify-self-end">
-                <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV flex lg:hidden">CV</button></a>
-                <a href="Joriel Brian Sudario - CV.pdf" target="_blank" rel="noreferrer"><button className="navbarCV hidden lg:flex">Resume</button></a>
-            </div>
-        </motion.header>
-        <MobileNavigation />
+            <motion.header
+                initial={{ opacity: 0, y: 0 }}
+                animate={{
+                    opacity: isMobile || scrollDirection === 'up' ? 1 : 0,
+                    y: !isMobile && scrollDirection === 'down' ? -100 : 0
+                }}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.3
+                }}
+                className={scroll ? "flex lg:sticky top-0 z-50 w-full px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full px-15 py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
+            >
+                <Link href="/" className="w-fit shrink-0 py-0! lg:justify-self-start">
+                    <Image
+                        width={64}
+                        height={64}
+                        src="/logo.png"
+                        alt="JB logo"
+                        className="size-11 sm:size-12 md:size-14"
+                    />
+                </Link>
+                <Navigation />
+                <div className="flex shrink-0 items-center py-0! lg:justify-self-end">
+                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV flex lg:hidden">CV</a>
+                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV hidden lg:flex">Resume</a>
+                </div>
+            </motion.header>
+            <MobileNavigation />
         </>
-    )
+    );
 }
 
-export default Header
+export default Header;
