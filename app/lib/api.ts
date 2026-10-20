@@ -39,6 +39,12 @@ export interface ApiContentBlock {
   paragraphs: string[];
 }
 
+export interface ApiResume {
+  url: string;
+  original_filename: string;
+  uploaded_at: string;
+}
+
 async function apiFetch<T>(path: string): Promise<T> {
   if (!API_URL) {
     throw new Error(
@@ -87,6 +93,22 @@ export const getSkills = () => apiFetch<ApiSkill[]>("/skills");
 export const getContentBlock = (key: string) => apiFetch<ApiContentBlock>(`/content/${key}`);
 export const getAllContent = () => apiFetch<ApiContentBlock[]>("/content");
 
+export async function getResume(): Promise<ApiResume | null> {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  const res = await fetch(`${API_URL}/resume`);
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    throw new Error(body?.detail || `Could not load CV details: ${res.status}`);
+  }
+  return res.json();
+}
+
+export function getResumeDownloadUrl(): string {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  return `${API_URL}/resume/download`;
+}
+
 // ---- Admin writes (require an active login session, cookie sent automatically) ----
 
 async function adminFetch<T>(path: string, method: string, body?: unknown): Promise<T> {
@@ -102,6 +124,23 @@ async function adminFetch<T>(path: string, method: string, body?: unknown): Prom
     throw new Error(errBody?.detail || `${method} ${path} failed: ${res.status}`);
   }
   if (res.status === 204) return undefined as T;
+  return res.json();
+}
+
+export async function uploadResume(file: File): Promise<ApiResume> {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${API_URL}/resume`, {
+    method: "POST",
+    credentials: "include",
+    body: formData,
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => null);
+    throw new Error(errBody?.detail || `CV upload failed: ${res.status}`);
+  }
   return res.json();
 }
 
