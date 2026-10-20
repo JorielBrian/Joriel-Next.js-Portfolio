@@ -24,8 +24,11 @@ SiFastapi,
 SiPostgresql,
 SiRender
 } from "react-icons/si";
+import { getResumeDownloadUrl } from "@/app/lib/api";
 
 const Footer = () => {
+const resumeUrl = getResumeDownloadUrl();
+
 const contactInfo = [
 {
 icon: <FiMail />,
@@ -43,13 +46,13 @@ const cvLinks = [
     {
         icon: <FiFileText />,
         text: "View CV",
-        href: "Joriel Brian Sudario - CV.pdf",
+        href: resumeUrl,
         variant: "outline"
     },
     {
         icon: <FiDownload />,
         text: "Download CV",
-        href: "Joriel Brian Sudario - CV.pdf",
+        href: resumeUrl,
         download: true,
         variant: "primary"
     }
@@ -99,11 +102,7 @@ return (
         className="w-full py-20 bg-blue-950/50 border-t-2 border-blue-800/80"
     >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            {/* Main Content Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-
-                {/* Contact Section */}
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -122,19 +121,13 @@ return (
                                 whileHover={{ x: 4 }}
                                 className="flex items-center gap-3 text-gray-300 hover:text-blue-200 transition-colors duration-300 group"
                             >
-                                <span className="text-blue-400 group-hover:text-blue-200 text-lg">
-                                    {item.icon}
-                                </span>
-
-                                <span className="text-sm sm:text-base">
-                                    {item.text}
-                                </span>
+                                <span className="text-blue-400 group-hover:text-blue-200 text-lg">{item.icon}</span>
+                                <span className="text-sm sm:text-base">{item.text}</span>
                             </motion.a>
                         ))}
                     </div>
                 </motion.section>
 
-                {/* CV Section */}
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +160,6 @@ return (
                     </div>
                 </motion.section>
 
-                {/* Social Media Section */}
                 <motion.section
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -188,16 +180,13 @@ return (
                                 whileTap={{ scale: 0.95 }}
                                 className="p-3 bg-linear-to-b from-blue-900 to-blue-950 border-2 border-blue-700/80 rounded-full hover:border-blue-600/80 hover:bg-blue-800 transition-all duration-300 text-blue-200 hover:text-white"
                             >
-                                <span className="text-xl">
-                                    {social.icon}
-                                </span>
+                                <span className="text-xl">{social.icon}</span>
                             </motion.a>
                         ))}
                     </div>
                 </motion.section>
             </div>
 
-            {/* Tech Stack Section */}
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -205,8 +194,7 @@ return (
                 className="border-t-2 border-blue-700/80 pt-12"
             >
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    Built with
-                    <FiArrowRight className="text-blue-400" />
+                    Built with <FiArrowRight className="text-blue-400" />
                 </h3>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -216,19 +204,13 @@ return (
                             whileHover={{ y: -4 }}
                             className="flex items-center gap-2 px-3 py-3 bg-linear-to-b from-blue-900/40 to-blue-950/60 border border-blue-700/80 hover:border-blue-600 rounded-lg transition-colors hover:bg-blue-900/50 cursor-pointer"
                         >
-                            <span className="text-blue-400 text-lg">
-                                {tech.icon}
-                            </span>
-
-                            <span className="text-xs sm:text-sm font-medium text-gray-200">
-                                {tech.label}
-                            </span>
+                            <span className="text-blue-400 text-lg">{tech.icon}</span>
+                            <span className="text-xs sm:text-sm font-medium text-gray-200">{tech.label}</span>
                         </motion.div>
                     ))}
                 </div>
             </motion.div>
 
-            {/* Footer Bottom */}
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -238,16 +220,13 @@ return (
                 <p className="text-gray-400 text-sm mb-1">
                     © {new Date().getFullYear()} Joriel Brian Sudario. All rights reserved.
                 </p>
-
                 <p className="text-gray-500 text-xs">
                     Built with Next.js, TypeScript, Python, FastAPI, PostgreSQL, and more.
                 </p>
             </motion.div>
-
         </div>
     </motion.footer>
 );
-
 };
 
 export default Footer;
