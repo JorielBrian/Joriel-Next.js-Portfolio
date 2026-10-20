@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Check, FileDown, Save, Upload } from "lucide-react";
 import {
   ApiContentBlock,
@@ -83,7 +83,7 @@ export default function ContentAdmin() {
     }
   };
 
-  const handleResumeUpload = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleResumeUpload = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!selectedFile) {
       setResumeError("Choose a PDF file first.");
