@@ -24,10 +24,11 @@ SiFastapi,
 SiPostgresql,
 SiRender
 } from "react-icons/si";
-import { getResumeDownloadUrl } from "@/app/lib/api";
+import { getResumeDownloadUrl, getResumeViewUrl } from "@/app/lib/api";
 
 const Footer = () => {
-const resumeUrl = getResumeDownloadUrl();
+const resumeViewUrl = getResumeViewUrl();
+const resumeDownloadUrl = getResumeDownloadUrl();
 
 const contactInfo = [
 {
@@ -46,13 +47,13 @@ const cvLinks = [
     {
         icon: <FiFileText />,
         text: "View CV",
-        href: resumeUrl,
+        href: resumeViewUrl,
         variant: "outline"
     },
     {
         icon: <FiDownload />,
         text: "Download CV",
-        href: resumeUrl,
+        href: resumeDownloadUrl,
         download: true,
         variant: "primary"
     }
