@@ -105,8 +105,8 @@ function Header() {
                 </Link>
                 <Navigation />
                 <div className="flex shrink-0 items-center py-0! lg:justify-self-end">
-                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV flex lg:hidden">CV</a>
-                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV hidden lg:flex">Resume</a>
+                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV flex lg:hidden">View CV</a>
+                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV hidden lg:flex">View CV</a>
                 </div>
             </motion.header>
             <MobileNavigation />
