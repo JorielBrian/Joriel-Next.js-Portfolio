@@ -12,7 +12,7 @@ FiLinkedin,
 FiInstagram,
 FiArrowRight
 } from "react-icons/fi";
-import { FaServer } from "react-icons/fa6";
+import { FaDatabase, FaServer, FaWandMagicSparkles } from "react-icons/fa6";
 
 import {
 SiNextdotjs,
@@ -25,10 +25,8 @@ SiFastapi,
 SiPostgresql,
 SiRender,
 SiRadixui,
-SiMotion,
 SiEslint,
 SiPydantic,
-SiSqlalchemy,
 SiNeon,
 SiGit,
 SiGithub,
@@ -98,12 +96,12 @@ const techStack = [
     { icon: <SiFastapi />, label: "FastAPI" },
     { icon: <FaServer />, label: "Uvicorn" },
     { icon: <SiPostgresql />, label: "PostgreSQL" },
-    { icon: <SiSqlalchemy />, label: "SQLAlchemy" },
+    { icon: <FaDatabase />, label: "SQLAlchemy" },
     { icon: <SiPydantic />, label: "Pydantic" },
     { icon: <SiTailwindcss />, label: "Tailwind CSS" },
     { icon: <SiShadcnui />, label: "shadcn/ui" },
     { icon: <SiRadixui />, label: "Radix UI" },
-    { icon: <SiMotion />, label: "Motion" },
+    { icon: <FaWandMagicSparkles />, label: "Motion" },
     { icon: <SiNeon />, label: "Neon" },
     { icon: <SiVercel />, label: "Vercel" },
     { icon: <SiRender />, label: "Render" },
