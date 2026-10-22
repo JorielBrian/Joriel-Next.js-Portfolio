@@ -30,7 +30,9 @@ SiPydantic,
 SiNeon,
 SiGit,
 SiGithub,
-SiPnpm
+SiPnpm,
+SiAnthropic,
+SiOpenai
 } from "react-icons/si";
 import { getResumeDownloadUrl, getResumeViewUrl } from "@/app/lib/api";
 
@@ -98,6 +100,8 @@ const techStack = [
     { icon: <SiPostgresql />, label: "PostgreSQL" },
     { icon: <FaDatabase />, label: "SQLAlchemy" },
     { icon: <SiPydantic />, label: "Pydantic" },
+    { icon: <SiAnthropic />, label: "Claude" },
+    { icon: <SiOpenai />, label: "ChatGPT" },
     { icon: <SiTailwindcss />, label: "Tailwind CSS" },
     { icon: <SiShadcnui />, label: "shadcn/ui" },
     { icon: <SiRadixui />, label: "Radix UI" },
