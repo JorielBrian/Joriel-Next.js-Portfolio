@@ -31,10 +31,16 @@ SiNeon,
 SiGit,
 SiGithub,
 SiPnpm,
-SiAnthropic,
 SiOpenai
 } from "react-icons/si";
 import { getResumeDownloadUrl, getResumeViewUrl } from "@/app/lib/api";
+
+const ClaudeLogo = () => (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
+        <path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.29 5.29l2.83 2.83M15.88 15.88l2.83 2.83M18.71 5.29l-2.83 2.83M8.12 15.88l-2.83 2.83" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+);
 
 const Footer = () => {
 const resumeViewUrl = getResumeViewUrl();
@@ -100,7 +106,7 @@ const techStack = [
     { icon: <SiPostgresql />, label: "PostgreSQL" },
     { icon: <FaDatabase />, label: "SQLAlchemy" },
     { icon: <SiPydantic />, label: "Pydantic" },
-    { icon: <SiAnthropic />, label: "Claude" },
+    { icon: <ClaudeLogo />, label: "Claude" },
     { icon: <SiOpenai />, label: "ChatGPT" },
     { icon: <SiTailwindcss />, label: "Tailwind CSS" },
     { icon: <SiShadcnui />, label: "shadcn/ui" },
