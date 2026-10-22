@@ -1,6 +1,6 @@
 import { Proficiency, Preference, Category } from "@/app/data/enum";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://joriel-python-portfolio.onrender.com";
 
 export interface ApiProject {
   id: number;
