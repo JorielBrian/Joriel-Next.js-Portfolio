@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { useSelectedLayoutSegment } from "next/navigation";
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { GrSend } from "react-icons/gr";
-import { getResumeDownloadUrl } from "@/app/lib/api";
+import { getResumeViewUrl } from "@/app/lib/api";
 
 function MobileNavigation() {
     const [activeSection, setActiveSection] = useState('');
@@ -78,7 +78,7 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const resumeUrl = getResumeDownloadUrl();
+    const resumeUrl = getResumeViewUrl();
 
     return (
         <>
