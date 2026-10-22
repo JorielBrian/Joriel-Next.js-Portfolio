@@ -12,6 +12,7 @@ FiLinkedin,
 FiInstagram,
 FiArrowRight
 } from "react-icons/fi";
+import { FaServer } from "react-icons/fa6";
 
 import {
 SiNextdotjs,
@@ -22,7 +23,16 @@ SiShadcnui,
 SiPython,
 SiFastapi,
 SiPostgresql,
-SiRender
+SiRender,
+SiRadixui,
+SiMotion,
+SiEslint,
+SiPydantic,
+SiSqlalchemy,
+SiNeon,
+SiGit,
+SiGithub,
+SiPnpm
 } from "react-icons/si";
 import { getResumeDownloadUrl, getResumeViewUrl } from "@/app/lib/api";
 
@@ -84,13 +94,23 @@ const socialMedia = [
 const techStack = [
     { icon: <SiNextdotjs />, label: "Next.js" },
     { icon: <SiTypescript />, label: "TypeScript" },
-    { icon: <SiTailwindcss />, label: "Tailwind CSS" },
-    { icon: <SiShadcnui />, label: "shadcn/ui" },
     { icon: <SiPython />, label: "Python" },
     { icon: <SiFastapi />, label: "FastAPI" },
+    { icon: <FaServer />, label: "Uvicorn" },
     { icon: <SiPostgresql />, label: "PostgreSQL" },
+    { icon: <SiSqlalchemy />, label: "SQLAlchemy" },
+    { icon: <SiPydantic />, label: "Pydantic" },
+    { icon: <SiTailwindcss />, label: "Tailwind CSS" },
+    { icon: <SiShadcnui />, label: "shadcn/ui" },
+    { icon: <SiRadixui />, label: "Radix UI" },
+    { icon: <SiMotion />, label: "Motion" },
+    { icon: <SiNeon />, label: "Neon" },
     { icon: <SiVercel />, label: "Vercel" },
-    { icon: <SiRender />, label: "Render" }
+    { icon: <SiRender />, label: "Render" },
+    { icon: <SiEslint />, label: "ESLint" },
+    { icon: <SiGit />, label: "Git" },
+    { icon: <SiGithub />, label: "GitHub" },
+    { icon: <SiPnpm />, label: "pnpm" }
 ];
 
 return (
