@@ -8,7 +8,6 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { GrSend } from "react-icons/gr";
 import { getResumeViewUrl } from "@/app/lib/api";
-import { getResumeDownloadUrl } from "@/app/lib/api";
 
 function MobileNavigation() {
     const [activeSection, setActiveSection] = useState('');
