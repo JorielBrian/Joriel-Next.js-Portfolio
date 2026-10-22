@@ -34,6 +34,25 @@ SiPnpm
 } from "react-icons/si";
 import { getResumeDownloadUrl, getResumeViewUrl } from "@/app/lib/api";
 
+const ClaudeLogo = () => (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
+        <path d="M12 2.5v4M12 17.5v4M2.5 12h4M17.5 12h4M5.29 5.29l2.83 2.83M15.88 15.88l2.83 2.83M18.71 5.29l-2.83 2.83M8.12 15.88l-2.83 2.83" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
+);
+
+const ChatGPTLogo = () => (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
+        <g stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 3.1 16.1 5.5 16.1 10.1 12 12.5 7.9 10.1 7.9 5.5 12 3.1Z" />
+            <path d="M16.1 5.5 19.4 7.4 19.4 12 15.4 14.3 12 12.5" />
+            <path d="M19.4 12 19.4 15.8 15.4 18.1 11.4 15.8 11.4 12.9" />
+            <path d="M15.4 18.1 12 20.1 7.9 17.7 7.9 13.1 11.4 11.1" />
+            <path d="M7.9 17.7 4.6 15.8 4.6 11.2 8.6 8.9 12 10.8" />
+            <path d="M4.6 11.2 4.6 7.4 8.6 5.1 12.6 7.4 12.6 11.1" />
+        </g>
+    </svg>
+);
 
 const Footer = () => {
 const resumeViewUrl = getResumeViewUrl();
@@ -99,6 +118,8 @@ const techStack = [
     { icon: <SiPostgresql />, label: "PostgreSQL" },
     { icon: <FaDatabase />, label: "SQLAlchemy" },
     { icon: <SiPydantic />, label: "Pydantic" },
+    { icon: <ClaudeLogo />, label: "Claude" },
+    { icon: <ChatGPTLogo />, label: "ChatGPT" },
     { icon: <SiTailwindcss />, label: "Tailwind CSS" },
     { icon: <SiShadcnui />, label: "shadcn/ui" },
     { icon: <SiRadixui />, label: "Radix UI" },
