@@ -54,7 +54,6 @@ const cvLinks = [
         icon: <FiDownload />,
         text: "Download CV",
         href: resumeDownloadUrl,
-        download: true,
         variant: "primary"
     }
 ];
@@ -144,7 +143,6 @@ return (
                             <motion.a
                                 key={index}
                                 href={link.href}
-                                download={link.download}
                                 target={link.variant === "outline" ? "_blank" : undefined}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
