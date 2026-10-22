@@ -79,7 +79,7 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const resumeUrl = getResumeDownloadUrl();
+    const resumeUrl = getResumeViewUrl();
 
     return (
         <>
