@@ -104,6 +104,11 @@ export async function getResume(): Promise<ApiResume | null> {
   return res.json();
 }
 
+export function getResumeViewUrl(): string {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  return `${API_URL}/resume/view`;
+}
+
 export function getResumeDownloadUrl(): string {
   if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
   return `${API_URL}/resume/download`;
