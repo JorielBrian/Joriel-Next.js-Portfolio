@@ -85,7 +85,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const isCollapsed = mobile ? false : collapsed;
     return (
     <aside
-      className={`flex h-full shrink-0 flex-col border-r border-blue-700/40 bg-linear-to-b from-blue-950/95 to-blue-950 transition-[width] duration-200 ${isCollapsed ? "w-16 lg:w-20" : "w-64"}`}
+      className={`flex h-dvh max-h-dvh min-h-0 shrink-0 flex-col border-r border-blue-700/40 bg-linear-to-b from-blue-950/95 to-blue-950 transition-[width] duration-200 ${isCollapsed ? "w-16 lg:w-20" : "w-64"}`}
     >
       <div className={`flex min-h-20 items-center ${isCollapsed ? "justify-center px-2" : "justify-between px-5"}`}>
         {isCollapsed ? (
@@ -109,7 +109,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </Button>
       </div>
 
-      <nav aria-label="Admin navigation" className="flex-1 space-y-1 px-2 py-2">
+      <nav aria-label="Admin navigation" className="min-h-0 flex-1 space-y-1 overflow-y-auto px-2 py-2">
         {NAV.map((item) => {
           const active = pathname === item.href;
           const Icon = item.icon;
@@ -141,7 +141,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           className={`flex min-h-10 items-center gap-3 rounded-xl px-3 py-2 text-xs text-blue-300/70 transition-colors hover:bg-blue-900/40 hover:text-blue-100 ${isCollapsed ? "justify-center px-2" : ""}`}
         >
           <ExternalLink size={16} aria-hidden="true" />
-          {!collapsed && <span>View live site</span>}
+          {!isCollapsed && <span>View live site</span>}
         </Link>
 
         <div
@@ -151,7 +151,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-700 text-xs font-bold text-white">
             {username?.[0]?.toUpperCase() ?? "A"}
           </div>
-          {!collapsed && <p className="truncate text-sm text-blue-100">{username}</p>}
+          {!isCollapsed && <p className="truncate text-sm text-blue-100">{username}</p>}
         </div>
 
         <Button
@@ -171,9 +171,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-blue-950 text-white">
-      <div className="flex h-screen">
-        <div className="sticky top-0 hidden h-screen shrink-0 md:flex">{sidebar()}</div>
+    <div className="h-dvh overflow-hidden bg-blue-950 text-white">
+      <div className="flex h-dvh min-h-0">
+        <div className="sticky top-0 hidden h-dvh shrink-0 self-start md:flex">{sidebar()}</div>
 
         {mobileOpen && (
           <div className="fixed inset-0 z-50 md:hidden">
@@ -201,7 +201,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
         )}
 
-        <div className="flex h-screen min-w-0 flex-1 flex-col overflow-hidden">
+        <div className="flex h-dvh min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
           <header className="flex min-h-14 shrink-0 items-center gap-3 border-b border-blue-700/30 bg-blue-950/80 px-4 sm:px-6">
             <Button
               type="button"
