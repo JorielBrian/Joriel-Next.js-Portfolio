@@ -121,6 +121,11 @@ const ProjectsAdmin = () => {
     setAddOpen(true);
   };
 
+  const cancelDelete = () => {
+    setProjectToDelete(null);
+    setError(null);
+  };
+
   return (
     <div className="mx-auto w-full max-w-6xl space-y-7">
       <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -137,7 +142,7 @@ const ProjectsAdmin = () => {
         </button>
       </header>
 
-      {error && (
+      {error && !projectToDelete && (
         <div
           role="alert"
           className="flex items-start justify-between gap-3 rounded-xl border border-red-800/50 bg-red-950/30 px-4 py-3 text-sm text-red-200"
@@ -211,8 +216,8 @@ const ProjectsAdmin = () => {
       <DeleteProjectDialog
         project={projectToDelete}
         deleting={deleting}
-        error={error}
-        onCancel={() => setProjectToDelete(null)}
+        error={projectToDelete ? error : null}
+        onCancel={cancelDelete}
         onConfirm={handleDelete}
       />
     </div>
