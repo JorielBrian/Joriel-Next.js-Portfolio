@@ -171,9 +171,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   return (
-    <div className="min-h-screen bg-blue-950 text-white">
-      <div className="flex min-h-screen">
-        <div className="hidden md:flex">{sidebar()}</div>
+    <div className="h-screen overflow-hidden bg-blue-950 text-white">
+      <div className="flex h-screen">
+        <div className="sticky top-0 hidden h-screen shrink-0 md:flex">{sidebar()}</div>
 
         {mobileOpen && (
           <div className="fixed inset-0 z-50 md:hidden">
@@ -201,7 +201,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
         )}
 
-        <div className="flex min-w-0 flex-1 flex-col">
+        <div className="flex h-screen min-w-0 flex-1 flex-col overflow-hidden">
           <header className="flex min-h-14 shrink-0 items-center gap-3 border-b border-blue-700/30 bg-blue-950/80 px-4 sm:px-6">
             <Button
               type="button"
@@ -215,7 +215,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </Button>
             <h1 className="text-sm font-semibold tracking-wide text-blue-100">{currentPage}</h1>
           </header>
-          <div className="min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">{children}</div>
+          <div className="min-h-0 min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">{children}</div>
         </div>
       </div>
     </div>
