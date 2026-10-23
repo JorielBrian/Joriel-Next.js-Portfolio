@@ -27,7 +27,7 @@ export const projectPrimaryButtonClass =
 export const toProjectForm = (project: {
   name: string;
   image: string;
-  link: string | null;
+  link?: string | null;
   description: string;
   skills: string[];
 }): ProjectForm => ({
