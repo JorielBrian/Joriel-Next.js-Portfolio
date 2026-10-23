@@ -1,0 +1,9 @@
+"use client";
+import { LoaderCircle, Trash2 } from "lucide-react";
+import type { ApiSkill } from "@/app/lib/api";
+import { skillSecondaryButtonClass } from "./skill-form-fields";
+type Props = { skill: ApiSkill | null; deleting: boolean; error: string | null; onCancel: () => void; onConfirm: () => void; };
+export const SkillDeleteDialog = ({ skill, deleting, error, onCancel, onConfirm }: Props) => {
+  if (!skill) return null;
+  return <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"><section role="alertdialog" aria-modal="true" aria-labelledby="delete-skill-title" className="w-full max-w-md rounded-2xl border border-red-900/50 bg-slate-950 p-6 shadow-2xl shadow-black/40"><div className="flex size-11 items-center justify-center rounded-xl border border-red-800/50 bg-red-950/50 text-red-300"><Trash2 size={20} /></div><h2 id="delete-skill-title" className="mt-4 text-lg font-bold text-white">Delete this skill?</h2><p className="mt-2 text-sm leading-6 text-blue-100/65">You’re about to delete <span className="font-semibold text-white">{skill.skill}</span>. This action cannot be undone.</p>{error && <p role="alert" className="mt-3 text-sm text-red-300">{error}</p>}<div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end"><button type="button" onClick={onCancel} disabled={deleting} className={skillSecondaryButtonClass}>Cancel</button><button type="button" onClick={onConfirm} disabled={deleting} className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-50">{deleting ? <LoaderCircle size={16} className="animate-spin" /> : <Trash2 size={16} />}{deleting ? "Deleting…" : "Delete skill"}</button></div></section></div>;
+};

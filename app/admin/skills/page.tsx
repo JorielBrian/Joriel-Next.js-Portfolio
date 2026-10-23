@@ -1,162 +1,65 @@
 'use client';
-import { useEffect, useState } from "react";
-import { Pencil, Trash2, Plus, X, Star } from "lucide-react";
-import { getSkills, createSkill, updateSkill, deleteSkill, ApiSkill } from "@/app/lib/api";
-import { Proficiency, Preference, Category } from "@/app/data/enum";
-
-type FormState = {
-  id: number | null;
-  skill: string;
-  image: string;
-  focus: boolean;
-  proficiency: Proficiency;
-  preference: Preference;
-  category: Category;
-};
-
-const EMPTY: FormState = {
-  id: null, skill: "", image: "", focus: false,
-  proficiency: Proficiency.FUNCTIONAL, preference: Preference.SUB_SKILL, category: Category.OTHER,
-};
-
-const inputCls = "w-full rounded-xl border border-blue-700/50 bg-blue-950/40 px-3 py-2.5 text-sm placeholder:text-blue-300/40 outline-none focus:border-blue-400/70 focus:ring-2 focus:ring-blue-500/20 transition";
-const labelCls = "text-xs text-blue-300/70 mb-1 block";
-
-export default function SkillsAdmin() {
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
+import { LoaderCircle, Plus, Search, X } from "lucide-react";
+import { Category } from "@/app/data/enum";
+import { createSkill, deleteSkill, getSkills, updateSkill, type ApiSkill } from "@/app/lib/api";
+import { SkillCategorySection } from "@/components/admin/skills/skill-category-section";
+import { SkillFormModal } from "@/components/admin/skills/skill-form-modal";
+import { SkillDeleteDialog } from "@/components/admin/skills/skill-delete-dialog";
+import { EMPTY_SKILL_FORM, skillPrimaryButtonClass, type SkillForm } from "@/components/admin/skills/skill-form-fields";
+const SkillsAdmin = () => {
   const [items, setItems] = useState<ApiSkill[]>([]);
   const [loading, setLoading] = useState(true);
-  const [form, setForm] = useState<FormState>(EMPTY);
   const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const load = () => {
+  const [search, setSearch] = useState("");
+  const [editing, setEditing] = useState<ApiSkill | null>(null);
+  const [editForm, setEditForm] = useState<SkillForm>(EMPTY_SKILL_FORM);
+  const [addOpen, setAddOpen] = useState(false);
+  const [addForm, setAddForm] = useState<SkillForm>(EMPTY_SKILL_FORM);
+  const [toDelete, setToDelete] = useState<ApiSkill | null>(null);
+  const load = useCallback(async () => {
     setLoading(true);
-    getSkills().then(setItems).catch((e) => setError(e.message)).finally(() => setLoading(false));
+    try { setItems(await getSkills()); setError(null); }
+    catch (err) { setError(err instanceof Error ? err.message : "Could not load skills."); }
+    finally { setLoading(false); }
+  }, []);
+  useEffect(() => { void load(); }, [load]);
+  const grouped = useMemo(() => {
+    const filtered = items.filter((item) => [item.skill, item.category, item.preference, item.proficiency].some((value) => value.toLowerCase().includes(search.trim().toLowerCase())));
+    return Object.values(Category).map((category) => ({ category, skills: filtered.filter((item) => item.category === category).sort((a, b) => a.order - b.order) })).filter((group) => group.skills.length > 0);
+  }, [items, search]);
+  const openAdd = () => { setError(null); setAddForm(EMPTY_SKILL_FORM); setAddOpen(true); };
+  const openEdit = (skill: ApiSkill) => { setError(null); setEditing(skill); setEditForm({ skill: skill.skill, image: skill.image, focus: skill.focus, proficiency: skill.proficiency, preference: skill.preference, category: skill.category }); };
+  const create = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); setSaving(true); setError(null);
+    try { await createSkill({ ...addForm, skill: addForm.skill.trim(), image: addForm.image.trim(), order: items.length }); setAddOpen(false); setAddForm(EMPTY_SKILL_FORM); await load(); }
+    catch (err) { setError(err instanceof Error ? err.message : "Could not create the skill."); }
+    finally { setSaving(false); }
   };
-  useEffect(load, []);
-
-  const startEdit = (s: ApiSkill) => setForm({
-    id: s.id, skill: s.skill, image: s.image, focus: s.focus,
-    proficiency: s.proficiency, preference: s.preference, category: s.category,
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSaving(true);
-    setError(null);
-    const payload = {
-      skill: form.skill, image: form.image, focus: form.focus,
-      proficiency: form.proficiency, preference: form.preference, category: form.category,
-      order: form.id ? items.find((s) => s.id === form.id)?.order ?? 0 : items.length,
-    };
-    try {
-      if (form.id) await updateSkill(form.id, payload);
-      else await createSkill(payload);
-      setForm(EMPTY);
-      load();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Save failed");
-    } finally {
-      setSaving(false);
-    }
+  const update = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); if (!editing) return; setSaving(true); setError(null);
+    try { await updateSkill(editing.id, { ...editForm, skill: editForm.skill.trim(), image: editForm.image.trim(), order: editing.order }); setEditing(null); setEditForm(EMPTY_SKILL_FORM); await load(); }
+    catch (err) { setError(err instanceof Error ? err.message : "Could not update the skill."); }
+    finally { setSaving(false); }
   };
-
-  const handleDelete = async (id: number) => {
-    if (!confirm("Delete this skill?")) return;
-    try { await deleteSkill(id); load(); }
-    catch (err) { setError(err instanceof Error ? err.message : "Delete failed"); }
+  const remove = async () => {
+    if (!toDelete) return; setDeleting(true); setError(null);
+    try { await deleteSkill(toDelete.id); setToDelete(null); await load(); }
+    catch (err) { setError(err instanceof Error ? err.message : "Could not delete the skill."); }
+    finally { setDeleting(false); }
   };
-
-  return (
-    <div className="space-y-8 max-w-3xl">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Skills</h1>
-        <span className="text-sm text-blue-300/50">{items.length} total</span>
-      </div>
-
-      {error && <p className="text-sm text-red-300 bg-red-950/30 border border-red-800/40 rounded-xl px-4 py-2">{error}</p>}
-
-      <form onSubmit={handleSubmit} className="card mt-0 space-y-4">
-        <h2 className="font-semibold flex items-center gap-2">
-          {form.id ? <Pencil size={15} /> : <Plus size={15} />}
-          {form.id ? "Edit skill" : "Add skill"}
-        </h2>
-
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div>
-            <label className={labelCls}>Skill name</label>
-            <input required value={form.skill} onChange={(e) => setForm({ ...form, skill: e.target.value })} className={inputCls} />
-          </div>
-          <div>
-            <label className={labelCls}>Icon/image URL</label>
-            <input required value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} className={inputCls} />
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-3 gap-4">
-          <div>
-            <label className={labelCls}>Proficiency</label>
-            <select value={form.proficiency} onChange={(e) => setForm({ ...form, proficiency: e.target.value as Proficiency })} className={inputCls}>
-              {Object.values(Proficiency).map((v) => <option key={v} value={v}>{v}</option>)}
-            </select>
-          </div>
-          <div>
-            <label className={labelCls}>Preference group</label>
-            <select value={form.preference} onChange={(e) => setForm({ ...form, preference: e.target.value as Preference })} className={inputCls}>
-              {Object.values(Preference).map((v) => <option key={v} value={v}>{v}</option>)}
-            </select>
-          </div>
-          <div>
-            <label className={labelCls}>Category</label>
-            <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value as Category })} className={inputCls}>
-              {Object.values(Category).map((v) => <option key={v} value={v}>{v}</option>)}
-            </select>
-          </div>
-        </div>
-
-        <label className="flex items-center gap-2 text-sm text-blue-200 cursor-pointer w-fit">
-          <input type="checkbox" checked={form.focus} onChange={(e) => setForm({ ...form, focus: e.target.checked })}
-            className="rounded border-blue-700/50 bg-blue-950/40 accent-blue-500" />
-          Featured / focus skill
-        </label>
-
-        <div className="flex gap-3 pt-1">
-          <button type="submit" disabled={saving}
-            className="rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2 text-sm transition disabled:opacity-50">
-            {saving ? "Saving..." : form.id ? "Update" : "Add skill"}
-          </button>
-          {form.id && (
-            <button type="button" onClick={() => setForm(EMPTY)}
-              className="flex items-center gap-1 rounded-full border border-blue-700/50 px-4 py-2 text-sm text-blue-200 hover:border-blue-500">
-              <X size={14} /> Cancel
-            </button>
-          )}
-        </div>
-      </form>
-
-      {loading ? (
-        <p className="text-blue-300/60 text-sm">Loading...</p>
-      ) : (
-        <div className="space-y-3">
-          {items.map((s) => (
-            <div key={s.id} className="flex items-center justify-between rounded-xl border border-blue-700/30 bg-blue-950/30 px-5 py-4 hover:border-blue-600/50 transition-colors">
-              <div className="min-w-0 flex items-center gap-2">
-                <p className="font-medium truncate">{s.skill}</p>
-                {s.focus && <Star size={13} className="text-yellow-400 fill-yellow-400 shrink-0" />}
-                <span className="text-xs text-blue-300/50 truncate">— {s.preference} · {s.category} · {s.proficiency}</span>
-              </div>
-              <div className="flex gap-1.5 shrink-0 ml-4">
-                <button onClick={() => startEdit(s)} className="p-2 rounded-lg text-blue-300 hover:bg-blue-800/40 hover:text-white transition-colors" title="Edit">
-                  <Pencil size={15} />
-                </button>
-                <button onClick={() => handleDelete(s.id)} className="p-2 rounded-lg text-red-300/70 hover:bg-red-900/30 hover:text-red-300 transition-colors" title="Delete">
-                  <Trash2 size={15} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+  const closeEdit = () => { if (saving) return; setEditing(null); setEditForm(EMPTY_SKILL_FORM); setError(null); };
+  const cancelDelete = () => { setToDelete(null); setError(null); };
+  return <div className="mx-auto w-full max-w-6xl space-y-7">
+    <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-sm font-medium text-blue-300/70">Portfolio management</p><h1 className="mt-1 text-2xl font-bold text-white sm:text-3xl">Skills</h1><p className="mt-2 text-sm text-blue-100/55">Manage your skills by category, proficiency, and focus.</p></div><button type="button" onClick={openAdd} className={skillPrimaryButtonClass}><Plus size={17} /> Add skill</button></header>
+    {error && !toDelete && !editing && !addOpen && <div role="alert" className="flex items-start justify-between gap-3 rounded-xl border border-red-800/50 bg-red-950/30 px-4 py-3 text-sm text-red-200"><p>{error}</p><button type="button" onClick={() => setError(null)} aria-label="Dismiss error" className="rounded-md p-0.5 text-red-200/70 hover:text-white"><X size={16} /></button></div>}
+    <div className="flex flex-col gap-3 border-b border-blue-900/60 pb-4 sm:flex-row sm:items-center sm:justify-between"><div><h2 className="font-semibold text-white">All skills</h2><p className="mt-1 text-xs text-blue-200/50">{items.length} total {items.filter((item) => item.focus).length} featured</p></div><label className="relative block w-full sm:max-w-xs"><Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-200/40" /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search skills…" aria-label="Search skills" className="w-full rounded-xl border border-blue-800/50 bg-blue-950/30 py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-blue-200/40 outline-none focus:border-blue-500" /></label></div>
+    {loading ? <div className="flex items-center justify-center gap-2 py-16 text-sm text-blue-200/60"><LoaderCircle size={18} className="animate-spin" /> Loading skills…</div> : grouped.length === 0 ? <div className="rounded-2xl border border-dashed border-blue-800/60 bg-blue-950/20 px-6 py-14 text-center"><div className="mx-auto flex size-12 items-center justify-center rounded-2xl border border-blue-800/50 bg-blue-900/30 text-blue-200"><Search size={20} /></div><h3 className="mt-4 font-semibold text-white">{search ? "No matching skills" : "No skills yet"}</h3><p className="mx-auto mt-1 max-w-sm text-sm text-blue-100/55">{search ? "Try another search term." : "Add your first skill to start building your portfolio skills section."}</p>{!search && <button type="button" onClick={openAdd} className={`${skillPrimaryButtonClass} mt-5`}><Plus size={16} /> Add your first skill</button>}</div> : <div className="space-y-4">{grouped.map((group) => <SkillCategorySection key={group.category} category={group.category} skills={group.skills} onEdit={openEdit} onDelete={setToDelete} />)}</div>}
+    <SkillFormModal open={addOpen} mode="add" form={addForm} saving={saving} error={addOpen ? error : null} onFormChange={setAddForm} onClose={() => { if (!saving) { setAddOpen(false); setError(null); } }} onSubmit={create} />
+    <SkillFormModal open={Boolean(editing)} mode="edit" form={editForm} saving={saving} error={editing ? error : null} onFormChange={setEditForm} onClose={closeEdit} onSubmit={update} />
+    <SkillDeleteDialog skill={toDelete} deleting={deleting} error={toDelete ? error : null} onCancel={cancelDelete} onConfirm={remove} />
+  </div>;
+};
+export default SkillsAdmin;
