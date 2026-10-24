@@ -79,7 +79,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     );
   }
 
-  const currentPage = NAV.find((item) => item.href === pathname)?.name ?? "Admin";
+  const currentPage = NAV.find((item) => item.href === pathname || (item.href !== "/admin" && pathname.startsWith(`${item.href}/`)))?.name ?? "Admin";
 
   const sidebar = (mobile = false) => {
     const isCollapsed = mobile ? false : collapsed;
@@ -111,7 +111,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       <nav aria-label="Admin navigation" className="min-h-0 flex-1 space-y-1 overflow-y-auto px-2 py-2">
         {NAV.map((item) => {
-          const active = pathname === item.href;
+          const active = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(`${item.href}/`));
           const Icon = item.icon;
           return (
             <Link
@@ -213,7 +213,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             >
               <Menu size={19} />
             </Button>
-            <h1 className="text-sm font-semibold tracking-wide text-blue-100">{currentPage}</h1>
+            <div className="min-w-0"><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-300/50">Portfolio admin</p><h1 className="truncate text-sm font-semibold tracking-wide text-blue-100">{currentPage}</h1></div>
           </header>
           <div className="min-h-0 min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">{children}</div>
         </div>
