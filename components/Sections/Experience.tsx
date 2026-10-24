@@ -17,7 +17,8 @@ import { Calendar, Building, Briefcase } from "lucide-react";
 import SectionSkeleton from "@/components/SectionSkeleton";
 
 const Experience = () => {
-  const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);\n  const [loading, setLoading] = useState(true);
+  const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+  const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
@@ -104,7 +105,7 @@ const Experience = () => {
                 </CarouselContent>
                 <CarouselPrevious className="md:flex" />
                 <CarouselNext className="md:flex" />
-            </Carousel>
+            </Carousel>}
         </div>
         <div className="mt-8 text-center">
             <Link href="/experiences" className="button active inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-slate-950 transition place-self-center">
