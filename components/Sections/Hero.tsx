@@ -67,9 +67,11 @@ function Hero() {
             className="py-4 mt-10"
         >
                 <div className="text-center space-y-2">
-                    { INTRODUCTION && INTRODUCTION.map(intro => (
-                        <p key={intro} className="font-sans">{ intro }</p>
-                    )) }
+                    {introductionLoading ? (
+                        <div className="mx-auto max-w-3xl px-4"><SectionSkeleton variant="text" count={2} /></div>
+                    ) : INTRODUCTION.map((intro) => (
+                        <p key={intro} className="font-sans">{intro}</p>
+                    ))}
                 </div>
         </motion.div>
     </section>
