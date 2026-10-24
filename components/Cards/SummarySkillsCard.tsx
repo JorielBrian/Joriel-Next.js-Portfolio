@@ -7,7 +7,8 @@ import { useLoading } from "@/app/lib/loading-context";
 import SectionSkeleton from "@/components/SectionSkeleton";
 
 const Skills = () =>{
-    const [skills, setSkills] = useState<ApiSkill[]>([]);\n    const [loading, setLoading] = useState(true);
+    const [skills, setSkills] = useState<ApiSkill[]>([]);
+    const [loading, setLoading] = useState(true);
     const { register, unregister } = useLoading();
 
     useEffect(() => {
