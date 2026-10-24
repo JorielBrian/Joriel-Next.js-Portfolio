@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center overflow-hidden py-10 sm:min-h-[calc(100svh-5rem)] sm:py-12 lg:min-h-[calc(100svh-6rem)] lg:py-12"
+      className="relative flex min-h-[calc(80svh-5rem)] flex-col justify-center overflow-hidden py-10 sm:min-h-[calc(100svh-5rem)] sm:py-12 lg:min-h-[calc(100svh-6rem)] lg:py-12"
     >
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl sm:h-96 sm:w-96" />
 
