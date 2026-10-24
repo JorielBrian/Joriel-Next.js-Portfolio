@@ -10,7 +10,6 @@ const Summary = () => (
     <SectionHeading
       eyebrow="A little about me"
       title="Building useful things with code"
-      description="A snapshot of my background, the technologies I work with, and the direction I’m growing as an engineer."
     />
     <div className="grid grid-cols-1 items-center gap-6 rounded-3xl border border-white/10 bg-slate-950/30 p-4 sm:gap-8 sm:p-6 lg:grid-cols-2 lg:p-8">
       <SummaryCard />

@@ -46,7 +46,6 @@ const Projects = () => {
       <SectionHeading
         eyebrow="Selected work"
         title="Projects"
-        description="A selection of applications and experiments that reflect how I approach product development, backend systems, and practical problem-solving."
       />
 
       <div className="mx-auto max-w-7xl px-2 sm:px-4">

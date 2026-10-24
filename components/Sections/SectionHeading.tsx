@@ -5,10 +5,9 @@ import { motion } from "motion/react";
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  description?: string;
 };
 
-const SectionHeading = ({ eyebrow, title, description }: SectionHeadingProps) => (
+const SectionHeading = ({ eyebrow, title }: SectionHeadingProps) => (
   <motion.div
     initial={{ opacity: 0, y: 18 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -22,12 +21,7 @@ const SectionHeading = ({ eyebrow, title, description }: SectionHeadingProps) =>
     <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
       {title}
     </h2>
-    {description && (
-      <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-        {description}
-      </p>
-    )}
-    <div aria-hidden="true" className="mx-auto mt-6 h-1 w-16 rounded-full bg-linear-to-r from-cyan-400 to-blue-500" />
+    <div aria-hidden="true" className="mx-auto mt-4 h-1 w-16 rounded-full bg-linear-to-r from-cyan-400 to-blue-500" />
   </motion.div>
 );
 
