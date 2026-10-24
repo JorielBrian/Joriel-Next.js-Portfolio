@@ -4,15 +4,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getSkills, ApiSkill } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
+import SectionSkeleton from "@/components/SectionSkeleton";
 
 const FocusSkills = () => {
     const [SKILLS, setSKILLS] = useState<ApiSkill[]>([]);
+  const [loading, setLoading] = useState(true);
     const { register, unregister } = useLoading();
 
     useEffect(() => {
         const key = "focus-skills";
         register(key);
-        getSkills().then(setSKILLS).catch(() => setSKILLS([])).finally(() => unregister(key));
+        getSkills().then(setSKILLS).catch(() => setSKILLS([])).finally(() => { unregister(key); setLoading(false); });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
