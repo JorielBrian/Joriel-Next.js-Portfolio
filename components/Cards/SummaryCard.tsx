@@ -7,7 +7,8 @@ import { useLoading } from "@/app/lib/loading-context";
 import SectionSkeleton from "@/components/SectionSkeleton";
 
 const SummaryCard = () => {
-    const [ABOUT, setABOUT] = useState<string[]>([]);\n    const [loading, setLoading] = useState(true);
+    const [ABOUT, setABOUT] = useState<string[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const containerVariants = {
         hidden: { opacity: 0 },
