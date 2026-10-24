@@ -14,15 +14,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Calendar, Building, Briefcase } from "lucide-react";
+import SectionSkeleton from "@/components/SectionSkeleton";
 
 const Experience = () => {
   const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+  const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
     const key = "section-experience";
     register(key);
-    getQualifications().then(setQualifications).catch(() => setQualifications([])).finally(() => unregister(key));
+    getQualifications().then(setQualifications).catch(() => setQualifications([])).finally(() => { unregister(key); setLoading(false); });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,7 +45,7 @@ const Experience = () => {
             Professional Experience
         </motion.h1>
         <div className="max-w-7xl mx-auto px-4">
-            <Carousel className="w-full">
+            {loading ? <SectionSkeleton variant="cards" count={3} /> : <Carousel className="w-full">
                 <CarouselContent className="-ml-2 md:-ml-4">
                     { QUALIFICATIONS && QUALIFICATIONS.map((experience, index) => (
                         <CarouselItem 
@@ -103,7 +105,7 @@ const Experience = () => {
                 </CarouselContent>
                 <CarouselPrevious className="md:flex" />
                 <CarouselNext className="md:flex" />
-            </Carousel>
+            </Carousel>}
         </div>
         <div className="mt-8 text-center">
             <Link href="/experiences" className="button active inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-slate-950 transition place-self-center">

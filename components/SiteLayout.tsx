@@ -5,7 +5,6 @@ import Header from "@/components/Sections/Header";
 import Footer from "@/components/Sections/Footer";
 import Events from "@/components/Events";
 import BackgroundDecoration from "@/components/Background";
-import Initializing from "@/app/initializing";
 import { LoadingProvider } from "@/app/lib/loading-context";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -22,11 +21,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <BackgroundDecoration />
       <Events />
       <LoadingProvider>
-        <Initializing>
-          <Header />
-          {children}
-          <Footer />
-        </Initializing>
+        <Header />
+        {children}
+        <Footer />
       </LoadingProvider>
     </>
   );

@@ -6,6 +6,7 @@ import { getContentBlock } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
 
 import FocusSkills from "../FocusSkills";
+import SectionSkeleton from "@/components/SectionSkeleton";
 
 // Shown instantly on first render, before the real titles arrive from the
 // API — the Typewriter component needs a non-empty words array immediately,
@@ -15,6 +16,7 @@ const DEFAULT_TITLES = ["Full-Stack Developer","Data Engineer","Software Enginee
 function Hero() {
   const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
   const [TITLES, setTITLES] = useState<string[]>(DEFAULT_TITLES);
+  const [introductionLoading, setIntroductionLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
@@ -23,7 +25,7 @@ function Hero() {
     getContentBlock("INTRODUCTION")
       .then((block) => setINTRODUCTION(block.paragraphs))
       .catch(() => {})
-      .finally(() => unregister(key));
+      .finally(() => { unregister(key); setIntroductionLoading(false); });
 
     const titlesKey = "hero-titles";
     register(titlesKey);
@@ -65,9 +67,11 @@ function Hero() {
             className="py-4 mt-10"
         >
                 <div className="text-center space-y-2">
-                    { INTRODUCTION && INTRODUCTION.map(intro => (
-                        <p key={intro} className="font-sans">{ intro }</p>
-                    )) }
+                    {introductionLoading ? (
+                        <div className="mx-auto max-w-3xl px-4"><SectionSkeleton variant="text" count={2} /></div>
+                    ) : INTRODUCTION.map((intro) => (
+                        <p key={intro} className="font-sans">{intro}</p>
+                    ))}
                 </div>
         </motion.div>
     </section>

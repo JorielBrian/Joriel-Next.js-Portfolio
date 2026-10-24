@@ -12,15 +12,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getProjects, ApiProject } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
+import SectionSkeleton from "@/components/SectionSkeleton";
 
 const Projects = () => {
   const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
+  const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
     const key = "section-projects";
     register(key);
-    getProjects().then(setProjects).catch(() => setProjects([])).finally(() => unregister(key));
+    getProjects().then(setProjects).catch(() => setProjects([])).finally(() => { unregister(key); setLoading(false); });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,7 +45,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="max-w-7xl mx-auto px-4">
-            <Carousel className="pb-8">
+            {loading ? <SectionSkeleton variant="cards" count={3} /> : <Carousel className="pb-8">
                 <CarouselContent className="-ml-3 md:-ml-4">
                     { PROJECTS && PROJECTS.map((project, index) => (
                         <CarouselItem 
@@ -109,7 +111,7 @@ const Projects = () => {
                     <CarouselPrevious className="md:flex" />
                     <CarouselNext className="md:flex" />
                 </div>
-            </Carousel>
+            </Carousel>}
 
             <div className="mt-8 text-center">
                 <Link 

@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { motion } from 'motion/react';
 import { getContentBlock } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
+import SectionSkeleton from "@/components/SectionSkeleton";
 
 const SummaryCard = () => {
     const [ABOUT, setABOUT] = useState<string[]>([]);
+    const [loading, setLoading] = useState(true);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -35,7 +37,7 @@ const SummaryCard = () => {
         getContentBlock("ABOUT")
             .then((block) => setABOUT(block.paragraphs))
             .catch(() => {})
-            .finally(() => unregister(key));
+            .finally(() => { unregister(key); setLoading(false); });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -75,7 +77,7 @@ const SummaryCard = () => {
                 </motion.div>
 
                 <motion.div variants={itemVariants}>
-                    {ABOUT && ABOUT.map((about, index) => (
+                    {loading ? <SectionSkeleton variant="text" count={3} /> : ABOUT.map((about, index) => (
                         <motion.div
                             key={index}
                             variants={itemVariants}
