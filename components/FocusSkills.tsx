@@ -27,7 +27,7 @@ const FocusSkills = () => {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-2xl px-4">
+      <div className="mx-auto w-full max-w-5xl px-2 sm:px-4">
         <SectionSkeleton variant="chips" count={5} />
       </div>
     );
@@ -38,7 +38,7 @@ const FocusSkills = () => {
   if (focusSkills.length === 0) return null;
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-3 px-4">
+    <div className="mx-auto flex w-full max-w-5xl flex-wrap justify-center gap-3 px-2 sm:px-4">
       {focusSkills.map((skill) => (
         <motion.div
           key={skill.skill}
