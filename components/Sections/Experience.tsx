@@ -1,11 +1,10 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getQualifications, ApiQualification } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
-
 import {
   Carousel,
   CarouselContent,
@@ -15,105 +14,111 @@ import {
 } from "@/components/ui/carousel";
 import { Calendar, Building, Briefcase } from "lucide-react";
 import SectionSkeleton from "@/components/SectionSkeleton";
+import SectionHeading from "@/components/Sections/SectionHeading";
 
 const Experience = () => {
-  const [QUALIFICATIONS, setQualifications] = useState<ApiQualification[]>([]);
+  const [qualifications, setQualifications] = useState<ApiQualification[]>([]);
   const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
     const key = "section-experience";
     register(key);
-    getQualifications().then(setQualifications).catch(() => setQualifications([])).finally(() => { unregister(key); setLoading(false); });
+    getQualifications()
+      .then(setQualifications)
+      .catch(() => setQualifications([]))
+      .finally(() => {
+        unregister(key);
+        setLoading(false);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <motion.section 
-        id="experience"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.65, ease: "easeOut" }}
-        className="py-16"
+    <motion.section
+      id="experience"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="py-12 sm:py-16 lg:py-20"
     >
-        <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="text-4xl font-bold text-center mb-12"
+      <SectionHeading
+        eyebrow="Where I’ve worked"
+        title="Professional experience"
+        description="Experience across software development, internal tools, and data systems."
+      />
+
+      <div className="mx-auto max-w-7xl px-2 sm:px-4">
+        {loading ? (
+          <SectionSkeleton variant="cards" count={3} />
+        ) : qualifications.length > 0 ? (
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-3 md:-ml-4">
+              {qualifications.map((experience, index) => (
+                <CarouselItem key={experience.company + experience.title + index} className="pl-3 md:pl-4 md:basis-1/2 xl:basis-1/3">
+                  <motion.article
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.06 }}
+                    whileHover={{ y: -4 }}
+                    className="flex h-full min-h-[30rem] flex-col rounded-2xl border border-white/10 bg-linear-to-br from-slate-900/90 to-slate-950/90 p-5 shadow-lg shadow-black/10 transition-colors hover:border-cyan-300/40 sm:p-6"
+                  >
+                    <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+                      <div>
+                        <h3 className="text-xl font-bold leading-snug text-white sm:text-2xl">{experience.title}</h3>
+                        <p className="mt-2 flex items-start gap-2 text-sm font-medium text-cyan-200 sm:text-base">
+                          <Building aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+                          <span>{experience.company}</span>
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-400 sm:text-sm">
+                        <span className="inline-flex items-center gap-1.5"><Calendar aria-hidden="true" size={15} />{experience.date}</span>
+                        <span className="inline-flex items-center gap-1.5"><Briefcase aria-hidden="true" size={15} />{experience.contract}</span>
+                      </div>
+                    </div>
+
+                    <ul className="mt-4 flex-1 space-y-3 text-sm leading-6 text-slate-300">
+                      {experience.description.slice(0, 3).map((description, descriptionIndex) => (
+                        <li key={descriptionIndex} className="flex items-start gap-2">
+                          <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-cyan-300" />
+                          <span>{description}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-4">
+                      {experience.skills.slice(0, 6).map((skill) => (
+                        <span key={skill} className="rounded-full border border-cyan-300/15 bg-cyan-300/5 px-3 py-1 text-xs text-cyan-100">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="md:flex" />
+            <CarouselNext className="md:flex" />
+          </Carousel>
+        ) : (
+          <p className="rounded-2xl border border-white/10 bg-slate-950/40 p-6 text-center text-slate-400">
+            Experience details are temporarily unavailable.
+          </p>
+        )}
+      </div>
+
+      <div className="mt-8 text-center">
+        <Link
+          href="/experiences"
+          className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-200/50 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
         >
-            Professional Experience
-        </motion.h1>
-        <div className="max-w-7xl mx-auto px-4">
-            {loading ? <SectionSkeleton variant="cards" count={3} /> : <Carousel className="w-full">
-                <CarouselContent className="-ml-2 md:-ml-4">
-                    { QUALIFICATIONS && QUALIFICATIONS.map((experience, index) => (
-                        <CarouselItem 
-                            key={index}
-                            className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
-                        >
-                            <motion.article
-                                initial={{ opacity: 0, y: 18, scale: 0.98 }}
-                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                viewport={{ once: true, amount: 0.25 }}
-                                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.08 }}
-                                whileHover={{ y: -4 }}
-                                className="bg-linear-to-br from-slate-800 to-slate-900 rounded-xl p-6 h-170 border border-slate-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20"
-                            >
-                                <div className="grid mb-4 xl:grid-cols-1 2xl:grid-cols-3 items-start justify-between">
-                                    <span className="flex-1 2xl:col-span-2">
-                                        <h3 className="text-xl sm:text-2xl 2xl:text-3xl font-bold text-white mb-1">{experience.title}</h3>
-                                        <span className="flex items-center text-cyan-300 mb-2">
-                                            <Building className="w-4 h-4 mr-2" />
-                                            <span className="text-lg">{experience.company}</span>
-                                        </span>
-                                    </span>
-                                    <span className="text-right">
-                                        <span className="flex items-center text-gray-400 text-sm 2xl:text-md mb-1">
-                                            <Calendar className="w-5 h-5 mr-1" />
-                                            {experience.date}
-                                        </span>
-                                        <span className="flex items-center text-gray-400 2xl:text-md">
-                                            <Briefcase className="w-4 h-4 mr-1" />
-                                            {experience.contract}
-                                        </span>
-                                    </span>
-                                </div>
-                                
-                                <ul className="text-gray-300 mb-4 space-y-1">
-                                    {experience.description.slice(0, 3).map((desc, i) => (
-                                        <li key={i} className="text-sm xl:text-md 2xl:text-lg leading-relaxed flex items-start">
-                                            <span className="text-cyan-400 mr-2 mt-1">•</span>
-                                            {desc}
-                                        </li>
-                                    ))}
-                                </ul>
-                                
-                                <div className="flex flex-wrap gap-2">
-                                    {experience.skills.slice(0, 6).map((skill, i) => (
-                                        <span 
-                                            key={i} 
-                                            className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-medium border border-cyan-500/30"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </motion.article>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="md:flex" />
-                <CarouselNext className="md:flex" />
-            </Carousel>}
-        </div>
-        <div className="mt-8 text-center">
-            <Link href="/experiences" className="button active inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold text-slate-950 transition place-self-center">
-                Explore all experiences
-            </Link>
-        </div>
+          Explore all experience <span aria-hidden="true" className="ml-2">↗</span>
+        </Link>
+      </div>
     </motion.section>
   );
-}
+};
 
-export default Experience
+export default Experience;

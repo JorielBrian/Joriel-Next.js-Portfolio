@@ -1,37 +1,40 @@
 'use client';
-import { motion } from 'motion/react'
-import { Typewriter} from "react-simple-typewriter";
+
+import { motion } from "motion/react";
+import { Typewriter } from "react-simple-typewriter";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getContentBlock } from "@/app/lib/api";
+import Link from "next/link";
+import { getContentBlock, getResumeViewUrl } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
 
-import FocusSkills from "../FocusSkills";
+import FocusSkills from "@/components/FocusSkills";
 import SectionSkeleton from "@/components/SectionSkeleton";
 
-// Shown instantly on first render, before the real titles arrive from the
-// API — the Typewriter component needs a non-empty words array immediately,
-// it can't start once empty and swap later without a visible restart.
-const DEFAULT_TITLES = ["Full-Stack Developer","Data Engineer","Software Engineer"];
+const DEFAULT_TITLES = ["Full-Stack Developer", "Software Engineer", "Data Engineer"];
 
-function Hero() {
-  const [INTRODUCTION, setINTRODUCTION] = useState<string[]>([]);
-  const [TITLES, setTITLES] = useState<string[]>(DEFAULT_TITLES);
+const Hero = () => {
+  const [introduction, setIntroduction] = useState<string[]>([]);
+  const [titles, setTitles] = useState<string[]>(DEFAULT_TITLES);
   const [introductionLoading, setIntroductionLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
-    const key = "hero-introduction";
-    register(key);
+    const introductionKey = "hero-introduction";
+    register(introductionKey);
     getContentBlock("INTRODUCTION")
-      .then((block) => setINTRODUCTION(block.paragraphs))
-      .catch(() => {})
-      .finally(() => { unregister(key); setIntroductionLoading(false); });
+      .then((block) => setIntroduction(block.paragraphs))
+      .catch(() => setIntroduction([]))
+      .finally(() => {
+        unregister(introductionKey);
+        setIntroductionLoading(false);
+      });
 
     const titlesKey = "hero-titles";
     register(titlesKey);
     getContentBlock("TITLES")
       .then((block) => {
-        if (block.paragraphs.length > 0) setTITLES(block.paragraphs);
+        if (block.paragraphs.length > 0) setTitles(block.paragraphs);
       })
       .catch(() => {})
       .finally(() => unregister(titlesKey));
@@ -39,43 +42,80 @@ function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="h-screen mb-20 xl:mb-0">
-        <motion.div 
-            initial={{y:100, opacity:0}}
-            whileInView={{y:0, opacity:1}}
-            transition={{ease:"easeIn", duration:0.4}}
-            className="w-full text-center font-sans"
-        >
-            <h1 className="text-5xl font-bold sm:text-7xl xl:text-8xl 2xl:text-9xl mb-2 tracking-tight">
-                Joriel Brian Sudario
-            </h1>
-            <h3 
-                className="pb-5 border-amber-50 text-3xl sm:text-4xl lg:text-5xl 2xl:text-7xl bg-linear-to-r from-neutral-400 via-cyan-500 to-blue-800 bg-clip-text text-transparent"
-            >
-                <Typewriter 
-                    words={TITLES}
-                    loop = {true}
-                    cursor cursorStyle = {'|'} cursorBlinking = {true} cursorColor="white"
-                />
-            </h3>
-            <FocusSkills />
-        </motion.div>
-        <motion.div
-            initial={{y:-100, opacity:0}}
-            whileInView={{y:0, opacity:1}}
-            transition={{ease:"easeIn", duration:0.4}}
-            className="py-4 mt-10"
-        >
-                <div className="text-center space-y-2">
-                    {introductionLoading ? (
-                        <div className="mx-auto max-w-3xl px-4"><SectionSkeleton variant="text" count={2} /></div>
-                    ) : INTRODUCTION.map((intro) => (
-                        <p key={intro} className="font-sans">{intro}</p>
-                    ))}
-                </div>
-        </motion.div>
-    </section>
-  )
-}
+    <section
+      id="hero"
+      className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center overflow-hidden py-10 sm:min-h-[calc(100svh-5rem)] sm:py-12 lg:min-h-[calc(100svh-6rem)] lg:py-12"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl sm:h-96 sm:w-96" />
 
-export default Hero
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="mx-auto w-full max-w-5xl text-center"
+      >
+        <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200 sm:text-sm">
+          <span aria-hidden="true" className="size-2 rounded-full bg-cyan-300" />
+          Software Engineer · Full-Stack & Data Systems
+        </p>
+
+        <h1 className="text-balance text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+          Joriel Brian Sudario
+        </h1>
+
+        <div className="mt-4 min-h-12 text-2xl font-semibold tracking-tight text-transparent sm:min-h-14 sm:text-3xl lg:min-h-16 lg:text-4xl">
+          <span className="bg-linear-to-r from-cyan-200 via-cyan-400 to-blue-400 bg-clip-text">
+            <Typewriter
+              words={titles}
+              loop
+              cursor
+              cursorStyle="|"
+              cursorBlinking
+              cursorColor="#67e8f9"
+            />
+          </span>
+        </div>
+
+        <div className="mx-auto mt-4 max-w-3xl space-y-2 px-4 text-slate-300">
+          {introductionLoading ? (
+            <SectionSkeleton variant="text" count={2} />
+          ) : introduction.length > 0 ? (
+            introduction.map((paragraph, index) => (
+              <p key={index} className="text-base leading-7 sm:text-lg sm:leading-8">
+                {paragraph}
+              </p>
+            ))
+          ) : null}
+        </div>
+
+        <div className="mt-6 flex flex-col items-center justify-center gap-3 px-4 sm:flex-row">
+          <Link
+            href="/#projects"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 sm:w-auto"
+          >
+            Explore my work
+            <ArrowDown aria-hidden="true" size={18} />
+          </Link>
+          <a
+            href={getResumeViewUrl()}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-200/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 sm:w-auto"
+          >
+            View résumé
+            <ArrowUpRight aria-hidden="true" size={18} />
+          </a>
+        </div>
+
+        <div className="mt-7 sm:mt-8">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
+            Technologies I work with
+          </p>
+          <FocusSkills />
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;
