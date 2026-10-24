@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 import { useSelectedLayoutSegment } from "next/navigation";
 import { House, BriefcaseBusiness, Folder, CircleUser } from "lucide-react";
 import { GrSend } from "react-icons/gr";
-import { getResumeViewUrl } from "@/app/lib/api";
 
 function MobileNavigation() {
     const [activeSection, setActiveSection] = useState('');
@@ -78,8 +77,6 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const resumeUrl = getResumeViewUrl();
-
     return (
         <>
             <motion.header
@@ -104,10 +101,6 @@ function Header() {
                     />
                 </Link>
                 <Navigation />
-                <div className="flex shrink-0 items-center py-0! lg:justify-self-end">
-                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV flex lg:hidden">CV</a>
-                    <a href={resumeUrl} target="_blank" rel="noreferrer" className="navbarCV hidden lg:flex">Resume</a>
-                </div>
             </motion.header>
             <MobileNavigation />
         </>
