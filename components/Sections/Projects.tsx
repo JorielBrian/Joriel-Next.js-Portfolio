@@ -15,7 +15,8 @@ import { useLoading } from "@/app/lib/loading-context";
 import SectionSkeleton from "@/components/SectionSkeleton";
 
 const Projects = () => {
-  const [PROJECTS, setProjects] = useState<ApiProject[]>([]);\n  const [loading, setLoading] = useState(true);
+  const [PROJECTS, setProjects] = useState<ApiProject[]>([]);
+  const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
@@ -110,7 +111,7 @@ const Projects = () => {
                     <CarouselPrevious className="md:flex" />
                     <CarouselNext className="md:flex" />
                 </div>
-            </Carousel>
+            </Carousel>}
 
             <div className="mt-8 text-center">
                 <Link 
