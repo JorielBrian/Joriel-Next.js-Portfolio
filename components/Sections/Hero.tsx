@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(80svh-4rem)] flex-col justify-center overflow-hidden py-6 sm:min-h-[calc(100svh-6rem)] sm:py-8 lg:min-h-[calc(100svh-6rem)] lg:py-8"
+      className="relative !my-0 flex min-h-[calc(80svh-4rem)] flex-col justify-center overflow-hidden py-6 sm:min-h-[calc(100svh-6rem)] sm:py-8 lg:min-h-[calc(100svh-6rem)] lg:py-8"
     >
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl sm:h-96 sm:w-96" />
 
@@ -52,7 +52,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: "easeOut" }}
-        className="mx-auto w-full max-w-5xl text-center"
+        className="mx-auto w-full max-w-6xl text-center"
       >
         <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200 sm:text-sm">
           <span aria-hidden="true" className="size-2 rounded-full bg-cyan-300" />
