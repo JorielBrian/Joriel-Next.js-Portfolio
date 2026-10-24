@@ -92,7 +92,7 @@ function Header() {
                     ease: "easeInOut",
                     duration: 0.3
                 }}
-                className={scroll ? "flex lg:sticky top-0 z-50 w-full px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full px-15 py-10 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
+                className={scroll ? "flex lg:sticky top-0 z-50 w-full px-4 py-3 sm:px-8 lg:px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4" : "flex w-full px-4 py-3 sm:px-8 lg:px-15 items-center justify-between gap-2 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-4"}
             >
                 <Link href="/" className="w-fit shrink-0 py-0! lg:justify-self-start">
                     <Image
