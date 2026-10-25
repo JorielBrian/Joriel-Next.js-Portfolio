@@ -89,9 +89,6 @@ const AboutCard = ({
                 <p key={`${title ?? "intro"}-${index}`}>{text}</p>
               ))}
             </div>
-            <p className="mt-6 border-t border-blue-400/15 pt-4 text-xs text-blue-200/50">
-              End of section
-            </p>
           </div>
         </div>
 
