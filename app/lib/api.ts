@@ -116,6 +116,15 @@ export function getResumeDownloadUrl(): string {
 
 // ---- Admin writes (require an active login session, cookie sent automatically) ----
 
+export interface AdminDashboardSummary {
+  projects: number;
+  skills: number;
+  qualifications: number;
+  content_blocks: number;
+  resume_configured: boolean;
+  database: string;
+}
+
 async function adminFetch<T>(path: string, method: string, body?: unknown): Promise<T> {
   if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
   const res = await fetch(`${API_URL}${path}`, {
@@ -131,6 +140,9 @@ async function adminFetch<T>(path: string, method: string, body?: unknown): Prom
   if (res.status === 204) return undefined as T;
   return res.json();
 }
+
+export const getAdminDashboardSummary = () =>
+  adminFetch<AdminDashboardSummary>("/admin/dashboard/summary", "GET");
 
 export async function uploadResume(file: File): Promise<ApiResume> {
   if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
