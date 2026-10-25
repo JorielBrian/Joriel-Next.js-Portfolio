@@ -44,7 +44,7 @@ const AboutCard = ({
       className="my-6 scroll-mt-24 overflow-hidden rounded-3xl border border-blue-700/70 bg-gradient-to-br from-blue-950/90 via-blue-950/75 to-slate-950/90 p-5 shadow-xl shadow-blue-950/30 sm:p-7 lg:my-8 lg:p-9"
     >
       <div
-        className={`grid items-center gap-7 md:gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${isImageFirst ? "" : "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)"}`}
+        className={`grid items-center gap-7 md:gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${isImageFirst ? "" : "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"}`}
       >
         {image && (
           <div className={`relative mx-auto w-full max-w-xs ${isImageFirst ? "lg:order-first" : "lg:order-last"}`}>
@@ -71,12 +71,12 @@ const AboutCard = ({
           )}
 
           {header && (
-            <h1
+            <h2
               id="about-intro-heading"
               className="mb-4 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               {header}
-            </h1>
+            </h2>
           )}
 
           <div className="space-y-4 text-blue-100/90">
