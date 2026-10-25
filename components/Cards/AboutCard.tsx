@@ -35,7 +35,7 @@ const AboutCard = ({
   const imageOnLeft = position === "left";
 
   const imagePanel = image && (
-    <div className="relative min-h-0 min-w-0 overflow-hidden bg-slate-950">
+    <div className={`relative min-h-0 min-w-0 overflow-hidden bg-slate-950 ${imageOnLeft ? "md:order-first" : "md:order-last"}`}>
       <Image
         src={image}
         alt={altImage || ""}
@@ -59,9 +59,9 @@ const AboutCard = ({
       className="my-5 h-[80svh] min-h-[34rem] max-h-[58rem] scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/25 bg-slate-950/95 shadow-2xl shadow-blue-950/40 sm:my-7 md:h-[80svh] md:min-h-[38rem] lg:my-8"
     >
       <div className="grid h-full min-h-0 grid-rows-[34%_66%] md:grid-cols-2 md:grid-rows-1">
-        {imageOnLeft && imagePanel}
+        {imagePanel}
 
-        <div className="relative min-h-0 min-w-0 overflow-hidden bg-gradient-to-br from-blue-950/95 via-slate-950/95 to-slate-950">
+        <div className={`relative min-h-0 min-w-0 overflow-hidden bg-gradient-to-br from-blue-950/95 via-slate-950/95 to-slate-950 ${imageOnLeft ? "md:order-last" : "md:order-first"}`}>
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-gradient-to-b from-slate-950/50 to-transparent" />
           <div
             className="h-full min-h-0 overflow-y-auto overscroll-contain px-5 py-5 [scrollbar-color:rgba(125,211,252,0.35)_transparent] [scrollbar-width:thin] sm:px-8 sm:py-7 lg:px-10 lg:py-9"
@@ -95,7 +95,6 @@ const AboutCard = ({
           </div>
         </div>
 
-        {!imageOnLeft && imagePanel}
       </div>
     </motion.section>
   );
