@@ -32,61 +32,69 @@ const AboutCard = ({
     title && title in sectionIcons
       ? sectionIcons[title as keyof typeof sectionIcons]
       : UserRound;
-  const isImageFirst = position === "left";
+  const imageOnLeft = position === "left";
+
+  const imagePanel = image && (
+    <div className={`relative min-h-0 min-w-0 overflow-hidden bg-slate-950 ${imageOnLeft ? "md:order-first" : "md:order-last"}`}>
+      <Image
+        src={image}
+        alt={altImage || ""}
+        fill
+        priority={!title}
+        sizes="(max-width: 767px) 100vw, 50vw"
+        className="object-cover object-center"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/10 md:bg-gradient-to-r md:from-slate-950/20 md:via-transparent md:to-slate-950/30" />
+      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+    </div>
+  );
 
   return (
     <motion.section
       initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: reduceMotion ? 0 : 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
       aria-labelledby={title ? `about-${title.toLowerCase().replaceAll(" ", "-")}` : "about-intro-heading"}
-      className="my-6 scroll-mt-24 overflow-hidden rounded-3xl border border-blue-700/70 bg-gradient-to-br from-blue-950/90 via-blue-950/75 to-slate-950/90 p-5 shadow-xl shadow-blue-950/30 sm:p-7 lg:my-8 lg:p-9"
+      className="my-5 h-[80svh] scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/25 bg-slate-950/95 shadow-2xl shadow-blue-950/40 sm:my-7 md:h-[80svh] lg:my-8"
     >
-      <div
-        className={`grid items-center gap-7 md:gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] ${isImageFirst ? "" : "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"}`}
-      >
-        {image && (
-          <div className={`relative mx-auto w-full max-w-xs ${isImageFirst ? "lg:order-first" : "lg:order-last"}`}>
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-cyan-400/15 via-blue-500/10 to-violet-500/15 blur-xl" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-blue-400/30 bg-blue-900/50 shadow-2xl">
-              <Image
-                src={image}
-                alt={altImage || ""}
-                width={720}
-                height={900}
-                sizes="(max-width: 768px) 80vw, 320px"
-                className="h-full w-full object-cover"
-              />
+      <div className="grid h-full min-h-0 grid-rows-[34%_66%] md:grid-cols-2 md:grid-rows-1">
+        {imagePanel}
+
+        <div className={`relative min-h-0 min-w-0 overflow-hidden bg-gradient-to-br from-blue-950/95 via-slate-950/95 to-slate-950 ${imageOnLeft ? "md:order-last" : "md:order-first"}`}>
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-gradient-to-b from-slate-950/50 to-transparent" />
+          <div
+            className="h-full min-h-0 overflow-y-auto overscroll-contain px-5 py-5 [scrollbar-color:rgba(125,211,252,0.35)_transparent] [scrollbar-width:thin] sm:px-8 sm:py-7 lg:px-10 lg:py-9"
+            tabIndex={0}
+            aria-label={title ? `${title} text` : "Introduction text"}
+          >
+            {title && (
+              <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 sm:text-sm">
+                <SectionIcon aria-hidden="true" className="size-4 shrink-0" />
+                <span id={`about-${title.toLowerCase().replaceAll(" ", "-")}`}>{title}</span>
+              </div>
+            )}
+
+            {header && (
+              <h2
+                id="about-intro-heading"
+                className="mb-4 text-balance text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl"
+              >
+                {header}
+              </h2>
+            )}
+
+            <div className="space-y-4 text-sm leading-7 text-blue-100/90 sm:text-base sm:leading-8 lg:text-lg">
+              {texts.map((text, index) => (
+                <p key={`${title ?? "intro"}-${index}`}>{text}</p>
+              ))}
             </div>
-          </div>
-        )}
-
-        <div className="min-w-0">
-          {title && (
-            <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-              <SectionIcon aria-hidden="true" className="size-4 shrink-0" />
-              <span id={`about-${title.toLowerCase().replaceAll(" ", "-")}`}>{title}</span>
-            </div>
-          )}
-
-          {header && (
-            <h2
-              id="about-intro-heading"
-              className="mb-4 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
-            >
-              {header}
-            </h2>
-          )}
-
-          <div className="space-y-4 text-blue-100/90">
-            {texts.map((text, index) => (
-              <p key={`${title ?? "intro"}-${index}`} className="text-base leading-8 sm:text-lg">
-                {text}
-              </p>
-            ))}
+            <p className="mt-6 border-t border-blue-400/15 pt-4 text-xs text-blue-200/50">
+              End of section
+            </p>
           </div>
         </div>
+
       </div>
     </motion.section>
   );
