@@ -54,11 +54,6 @@ const Hero = () => {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="mx-auto w-full max-w-6xl text-center"
       >
-        <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200 sm:text-sm">
-          <span aria-hidden="true" className="size-2 rounded-full bg-cyan-300" />
-          Software Engineer · Full-Stack & Data Systems
-        </p>
-
         <h1 className="text-balance text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl">
           Joriel Brian Sudario
         </h1>
