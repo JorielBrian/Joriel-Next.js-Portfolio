@@ -56,9 +56,9 @@ const AboutCard = ({
       viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
       aria-labelledby={title ? `about-${title.toLowerCase().replaceAll(" ", "-")}` : "about-intro-heading"}
-      className="my-5 h-[80svh] scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/25 bg-slate-950/95 shadow-2xl shadow-blue-950/40 sm:my-7 md:h-[80svh] lg:my-8"
+      className="my-5 h-[90svh] scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/25 bg-slate-950/95 shadow-2xl shadow-blue-950/40 sm:my-7 md:h-[90svh] lg:my-8"
     >
-      <div className="grid h-full min-h-0 grid-rows-[34%_66%] md:grid-cols-2 md:grid-rows-1">
+      <div className="grid h-full min-h-0 grid-rows-[41%_59%] md:grid-cols-2 md:grid-rows-1">
         {imagePanel}
 
         <div className={`relative min-h-0 min-w-0 overflow-hidden bg-gradient-to-br from-blue-950/95 via-slate-950/95 to-slate-950 ${imageOnLeft ? "md:order-last" : "md:order-first"}`}>
