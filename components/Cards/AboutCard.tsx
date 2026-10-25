@@ -64,7 +64,7 @@ const AboutCard = ({
         <div className={`relative min-h-0 min-w-0 overflow-hidden bg-gradient-to-br from-blue-950/95 via-slate-950/95 to-slate-950 ${imageOnLeft ? "md:order-last" : "md:order-first"}`}>
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-10 bg-gradient-to-b from-slate-950/50 to-transparent" />
           <div
-            className="h-full min-h-0 overflow-y-auto overscroll-contain px-5 py-5 [scrollbar-color:rgba(125,211,252,0.35)_transparent] [scrollbar-width:thin] sm:px-8 sm:py-7 lg:px-10 lg:py-9"
+            className="h-full min-h-0 overflow-y-auto overscroll-auto px-5 py-5 [scrollbar-color:rgba(125,211,252,0.35)_transparent] [scrollbar-width:thin] sm:px-8 sm:py-7 lg:px-10 lg:py-9"
             tabIndex={0}
             aria-label={title ? `${title} text` : "Introduction text"}
           >
