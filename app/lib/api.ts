@@ -125,6 +125,28 @@ export interface AdminDashboardSummary {
   database: string;
 }
 
+export interface AdminContentHealthFinding {
+  item: string;
+  field: string;
+  message: string;
+}
+
+export interface AdminContentHealthCheck {
+  id: string;
+  label: string;
+  href: string;
+  description: string;
+  count: number;
+  status: "attention" | "healthy";
+  findings: AdminContentHealthFinding[];
+}
+
+export interface AdminContentHealth {
+  status: "attention" | "healthy";
+  total_findings: number;
+  checks: AdminContentHealthCheck[];
+}
+
 async function adminFetch<T>(path: string, method: string, body?: unknown): Promise<T> {
   if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
   const res = await fetch(`${API_URL}${path}`, {
@@ -143,6 +165,9 @@ async function adminFetch<T>(path: string, method: string, body?: unknown): Prom
 
 export const getAdminDashboardSummary = () =>
   adminFetch<AdminDashboardSummary>("/admin/dashboard/summary", "GET");
+
+export const getAdminContentHealth = () =>
+  adminFetch<AdminContentHealth>("/admin/dashboard/content-health", "GET");
 
 export async function uploadResume(file: File): Promise<ApiResume> {
   if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
