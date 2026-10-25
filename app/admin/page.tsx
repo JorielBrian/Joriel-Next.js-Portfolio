@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { getAdminDashboardSummary, type AdminDashboardSummary } from "@/app/lib/api";
+import ContentHealthPanel from "./content-health-panel";
 
 const sections = [
   {
@@ -206,6 +207,8 @@ export default function AdminHome() {
           </div>
         </div>
       </section>
+
+      <ContentHealthPanel />
 
       <section aria-labelledby="admin-sections-heading" className="space-y-4">
         <div>
