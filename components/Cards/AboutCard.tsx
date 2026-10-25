@@ -42,7 +42,7 @@ const AboutCard = ({
         fill
         priority={!title}
         sizes="(max-width: 767px) 100vw, 50vw"
-        className="object-cover object-center"
+        className="object-cover object-top"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/10 md:bg-gradient-to-r md:from-slate-950/20 md:via-transparent md:to-slate-950/30" />
       <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
