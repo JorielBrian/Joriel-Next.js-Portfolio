@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
-import { Preference, Proficiency } from "../../app/data/enum";
+import { Proficiency } from "../../app/data/enum";
 import { ApiSkill } from "@/app/lib/api";
 
 interface SkillCardProps {
-  preference: Preference;
+  area: string;
   skills: ApiSkill[];
 }
 
@@ -16,7 +16,7 @@ const proficiencyLevels: Record<Proficiency, number> = {
   [Proficiency.BEGINNER]: 1,
 };
 
-function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
+function SkillCard({ area, skills: SKILLS }: SkillCardProps) {
   const getProficiencyLevel = (proficiency: Proficiency) =>
     proficiencyLevels[proficiency] ?? 0;
 
@@ -29,11 +29,11 @@ function SkillCard({ preference, skills: SKILLS }: SkillCardProps) {
         className="pointer-events-none absolute h-full w-full content-center text-center text-5xl font-bold text-white/30 md:text-7xl lg:text-9xl"
         aria-hidden="true"
       >
-        {preference}
+        {area}
       </motion.h2>
 
       {SKILLS &&
-        SKILLS.filter((skill) => skill.preference === preference).map((skill) => {
+        SKILLS.filter((skill) => skill.area === area).map((skill) => {
           const level = getProficiencyLevel(skill.proficiency);
 
           return (
