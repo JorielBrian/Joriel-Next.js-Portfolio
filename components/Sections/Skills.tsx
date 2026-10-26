@@ -1,7 +1,7 @@
 'use client';
 import SkillCard from "../Cards/SkillCard";
 import { motion } from 'motion/react';
-import { Area } from "../../app/data/enum";
+import { Area, Preference } from "../../app/data/enum";
 import { useEffect, useState } from "react";
 import { getSkills, ApiSkill } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
@@ -17,11 +17,17 @@ const Skills = () =>{
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const visibleSkills = skills.filter((skill) => skill.preference !== Preference.OTHER);
+    const orderedAreas = [
+        ...Object.values(Area).filter((area) => area !== Area.FUNDAMENTALS),
+        Area.FUNDAMENTALS,
+    ];
+
     return (
         <section className="w-4/5 mx-auto my-5 content-center">
             <motion.h1 initial={{opacity:0}} whileInView={{opacity:1}} transition={{ease:"easeIn", duration:0.5}}  className="m-5 text-4xl text-center font-bold" >Skills</motion.h1>
             <div className="relative flex flex-wrap p-1 rounded-2xl justify-center">
-                {Object.values(Area).map((area) => skills.some((skill) => skill.area === area) && <SkillCard key={area} area={area} skills={skills} />)}
+                {orderedAreas.map((area) => visibleSkills.some((skill) => skill.area === area) && <SkillCard key={area} area={area} skills={visibleSkills} />)}
             </div>
         </section>
     );
