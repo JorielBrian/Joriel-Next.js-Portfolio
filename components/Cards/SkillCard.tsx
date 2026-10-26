@@ -63,10 +63,10 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
             <li
               key={skill.skill}
               title={`${skill.skill} — ${skill.proficiency}`}
-              className="inline-flex max-w-full items-center gap-2 rounded-lg border border-white/[0.09] bg-slate-800/70 px-2.5 py-2 text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:text-sm"
+              className="inline-flex max-w-full items-center gap-1.5 rounded-lg border border-white/[0.09] bg-slate-800/70 px-2.5 py-1.5 text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:gap-2 sm:py-2 sm:text-sm"
             >
               {skill.image ? (
-                <img src={skill.image} alt="" loading="lazy" className="size-4 shrink-0 object-contain sm:size-[18px]" />
+                <img src={skill.image} alt="" loading="lazy" className="size-3.5 shrink-0 object-contain sm:size-4" />
               ) : null}
               <span className="break-words">{skill.skill}</span>
               <span className="ml-0.5 inline-flex shrink-0 gap-px text-amber-300/90" aria-label={`Proficiency: ${level} out of 5`}>
