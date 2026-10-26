@@ -67,28 +67,24 @@ const AboutMe = () => {
           image="/Profile Picture.png"
           altImage="Portrait of Joriel Brian"
           texts={ABOUT}
-          position="left"
         />
         <AboutCard
           title="My Story"
           image="/graduation_pic.jpg"
           altImage="Graduation photo"
           texts={STORY}
-          position="right"
         />
         <AboutCard
           title="My Goal"
           image="/formal.jpg"
           altImage="Formal portrait"
           texts={GOALS}
-          position="left"
         />
         <AboutCard
           title="Outside Work"
           image="/Guitar Playing.jpg"
           altImage="Playing lead guitar at Hills of Glory"
           texts={OUTSIDE_WORK}
-          position="right"
         />
       </div>
 
