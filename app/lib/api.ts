@@ -1,4 +1,4 @@
-import { Proficiency, Preference, Category } from "@/app/data/enum";
+import { Proficiency, Preference, Category, Area } from "@/app/data/enum";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -31,6 +31,7 @@ export interface ApiSkill {
   proficiency: Proficiency;
   preference: Preference;
   category: Category;
+  area: Area;
   order: number;
 }
 
