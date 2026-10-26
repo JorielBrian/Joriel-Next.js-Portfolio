@@ -56,7 +56,7 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
         </div>
       </div>
 
-      <ul className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5" aria-label={`${area} skills`}>
+      <ul className="mt-5 grid grid-cols-3 gap-2 sm:gap-2.5" aria-label={`${area} skills`}>
         {areaSkills.map((skill) => {
           const level = levelFor(skill.proficiency);
           return (
@@ -82,9 +82,6 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
           );
         })}
       </ul>
-      <p className="mt-4 text-[11px] font-medium text-blue-100/45">
-        {areaSkills.length} {areaSkills.length === 1 ? "skill" : "skills"}
-      </p>
     </motion.article>
   );
 }
