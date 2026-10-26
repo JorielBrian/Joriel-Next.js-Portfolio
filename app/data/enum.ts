@@ -43,5 +43,6 @@ export enum Area {
     DEVOPS = "DevOps & Deployment",
     DEVELOPMENT_TOOLS = "Development Tools",
     UI_UX_DESIGN = "UI/UX & Design",
-    OTHER = "Other"
+    OTHER = "Other",
+    FUNDAMENTALS = "Fundamentals"
 }
