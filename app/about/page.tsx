@@ -68,7 +68,9 @@ const AboutMe = () => {
         texts={ABOUT}
         position="left"
       />
+      <div className="grid grid-cols-1 gap-5 sm:gap-6 xl:grid-cols-3">
       <AboutCard
+        variant="tile"
         title="My Story"
         image="/graduation_pic.jpg"
         altImage="Graduation photo"
@@ -76,6 +78,7 @@ const AboutMe = () => {
         position="right"
       />
       <AboutCard
+        variant="tile"
         title="My Goal"
         image="/formal.jpg"
         altImage="Formal portrait"
@@ -83,12 +86,15 @@ const AboutMe = () => {
         position="left"
       />
       <AboutCard
+        variant="tile"
         title="Outside Work"
         image="/Guitar Playing.jpg"
         altImage="Playing lead guitar at Hills of Glory"
         texts={OUTSIDE_WORK}
         position="right"
       />
+
+      </div>
 
       <div className="mt-4 border-t border-blue-700/50 pt-4 sm:mt-8 sm:pt-8">
         <Skills />
