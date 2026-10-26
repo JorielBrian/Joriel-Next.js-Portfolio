@@ -26,7 +26,7 @@ function SkillCard({ area, skills: SKILLS }: SkillCardProps) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ ease: "easeIn", duration: 0.4 }}
-        className="pointer-events-none absolute h-full w-full content-center text-center text-5xl font-bold text-white/30 md:text-7xl lg:text-9xl"
+        className="pointer-events-none absolute h-full w-full content-center text-center text-3xl font-bold text-white/30 md:text-5xl lg:text-7xl"
         aria-hidden="true"
       >
         {area}
