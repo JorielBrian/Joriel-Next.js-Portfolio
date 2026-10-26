@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
+import { BookOpen, Guitar, Target, UserRound } from "lucide-react";
 
 interface AboutCardProps {
   title?: string;
@@ -9,47 +10,70 @@ interface AboutCardProps {
   image?: string;
   altImage?: string;
   texts: string[];
+  position: "left" | "right";
 }
 
-const AboutCard = ({ title, header, image, altImage, texts }: AboutCardProps) => {
+const sectionIcons = {
+  "My Story": BookOpen,
+  "My Goal": Target,
+  "Outside Work": Guitar,
+} as const;
+
+const AboutCard = ({ title, header, image, altImage, texts, position }: AboutCardProps) => {
   const reduceMotion = useReducedMotion();
-  const heading = header ?? title ?? "About me";
+  const SectionIcon = title && title in sectionIcons ? sectionIcons[title as keyof typeof sectionIcons] : UserRound;
+  const imageOnLeft = position === "left";
   const headingId = title ? `about-${title.toLowerCase().replaceAll(" ", "-")}` : "about-intro-heading";
-  const label = title ? "ABOUT / " + title.toUpperCase() : "INTRODUCTION";
 
   return (
-    <motion.article
-      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+    <motion.section
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
+      transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeOut" }}
       aria-labelledby={headingId}
-      className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-blue-400/20 bg-slate-950 shadow-lg shadow-blue-950/20 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-xl hover:shadow-blue-950/30"
+      className="my-6 scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/20 bg-slate-950/80 shadow-xl shadow-blue-950/25 transition-colors duration-300 hover:border-cyan-300/30 sm:my-8 lg:my-10"
     >
-      {image && (
-        <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-slate-900">
-          <Image
-            src={image}
-            alt={altImage || ""}
-            fill
-            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-          />
-        </div>
-      )}
-      <div className="flex flex-1 flex-col px-5 py-6 sm:px-7 sm:py-8">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
-          {label}
-        </p>
-        <h2 id={headingId} className="mb-5 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
-          {heading}
-        </h2>
-        <div className="mb-5 h-px w-full bg-linear-to-r from-cyan-300/60 via-blue-400/20 to-transparent" aria-hidden="true" />
-        <div className="space-y-4 text-base leading-7 text-blue-100/80">
-          {texts.map((text, index) => <p key={`${heading}-${index}`}>{text}</p>)}
+      <div className="grid min-w-0 grid-cols-1 md:min-h-[30rem] md:grid-cols-[3fr_7fr]">
+        {image && (
+          <div className={`group relative min-h-[16rem] overflow-hidden bg-slate-950 sm:min-h-[20rem] md:min-h-full ${imageOnLeft ? "md:order-first" : "md:order-last"}`}>
+            <Image
+              src={image}
+              alt={altImage || ""}
+              fill
+              priority={!title}
+              sizes="(max-width: 767px) 100vw, 30vw"
+              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/50 via-transparent to-slate-950/10 md:bg-linear-to-r md:from-slate-950/10 md:via-transparent md:to-slate-950/30" />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+          </div>
+        )}
+
+        <div className={`relative flex min-w-0 flex-col justify-center bg-linear-to-br from-blue-950/80 via-slate-950 to-slate-950 px-6 py-8 sm:px-9 sm:py-10 lg:px-12 lg:py-14 ${imageOnLeft ? "md:order-last" : "md:order-first"}`}>
+          <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-full bg-blue-500/5 blur-3xl" />
+          <div className="relative">
+            {title && (
+              <div className="mb-5 flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 sm:text-sm">
+                <span className="flex size-9 items-center justify-center rounded-xl border border-cyan-300/20 bg-cyan-300/10">
+                  <SectionIcon aria-hidden="true" className="size-4" />
+                </span>
+                <span>{title}</span>
+              </div>
+            )}
+            {header && (
+              <h2 id={headingId} className="mb-5 max-w-xl text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                {header}
+              </h2>
+            )}
+            <div className="max-w-none space-y-4 text-base leading-7 text-blue-100/85 sm:space-y-5 sm:text-lg sm:leading-8">
+              {texts.map((text, index) => <p key={`${title ?? "intro"}-${index}`}>{text}</p>)}
+            </div>
+            <div className="mt-8 h-px w-16 bg-linear-to-r from-cyan-300/80 to-transparent" aria-hidden="true" />
+          </div>
         </div>
       </div>
-    </motion.article>
+    </motion.section>
   );
 };
 
