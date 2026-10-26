@@ -35,16 +35,13 @@ export enum Category {
 }
 
 export enum Area {
+    PROGRAMMING_LANGUAGE = "Programming Language",
     FRONTEND_DEVELOPMENT = "Frontend Development",
     BACKEND_DEVELOPMENT = "Backend Development",
-    FULL_STACK_DEVELOPMENT = "Full-Stack Development",
-    DATA_ENGINEERING = "Data Engineering",
-    DATA_ANALYTICS = "Data Analytics",
-    DEVOPS = "DevOps & Deployment",
     DATABASE_STORAGE = "Database & Storage",
-    SOFTWARE_ENGINEERING_TOOLS = "Software Engineering Tools",
+    DATA_ENGINEERING = "Data Engineering",
+    DEVOPS = "DevOps & Deployment",
+    DEVELOPMENT_TOOLS = "Development Tools",
     UI_UX_DESIGN = "UI/UX & Design",
-    HARDWARE = "Hardware",
-    SOFT_SKILLS = "Soft Skills",
     OTHER = "Other"
 }
