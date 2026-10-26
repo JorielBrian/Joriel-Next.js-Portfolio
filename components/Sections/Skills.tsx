@@ -16,6 +16,7 @@ const areaDescriptions: Record<string, string> = {
   [Area.DEVOPS]: "Containerization, delivery pipelines, and application deployment.",
   [Area.DEVELOPMENT_TOOLS]: "Tools that support coding, collaboration, and version control.",
   [Area.UI_UX_DESIGN]: "Design tools and UI systems for clear, consistent interfaces.",
+  [Area.HARDWARE_ELECTRONICS]: "Computer hardware, electronics, assembly, and troubleshooting skills.",
   [Area.OTHER]: "Additional technologies and tools I have worked with.",
   [Area.FUNDAMENTALS]: "Core concepts and foundational tools that support my development workflow.",
 };
@@ -29,6 +30,7 @@ const areaStyles: Record<string, { icon: string; accent: string; glow: string }>
   [Area.DEVOPS]: { icon: "☁", accent: "cyan", glow: "from-cyan-500/15" },
   [Area.DEVELOPMENT_TOOLS]: { icon: "⚒", accent: "pink", glow: "from-pink-500/15" },
   [Area.UI_UX_DESIGN]: { icon: "◉", accent: "emerald", glow: "from-emerald-500/15" },
+  [Area.HARDWARE_ELECTRONICS]: { icon: "⌁", accent: "amber", glow: "from-amber-500/15" },
   [Area.OTHER]: { icon: "＋", accent: "slate", glow: "from-slate-500/15" },
   [Area.FUNDAMENTALS]: { icon: "◇", accent: "indigo", glow: "from-indigo-500/15" },
 };
