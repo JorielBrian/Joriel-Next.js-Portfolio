@@ -56,22 +56,26 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
         </div>
       </div>
 
-      <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${area} skills`}>
+      <ul className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5" aria-label={`${area} skills`}>
         {areaSkills.map((skill) => {
           const level = levelFor(skill.proficiency);
           return (
             <li
               key={skill.skill}
               title={`${skill.skill} — ${skill.proficiency}`}
-              className="inline-flex max-w-full items-center gap-1.5 rounded-lg border border-white/[0.09] bg-slate-800/70 px-2.5 py-1.5 text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:gap-2 sm:py-2 sm:text-sm"
+              className="flex min-w-0 min-h-24 flex-col items-center justify-between gap-2 rounded-xl border border-white/[0.09] bg-slate-800/70 px-1.5 py-3 text-center text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:min-h-28 sm:px-2 sm:py-3.5"
             >
-              {skill.image ? (
-                <img src={skill.image} alt="" loading="lazy" className="size-3.5 shrink-0 object-contain sm:size-4" />
-              ) : null}
-              <span className="break-words">{skill.skill}</span>
-              <span className="ml-0.5 inline-flex shrink-0 gap-px text-amber-300/90" aria-label={`Proficiency: ${level} out of 5`}>
+              <div className="flex h-8 w-full items-center justify-center sm:h-9">
+                {skill.image ? (
+                  <img src={skill.image} alt="" loading="lazy" className="size-7 object-contain sm:size-8" />
+                ) : (
+                  <span className="text-base font-semibold text-cyan-200" aria-hidden="true">{skill.skill.slice(0, 1)}</span>
+                )}
+              </div>
+              <span className="w-full break-words text-[11px] font-medium leading-tight sm:text-xs">{skill.skill}</span>
+              <span className="inline-flex shrink-0 gap-px text-amber-300/90" aria-label={`Proficiency: ${level} out of 5`}>
                 {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} size={9} fill={i < level ? "currentColor" : "none"} strokeWidth={1.5} aria-hidden="true" />
+                  <Star key={i} size={10} fill={i < level ? "currentColor" : "none"} strokeWidth={1.5} aria-hidden="true" />
                 ))}
               </span>
             </li>
