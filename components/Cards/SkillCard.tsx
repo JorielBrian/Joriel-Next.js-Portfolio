@@ -56,14 +56,14 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
         </div>
       </div>
 
-      <ul className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5" aria-label={`${area} skills`}>
+      <ul className="mt-5 flex flex-wrap justify-center gap-2 sm:gap-2.5" aria-label={`${area} skills`}>
         {areaSkills.map((skill) => {
           const level = levelFor(skill.proficiency);
           return (
             <li
               key={skill.skill}
               title={`${skill.skill} — ${skill.proficiency}`}
-              className="flex min-w-0 min-h-24 flex-col items-center justify-between gap-2 rounded-xl border border-white/[0.09] bg-slate-800/70 px-1.5 py-3 text-center text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:min-h-28 sm:px-2 sm:py-3.5"
+              className="flex min-w-0 basis-[calc((100%-1rem)/3)] flex-col items-center justify-between gap-2 rounded-xl border border-white/[0.09] bg-slate-800/70 px-1.5 py-3 text-center text-xs text-slate-100 transition-colors hover:border-white/20 hover:bg-slate-800 sm:basis-[calc((100%-1.875rem)/4)] sm:min-h-28 sm:px-2 sm:py-3.5 min-h-24"
             >
               <div className="flex h-8 w-full items-center justify-center sm:h-9">
                 {skill.image ? (
@@ -82,9 +82,6 @@ function SkillCard({ area, skills, description, style, index }: SkillCardProps) 
           );
         })}
       </ul>
-      <p className="mt-4 text-[11px] font-medium text-blue-100/45">
-        {areaSkills.length} {areaSkills.length === 1 ? "skill" : "skills"}
-      </p>
     </motion.article>
   );
 }
