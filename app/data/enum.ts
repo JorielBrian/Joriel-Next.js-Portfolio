@@ -35,6 +35,7 @@ export enum Category {
 }
 
 export enum Area {
+    PROGRAMMING_LANGUAGE = "Programming Language",
     FRONTEND_DEVELOPMENT = "Frontend Development",
     BACKEND_DEVELOPMENT = "Backend Development",
     FULL_STACK_DEVELOPMENT = "Full-Stack Development",
