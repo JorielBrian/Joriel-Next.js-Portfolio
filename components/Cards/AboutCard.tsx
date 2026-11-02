@@ -34,7 +34,7 @@ const AboutCard = ({ title, header, image, altImage, texts, position }: AboutCar
       aria-labelledby={headingId}
       className="my-6 scroll-mt-24 overflow-hidden rounded-3xl border border-blue-400/20 bg-slate-950/80 shadow-xl shadow-blue-950/25 transition-colors duration-300 hover:border-cyan-300/30 sm:my-8 lg:my-10"
     >
-      <div className={`grid min-w-0 grid-cols-1 md:min-h-[30rem] ${imageOnLeft ? "md:grid-cols-[3fr_7fr]" : "md:grid-cols-[7fr_3fr]"}`}>
+      <div className={`grid min-w-0 grid-cols-1 md:min-h-[30rem] ${imageOnLeft ? "md:grid-cols-[35fr_65fr]" : "md:grid-cols-[65fr_35fr]"}`}>
         {image && (
           <div className={`group relative min-h-[16rem] overflow-hidden bg-slate-950 sm:min-h-[20rem] md:min-h-full ${imageOnLeft ? "md:order-first" : "md:order-last"}`}>
             <Image
@@ -42,7 +42,7 @@ const AboutCard = ({ title, header, image, altImage, texts, position }: AboutCar
               alt={altImage || ""}
               fill
               priority={!title}
-              sizes="(max-width: 767px) 100vw, 30vw"
+              sizes="(max-width: 767px) 100vw, 35vw"
               className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
             />
             <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/50 via-transparent to-slate-950/10 md:bg-linear-to-r md:from-slate-950/10 md:via-transparent md:to-slate-950/30" />
