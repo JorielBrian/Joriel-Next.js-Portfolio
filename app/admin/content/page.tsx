@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Check, FileDown, Save, Upload, FileText, Type, UserRound, BookOpen, Target, Heart } from "lucide-react";
+import Image from "next/image";
+import { Check, FileDown, Save, Upload, FileText, Type, UserRound, BookOpen, Target, Heart, ImagePlus } from "lucide-react";
 import {
   ApiContentBlock,
   ApiResume,
@@ -10,6 +11,11 @@ import {
   getResumeDownloadUrl,
   updateContentBlock,
   uploadResume,
+  getImages,
+  getBioImageAssignments,
+  getImageUrl,
+  setBioImageAssignment,
+  type ApiImageAsset,
 } from "@/app/lib/api";
 
 const KEYS = ["TITLES", "INTRODUCTION", "ABOUT", "STORY", "GOALS", "OUTSIDE_WORK"];
@@ -42,6 +48,9 @@ export default function ContentAdmin() {
   const [saving, setSaving] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [savedKey, setSavedKey] = useState<string | null>(null);
+  const [imageAssets, setImageAssets] = useState<ApiImageAsset[]>([]);
+  const [imageAssignments, setImageAssignments] = useState<Record<string, string>>({});
+  const [savingImageKey, setSavingImageKey] = useState<string | null>(null);
 
   const [resume, setResume] = useState<ApiResume | null>(null);
   const [resumeLoading, setResumeLoading] = useState(true);
@@ -52,6 +61,11 @@ export default function ContentAdmin() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    getImages().then(setImageAssets).catch(() => {});
+    getBioImageAssignments()
+      .then((items) => setImageAssignments(Object.fromEntries(items.map((item) => [item.section_key, item.image_id]))))
+      .catch(() => {});
+
     getAllContent()
       .then((data: ApiContentBlock[]) => {
         const map: Record<string, string> = {};
@@ -72,6 +86,24 @@ export default function ContentAdmin() {
       })
       .finally(() => setResumeLoading(false));
   }, []);
+
+  const handleImageAssignment = async (key: string, imageId: string) => {
+    setSavingImageKey(key);
+    setError(null);
+    try {
+      await setBioImageAssignment(key, imageId || null);
+      setImageAssignments((current) => {
+        const next = { ...current };
+        if (imageId) next[key] = imageId;
+        else delete next[key];
+        return next;
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not update the image assignment.");
+    } finally {
+      setSavingImageKey(null);
+    }
+  };
 
   const handleSave = async (key: string) => {
     setSaving(key);
@@ -166,6 +198,53 @@ export default function ContentAdmin() {
           </div>
         ))}
       </div>
+
+      <section className="space-y-4 rounded-2xl border border-blue-800/50 bg-blue-950/25 p-4 sm:p-6">
+        <div className="flex items-start gap-3">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-blue-800/50 bg-blue-900/40 text-blue-200"><ImagePlus size={19} /></span>
+          <div>
+            <h2 className="font-semibold text-white">Bio section images</h2>
+            <p className="mt-1 text-xs leading-5 text-blue-300/60">Assign an image from your shared library to each About-page section. Replacing an image in the library updates every place that uses it.</p>
+          </div>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[
+            { key: "ABOUT", label: "Introduction", fallback: "Profile Picture" },
+            { key: "STORY", label: "My Story", fallback: "Graduation photo" },
+            { key: "GOALS", label: "My Goal", fallback: "Formal portrait" },
+            { key: "OUTSIDE_WORK", label: "Outside Work", fallback: "Guitar photo" },
+          ].map((section) => {
+            const selected = imageAssets.find((asset) => asset.id === imageAssignments[section.key]);
+            return (
+              <div key={section.key} className="flex min-w-0 gap-3 rounded-xl border border-blue-800/40 bg-slate-950/30 p-3">
+                <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-blue-950">
+                  {selected ? (
+                    <Image src={getImageUrl(selected.url)} alt={selected.original_filename} fill unoptimized sizes="80px" className="object-cover" />
+                  ) : (
+                    <div className="flex h-full items-center justify-center px-2 text-center text-[10px] text-blue-200/50">Default image</div>
+                  )}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <label htmlFor={`bio-image-${section.key}`} className="text-sm font-medium text-blue-50">{section.label}</label>
+                  <p className="mt-1 truncate text-[11px] text-blue-300/50">{selected?.original_filename ?? `Using default: ${section.fallback}`}</p>
+                  <select
+                    id={`bio-image-${section.key}`}
+                    value={imageAssignments[section.key] ?? ""}
+                    onChange={(event) => void handleImageAssignment(section.key, event.target.value)}
+                    disabled={savingImageKey === section.key || imageAssets.length === 0}
+                    className="mt-2 w-full min-w-0 rounded-lg border border-blue-800/60 bg-slate-950 px-2 py-2 text-xs text-blue-50 outline-none focus:border-blue-500 disabled:opacity-50"
+                  >
+                    <option value="">Use default image</option>
+                    {imageAssets.map((asset) => <option key={asset.id} value={asset.id}>Slot {asset.slot} · {asset.original_filename}</option>)}
+                  </select>
+                  {savingImageKey === section.key && <p className="mt-1 text-[10px] text-blue-300/60">Saving…</p>}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p className="text-xs text-blue-300/50">Need more images? Manage your central library from the Images page in the admin sidebar.</p>
+      </section>
 
       {/* Keep CV management directly below the Outside work content block. */}
       <div className="space-y-5 rounded-2xl border border-blue-800/50 bg-blue-950/25 p-4 sm:p-6">

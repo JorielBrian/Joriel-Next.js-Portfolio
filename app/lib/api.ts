@@ -46,6 +46,29 @@ export interface ApiResume {
   uploaded_at: string;
 }
 
+export interface ApiImageAsset {
+  id: string;
+  slot: number;
+  original_filename: string;
+  content_type: string;
+  size_bytes: number;
+  width: number;
+  height: number;
+  uploaded_at: string;
+  url: string;
+}
+
+export interface ApiBioImageAssignment {
+  section_key: string;
+  image_id: string;
+  url: string;
+}
+
+export function getImageUrl(path: string): string {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  return path.startsWith("http") ? path : `${API_URL}${path}`;
+}
+
 async function apiFetch<T>(path: string): Promise<T> {
   if (!API_URL) {
     throw new Error(
@@ -200,3 +223,47 @@ export const updateSkill = (id: number, data: Partial<Omit<ApiSkill, "id">>) => 
 export const deleteSkill = (id: number) => adminFetch<void>(`/skills/${id}`, "DELETE");
 
 export const updateContentBlock = (key: string, paragraphs: string[]) => adminFetch<ApiContentBlock>(`/content/${key}`, "PUT", { paragraphs });
+
+
+export const getImages = () => apiFetch<ApiImageAsset[]>("/images");
+export const getBioImageAssignments = () =>
+  apiFetch<ApiBioImageAssignment[]>("/images/assignments");
+
+export async function uploadImage(file: File): Promise<ApiImageAsset> {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch(`${API_URL}/images`, {
+    method: "POST",
+    credentials: "include",
+    body: formData,
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    throw new Error(body?.detail || `Image upload failed: ${res.status}`);
+  }
+  return res.json();
+}
+
+export async function replaceImage(id: string, file: File): Promise<ApiImageAsset> {
+  if (!API_URL) throw new Error("NEXT_PUBLIC_API_URL is not set.");
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch(`${API_URL}/images/${id}`, {
+    method: "PUT",
+    credentials: "include",
+    body: formData,
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => null);
+    throw new Error(body?.detail || `Image replacement failed: ${res.status}`);
+  }
+  return res.json();
+}
+
+export const deleteImage = (id: string) => adminFetch<void>(`/images/${id}`, "DELETE");
+
+export const setBioImageAssignment = (sectionKey: string, imageId: string | null) =>
+  adminFetch<ApiBioImageAssignment | null>(`/images/assignments/${sectionKey}`, "PUT", {
+    image_id: imageId,
+  });

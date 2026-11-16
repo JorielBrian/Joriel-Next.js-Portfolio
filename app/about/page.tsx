@@ -4,7 +4,7 @@ import Skills from "@/components/Sections/Skills";
 import AboutCard from "@/components/Cards/AboutCard";
 import SectionSkeleton from "@/components/SectionSkeleton";
 import { useEffect, useState } from "react";
-import { getAllContent } from "@/app/lib/api";
+import { getAllContent, getBioImageAssignments, getImageUrl } from "@/app/lib/api";
 import { useLoading } from "@/app/lib/loading-context";
 
 const AboutMe = () => {
@@ -12,12 +12,19 @@ const AboutMe = () => {
   const [STORY, setSTORY] = useState<string[]>([]);
   const [GOALS, setGOALS] = useState<string[]>([]);
   const [OUTSIDE_WORK, setOUTSIDE_WORK] = useState<string[]>([]);
+  const [imageAssignments, setImageAssignments] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const { register, unregister } = useLoading();
 
   useEffect(() => {
     const key = "page-about";
     register(key);
+    getBioImageAssignments()
+      .then((assignments) => {
+        setImageAssignments(Object.fromEntries(assignments.map((item) => [item.section_key, item.url])));
+      })
+      .catch(() => {});
+
     getAllContent()
       .then((blocks) => {
         for (const block of blocks) {
@@ -52,10 +59,10 @@ const AboutMe = () => {
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-blue-100/75 sm:text-lg">My background, the work I care about, and the skills I bring to building software.</p>
       </header>
 
-      <AboutCard header="Hi, I'm Joriel Brian" image="/Profile Picture.png" altImage="Portrait of Joriel Brian" texts={ABOUT} position="left" />
-      <AboutCard title="My Story" image="/graduation_pic.jpg" altImage="Graduation photo" texts={STORY} position="right" />
-      <AboutCard title="My Goal" image="/formal.jpg" altImage="Formal portrait" texts={GOALS} position="left" />
-      <AboutCard title="Outside Work" image="/Guitar Playing.jpg" altImage="Playing lead guitar at Hills of Glory" texts={OUTSIDE_WORK} position="right" />
+      <AboutCard header="Hi, I'm Joriel Brian" image={imageAssignments.ABOUT ? getImageUrl(imageAssignments.ABOUT) : "/Profile Picture.png"} altImage="Portrait of Joriel Brian" texts={ABOUT} position="left" />
+      <AboutCard title="My Story" image={imageAssignments.STORY ? getImageUrl(imageAssignments.STORY) : "/graduation_pic.jpg"} altImage="Graduation photo" texts={STORY} position="right" />
+      <AboutCard title="My Goal" image={imageAssignments.GOALS ? getImageUrl(imageAssignments.GOALS) : "/formal.jpg"} altImage="Formal portrait" texts={GOALS} position="left" />
+      <AboutCard title="Outside Work" image={imageAssignments.OUTSIDE_WORK ? getImageUrl(imageAssignments.OUTSIDE_WORK) : "/Guitar Playing.jpg"} altImage="Playing lead guitar at Hills of Glory" texts={OUTSIDE_WORK} position="right" />
 
       <div className="mt-4 border-t border-blue-700/50 pt-4 sm:mt-8 sm:pt-8">
         <Skills />
