@@ -31,7 +31,6 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # environment files
-.env*
 !.env.example
 *.env
 
