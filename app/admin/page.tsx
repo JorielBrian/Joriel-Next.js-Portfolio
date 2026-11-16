@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   CircleAlert,
   FileText,
+  Images,
   FolderKanban,
   GraduationCap,
   LoaderCircle,
@@ -43,6 +44,14 @@ const sections = [
     description: "Organize skills by category, proficiency, and focus.",
     action: "Manage skills",
     accent: "from-amber-500/15 to-blue-500/5",
+  },
+  {
+    name: "Images",
+    href: "/admin/images",
+    icon: Images,
+    description: "Store, replace, and assign the images used across your Bio page.",
+    action: "Manage images",
+    accent: "from-cyan-500/15 to-blue-500/5",
   },
   {
     name: "Bio content",
