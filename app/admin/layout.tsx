@@ -9,6 +9,7 @@ import {
   GraduationCap,
   Sparkles,
   FileText,
+  Images,
   LogOut,
   ExternalLink,
   PanelLeftClose,
@@ -25,6 +26,7 @@ const NAV = [
   { name: "Qualifications", href: "/admin/qualifications", icon: GraduationCap },
   { name: "Skills", href: "/admin/skills", icon: Sparkles },
   { name: "Bio content", href: "/admin/content", icon: FileText },
+  { name: "Images", href: "/admin/images", icon: Images },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
