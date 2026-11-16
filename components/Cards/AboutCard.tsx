@@ -41,6 +41,7 @@ const AboutCard = ({ title, header, image, altImage, texts, position }: AboutCar
               src={image}
               alt={altImage || ""}
               fill
+              unoptimized={image.startsWith("http")}
               priority={!title}
               sizes="(max-width: 767px) 100vw, 35vw"
               className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
