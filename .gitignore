@@ -30,9 +30,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env file
-.env*.local
+# environment files
+.env*
+!.env.example
 *.env
+
+# cookies and local session exports
+cookies*.txt
 
 # vercel
 .vercel
